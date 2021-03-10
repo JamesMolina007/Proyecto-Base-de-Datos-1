@@ -26,8 +26,8 @@ namespace ProyectoDB.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=proyecto.ctsyzs4hbov3.us-east-1.rds.amazonaws.com;user id=admin;persistsec" +
-            "urityinfo=True;database=ventas;password=erp94128")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=proyecto.ctsyzs4hbov3.us-east-1.rds.amazonaws.com;user id=admin;password=e" +
+            "rp94128;database=ventas;port=3306;pooling=false")]
         public string ventasConnectionString {
             get {
                 return ((string)(this["ventasConnectionString"]));

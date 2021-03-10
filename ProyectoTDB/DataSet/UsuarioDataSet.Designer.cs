@@ -20,9 +20,9 @@ namespace ProyectoDB.DataSet {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("LoginDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("UsuarioDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class LoginDataSet : global::System.Data.DataSet {
+    public partial class UsuarioDataSet : global::System.Data.DataSet {
         
         private UsuariosDataTable tableUsuarios;
         
@@ -30,7 +30,7 @@ namespace ProyectoDB.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public LoginDataSet() {
+        public UsuarioDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace ProyectoDB.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected LoginDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected UsuarioDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace ProyectoDB.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            LoginDataSet cln = ((LoginDataSet)(base.Clone()));
+            UsuarioDataSet cln = ((UsuarioDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace ProyectoDB.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "LoginDataSet";
+            this.DataSetName = "UsuarioDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/LoginDataSet.xsd";
+            this.Namespace = "http://tempuri.org/UsuarioDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableUsuarios = new UsuariosDataTable();
@@ -225,7 +225,7 @@ namespace ProyectoDB.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            LoginDataSet ds = new LoginDataSet();
+            UsuarioDataSet ds = new UsuarioDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -285,7 +285,9 @@ namespace ProyectoDB.DataSet {
             
             private global::System.Data.DataColumn columnnombreUsuario;
             
-            private global::System.Data.DataColumn _columnContraseÃ_a;
+            private global::System.Data.DataColumn columnContrasena;
+            
+            private global::System.Data.DataColumn columntipoUsuario;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -346,9 +348,17 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn _ContraseÃ_aColumn {
+            public global::System.Data.DataColumn ContrasenaColumn {
                 get {
-                    return this._columnContraseÃ_a;
+                    return this.columnContrasena;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn tipoUsuarioColumn {
+                get {
+                    return this.columntipoUsuario;
                 }
             }
             
@@ -389,13 +399,14 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public UsuariosRow AddUsuariosRow(int ID, string Nombre, string nombreUsuario, string _ContraseÃ_a) {
+            public UsuariosRow AddUsuariosRow(string Nombre, string nombreUsuario, string Contrasena, string tipoUsuario) {
                 UsuariosRow rowUsuariosRow = ((UsuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
+                        null,
                         Nombre,
                         nombreUsuario,
-                        _ContraseÃ_a};
+                        Contrasena,
+                        tipoUsuario};
                 rowUsuariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUsuariosRow);
                 return rowUsuariosRow;
@@ -428,7 +439,8 @@ namespace ProyectoDB.DataSet {
                 this.columnID = base.Columns["ID"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnnombreUsuario = base.Columns["nombreUsuario"];
-                this._columnContraseÃ_a = base.Columns["ContraseÃ±a"];
+                this.columnContrasena = base.Columns["Contrasena"];
+                this.columntipoUsuario = base.Columns["tipoUsuario"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -440,20 +452,23 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnNombre);
                 this.columnnombreUsuario = new global::System.Data.DataColumn("nombreUsuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreUsuario);
-                this._columnContraseÃ_a = new global::System.Data.DataColumn("ContraseÃ±a", typeof(string), null, global::System.Data.MappingType.Element);
-                this._columnContraseÃ_a.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnContraseÃ_a");
-                this._columnContraseÃ_a.ExtendedProperties.Add("Generator_UserColumnName", "ContraseÃ±a");
-                base.Columns.Add(this._columnContraseÃ_a);
+                this.columnContrasena = new global::System.Data.DataColumn("Contrasena", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContrasena);
+                this.columntipoUsuario = new global::System.Data.DataColumn("tipoUsuario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipoUsuario);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = 1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 50;
                 this.columnnombreUsuario.AllowDBNull = false;
                 this.columnnombreUsuario.MaxLength = 50;
-                this._columnContraseÃ_a.AllowDBNull = false;
-                this._columnContraseÃ_a.MaxLength = 250;
+                this.columnContrasena.AllowDBNull = false;
+                this.columnContrasena.MaxLength = 250;
+                this.columntipoUsuario.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -521,7 +536,7 @@ namespace ProyectoDB.DataSet {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                LoginDataSet ds = new LoginDataSet();
+                UsuarioDataSet ds = new UsuarioDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -629,13 +644,41 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string _ContraseÃ_a {
+            public string Contrasena {
                 get {
-                    return ((string)(this[this.tableUsuarios._ContraseÃ_aColumn]));
+                    return ((string)(this[this.tableUsuarios.ContrasenaColumn]));
                 }
                 set {
-                    this[this.tableUsuarios._ContraseÃ_aColumn] = value;
+                    this[this.tableUsuarios.ContrasenaColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string tipoUsuario {
+                get {
+                    try {
+                        return ((string)(this[this.tableUsuarios.tipoUsuarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipoUsuario\' de la tabla \'Usuarios\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUsuarios.tipoUsuarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IstipoUsuarioNull() {
+                return this.IsNull(this.tableUsuarios.tipoUsuarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SettipoUsuarioNull() {
+                this[this.tableUsuarios.tipoUsuarioColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -674,7 +717,7 @@ namespace ProyectoDB.DataSet {
         }
     }
 }
-namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
+namespace ProyectoDB.DataSet.UsuarioDataSetTableAdapters {
     
     
     /// <summary>
@@ -801,12 +844,14 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("nombreUsuario", "nombreUsuario");
-            tableMapping.ColumnMappings.Add("ContraseÃ±a", "ContraseÃ±a");
+            tableMapping.ColumnMappings.Add("Contrasena", "Contrasena");
+            tableMapping.ColumnMappings.Add("tipoUsuario", "tipoUsuario");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `Usuarios` WHERE ((`ID` = @p1) AND (`Nombre` = @p2) AND (`nombreUsuar" +
-                "io` = @p3) AND (`ContraseÃ±a` = @p4))";
+                "io` = @p3) AND (`Contrasena` = @p4) AND ((@p5 = 1 AND `tipoUsuario` IS NULL) OR " +
+                "(`tipoUsuario` = @p6)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -837,13 +882,30 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "ContraseÃ±a";
+            param.SourceColumn = "Contrasena";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "tipoUsuario";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "tipoUsuario";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Usuarios` (`ID`, `Nombre`, `nombreUsuario`, `ContraseÃ±a`) VALUES (@" +
-                "p1, @p2, @p3, @p4)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Usuarios` (`ID`, `Nombre`, `nombreUsuario`, `Contrasena`, `tipoUsuar" +
+                "io`) VALUES (@p1, @p2, @p3, @p4, @p5)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -874,14 +936,20 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "ContraseÃ±a";
+            param.SourceColumn = "Contrasena";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "tipoUsuario";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `Usuarios` SET `ID` = @p1, `Nombre` = @p2, `nombreUsuario` = @p3, `Contras" +
-                "eÃ±a` = @p4 WHERE ((`ID` = @p5) AND (`Nombre` = @p6) AND (`nombreUsuario` = @p7)" +
-                " AND (`ContraseÃ±a` = @p8))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Usuarios` SET `ID` = @p1, `Nombre` = @p2, `nombreUsuario` = @p3, `Contrasena` = @p4, `tipoUsuario` = @p5 WHERE ((`ID` = @p6) AND (`Nombre` = @p7) AND (`nombreUsuario` = @p8) AND (`Contrasena` = @p9) AND ((@p10 = 1 AND `tipoUsuario` IS NULL) OR (`tipoUsuario` = @p11)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -912,11 +980,19 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "ContraseÃ±a";
+            param.SourceColumn = "Contrasena";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "tipoUsuario";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -924,7 +1000,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p6";
+            param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -932,7 +1008,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -940,11 +1016,28 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "ContraseÃ±a";
+            param.SourceColumn = "Contrasena";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "tipoUsuario";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "tipoUsuario";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -959,18 +1052,55 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `ID`, `Nombre`, `nombreUsuario`, `Contraseña` FROM `Usuarios`";
+            this._commandCollection[0].CommandText = "SELECT        ID, Nombre, nombreUsuario, Contrasena, tipoUsuario\r\nFROM           " +
+                " Usuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ID, Nombre, nombreUsuario, tipoUsuario\r\nFROM            Usuarios\r\nW" +
+                "HERE        (nombreUsuario LIKE CONCAT(\'%\', @caracter, \'%\'))";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@caracter";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "nombreUsuario";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        tipoUsuario\r\nFROM            Usuarios\r\nWHERE        (nombreUsuario " +
+                "= @nombreUsuario) AND (Contrasena = @Contrasena)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@nombreUsuario";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "nombreUsuario";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Contrasena";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 250;
+            param.IsNullable = true;
+            param.SourceColumn = "Contrasena";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(LoginDataSet.UsuariosDataTable dataTable) {
+        public virtual int Fill(UsuarioDataSet.UsuariosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -983,9 +1113,9 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual LoginDataSet.UsuariosDataTable GetData() {
+        public virtual UsuarioDataSet.UsuariosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            LoginDataSet.UsuariosDataTable dataTable = new LoginDataSet.UsuariosDataTable();
+            UsuarioDataSet.UsuariosDataTable dataTable = new UsuarioDataSet.UsuariosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -993,14 +1123,98 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LoginDataSet.UsuariosDataTable dataTable) {
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCaracter(UsuarioDataSet.UsuariosDataTable dataTable, string caracter) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((caracter == null)) {
+                throw new global::System.ArgumentNullException("caracter");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(caracter));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual UsuarioDataSet.UsuariosDataTable GetDataByCaracter(string caracter) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((caracter == null)) {
+                throw new global::System.ArgumentNullException("caracter");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(caracter));
+            }
+            UsuarioDataSet.UsuariosDataTable dataTable = new UsuarioDataSet.UsuariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByLogin(UsuarioDataSet.UsuariosDataTable dataTable, string nombreUsuario, string Contrasena) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((nombreUsuario == null)) {
+                throw new global::System.ArgumentNullException("nombreUsuario");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(nombreUsuario));
+            }
+            if ((Contrasena == null)) {
+                throw new global::System.ArgumentNullException("Contrasena");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Contrasena));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual UsuarioDataSet.UsuariosDataTable GetDataByLogin(string nombreUsuario, string Contrasena) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((nombreUsuario == null)) {
+                throw new global::System.ArgumentNullException("nombreUsuario");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(nombreUsuario));
+            }
+            if ((Contrasena == null)) {
+                throw new global::System.ArgumentNullException("Contrasena");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Contrasena));
+            }
+            UsuarioDataSet.UsuariosDataTable dataTable = new UsuarioDataSet.UsuariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(UsuarioDataSet.UsuariosDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(LoginDataSet dataSet) {
+        public virtual int Update(UsuarioDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Usuarios");
         }
         
@@ -1023,7 +1237,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, string p2, string p3, string p4) {
+        public virtual int Delete(int p1, string p2, string p3, string p4, string p6) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
             if ((p2 == null)) {
                 throw new global::System.ArgumentNullException("p2");
@@ -1042,6 +1256,14 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(p4));
+            }
+            if ((p6 == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(p6));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1063,7 +1285,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int p1, string p2, string p3, string p4) {
+        public virtual int Insert(int p1, string p2, string p3, string p4, string p5) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
             if ((p2 == null)) {
                 throw new global::System.ArgumentNullException("p2");
@@ -1082,6 +1304,12 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(p4));
+            }
+            if ((p5 == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(p5));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1103,7 +1331,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int p1, string p2, string p3, string p4, int p5, string p6, string p7, string p8) {
+        public virtual int Update(int p1, string p2, string p3, string p4, string p5, int p6, string p7, string p8, string p9, string p11) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
             if ((p2 == null)) {
                 throw new global::System.ArgumentNullException("p2");
@@ -1123,13 +1351,13 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
-            if ((p6 == null)) {
-                throw new global::System.ArgumentNullException("p6");
+            if ((p5 == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(p5));
             }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
             if ((p7 == null)) {
                 throw new global::System.ArgumentNullException("p7");
             }
@@ -1141,6 +1369,20 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
+            }
+            if ((p9 == null)) {
+                throw new global::System.ArgumentNullException("p9");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(p9));
+            }
+            if ((p11 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1162,8 +1404,8 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, string p3, string p4, int p5, string p6, string p7, string p8) {
-            return this.Update(p5, p2, p3, p4, p5, p6, p7, p8);
+        public virtual int Update(string p2, string p3, string p4, string p5, int p6, string p7, string p8, string p9, string p11) {
+            return this.Update(p6, p2, p3, p4, p5, p6, p7, p8, p9, p11);
         }
     }
     
@@ -1258,7 +1500,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(LoginDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(UsuarioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1277,7 +1519,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(LoginDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(UsuarioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1295,7 +1537,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(LoginDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(UsuarioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1337,7 +1579,7 @@ namespace ProyectoDB.DataSet.LoginDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(LoginDataSet dataSet) {
+        public virtual int UpdateAll(UsuarioDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

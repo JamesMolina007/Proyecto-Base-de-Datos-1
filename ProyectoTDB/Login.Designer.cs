@@ -38,13 +38,13 @@
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.loginDataSet = new ProyectoDB.DataSet.LoginDataSet();
-            this.usuariosTableAdapter = new ProyectoDB.DataSet.LoginDataSetTableAdapters.UsuariosTableAdapter();
+            this.usuarioDataSet = new ProyectoDB.DataSet.UsuarioDataSet();
+            this.usuariosTableAdapter = new ProyectoDB.DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tb_nombreUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_Contraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_nombreUsuario
@@ -116,12 +116,12 @@
             // PrincipalBindingSource
             // 
             this.PrincipalBindingSource.DataMember = "Usuarios";
-            this.PrincipalBindingSource.DataSource = this.loginDataSet;
+            this.PrincipalBindingSource.DataSource = this.usuarioDataSet;
             // 
-            // loginDataSet
+            // usuarioDataSet
             // 
-            this.loginDataSet.DataSetName = "LoginDataSet";
-            this.loginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.usuarioDataSet.DataSetName = "UsuarioDataSet";
+            this.usuarioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usuariosTableAdapter
             // 
@@ -148,7 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tb_Contraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,7 +164,7 @@
         private System.Windows.Forms.Button btn_aceptar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.BindingSource PrincipalBindingSource;
-        private DataSet.LoginDataSet loginDataSet;
-        private DataSet.LoginDataSetTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
+        private DataSet.UsuarioDataSet usuarioDataSet;
+        private DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ProyectoDB{
@@ -9,7 +10,8 @@ namespace ProyectoDB{
         }
 
         private void Login_Load(object sender, EventArgs e){
-            this.usuariosTableAdapter.Fill(this.loginDataSet.Usuarios);
+            // TODO: esta línea de código carga datos en la tabla 'usuarioDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
+            this.usuariosTableAdapter.Fill(this.usuarioDataSet.Usuarios);
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e){
@@ -17,13 +19,23 @@ namespace ProyectoDB{
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e){
-            if ( tb_nombreUsuario.Text.Equals( "admin") & tb_Contraseña.Text.Equals("erp94128") )
-            {
+            PrincipalBindingSource.Filter = "nombreUsuario = '" + tb_nombreUsuario.Text + "' and " + " Contrasena = '" + tb_Contraseña.Text + "'";
+            DataRowView dr = (DataRowView)PrincipalBindingSource.Current;
+            if ( dr != null){
+                tb_Contraseña.Text = "";
+                tb_nombreUsuario.Text = "";
                 Principal principal = new Principal();
+                principal.setTipoUsuario(dr["tipoUsuario"].ToString());
+                principal.setLogin(this);
                 principal.Show();
-                this.Dispose();
+                this.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Usuario y/o Contraseña Incorrecta");
             }
         }
 
+        
     }
 }
