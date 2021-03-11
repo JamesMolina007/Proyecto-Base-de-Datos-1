@@ -18,19 +18,6 @@ namespace ProyectoDB
             deshabilitar();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e){
-            DataRowView drvUsuario = (DataRowView)usuariosBindingSource.Current;
-            tb_nombre.Text = drvUsuario.Row["Nombre"].ToString();
-            tb_nombreUsuario.Text = drvUsuario.Row["nombreUsuario"].ToString();
-            tb_Contrasena1.Text = drvUsuario.Row["Contrasena"].ToString();
-            tb_Contrasena2.Text = drvUsuario.Row["Contrasena"].ToString();
-            habilitar();
-            btn_nuevo.Enabled = false;
-            btn_guardar.Enabled = true;
-            btn_eliminar.Enabled = true;
-            drvUsuario = null;
-        }
-
         private void deshabilitar()
         {
             tb_nombre.Enabled = false;
@@ -58,6 +45,8 @@ namespace ProyectoDB
         private void recargar()
         {
             this.usuariosTableAdapter.Fill(this.usuarioDataSet.Usuarios);
+            usuariosBindingSource.RemoveFilter();
+            BuscartoolStripTextBox.Text = "";
             deshabilitar();
             
         }
@@ -93,7 +82,7 @@ namespace ProyectoDB
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.ToString());
+                MessageBox.Show("Datos guardados incorrectamente");
             }
         }
 
@@ -119,28 +108,35 @@ namespace ProyectoDB
             
         
         }
+    
 
-        private void BuscartoolStripTextBox_Click(object sender, EventArgs e) { 
-            ThreadStart hiloDeBusqueda = new ThreadStart(busqueda);
-            Thread hilo = new Thread(hiloDeBusqueda);
-            hilo.Start();
-        }
-
-        private void busqueda(){
-            Thread.Sleep(3000);
-            MessageBox.Show("Hola Mundo");
-            try
+        private void BuscartoolStripTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (BuscartoolStripTextBox.Text.Length > 0)
             {
-                if (!BuscartoolStripTextBox.Equals(""))
-                {
-                    usuariosTableAdapter.FillByCaracter(usuarioDataSet.Usuarios, BuscartoolStripTextBox.Text);
-                }
+                usuariosBindingSource.Filter = "nombreUsuario LIKE '*"+ BuscartoolStripTextBox.Text + "*'";
             }
-            catch (Exception e)
+            else
             {
-
+                usuariosBindingSource.RemoveFilter();
             }
         }
 
+        private void usuariosBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            DataRowView drvUsuario = (DataRowView)usuariosBindingSource.Current;
+            if (drvUsuario != null)
+            {
+                tb_nombre.Text = drvUsuario.Row["Nombre"].ToString();
+                tb_nombreUsuario.Text = drvUsuario.Row["nombreUsuario"].ToString();
+                tb_Contrasena1.Text = drvUsuario.Row["Contrasena"].ToString();
+                tb_Contrasena2.Text = drvUsuario.Row["Contrasena"].ToString();
+                habilitar();
+                btn_nuevo.Enabled = false;
+                btn_guardar.Enabled = true;
+                btn_eliminar.Enabled = true;
+                drvUsuario = null;
+            }
+        }
     }
 }

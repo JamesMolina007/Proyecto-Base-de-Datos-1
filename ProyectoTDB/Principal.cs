@@ -71,5 +71,7 @@ namespace ProyectoDB
             pantallaLogin.Visible = true;
             this.Dispose();
         }
+
+       
     }
 }

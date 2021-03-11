@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuariosFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usuarioDataSet = new ProyectoDB.DataSet.UsuarioDataSet();
             this.tb_nombre = new System.Windows.Forms.TextBox();
             this.tb_Contrasena1 = new System.Windows.Forms.TextBox();
             this.tb_Contrasena2 = new System.Windows.Forms.TextBox();
@@ -42,26 +49,19 @@
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.btn_nuevo = new System.Windows.Forms.ToolStripButton();
             this.btn_guardar = new System.Windows.Forms.ToolStripButton();
-            this.btn_eliminar = new System.Windows.Forms.ToolStripButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tb_nombreUsuario = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuarioDataSet = new ProyectoDB.DataSet.UsuarioDataSet();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuariosTableAdapter = new ProyectoDB.DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter();
             this.btn_Recargar = new System.Windows.Forms.ToolStripButton();
-            this.BuscartoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.btn_eliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.BuscartoolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_nombreUsuario = new System.Windows.Forms.TextBox();
+            this.usuariosTableAdapter = new ProyectoDB.DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStripMenu.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).BeginInit();
+            this.toolStripMenu.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -82,7 +82,57 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(560, 341);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nombre";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "nombreUsuario";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre de Usuario";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Contrasena";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Contrasena";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // tipoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.tipoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "tipoUsuario";
+            this.tipoUsuarioDataGridViewTextBoxColumn.HeaderText = "Tipo de Usuario";
+            this.tipoUsuarioDataGridViewTextBoxColumn.Name = "tipoUsuarioDataGridViewTextBoxColumn";
+            this.tipoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoUsuarioDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataMember = "Usuarios";
+            this.usuariosBindingSource.DataSource = this.usuarioDataSet;
+            this.usuariosBindingSource.PositionChanged += new System.EventHandler(this.usuariosBindingSource_PositionChanged);
+            // 
+            // usuarioDataSet
+            // 
+            this.usuarioDataSet.DataSetName = "UsuarioDataSet";
+            this.usuarioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tb_nombre
             // 
@@ -202,6 +252,18 @@
             this.btn_guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
+            // btn_Recargar
+            // 
+            this.btn_Recargar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Recargar.Image")));
+            this.btn_Recargar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Recargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Recargar.Name = "btn_Recargar";
+            this.btn_Recargar.Size = new System.Drawing.Size(57, 51);
+            this.btn_Recargar.Text = "Recargar";
+            this.btn_Recargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Recargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Recargar.Click += new System.EventHandler(this.btn_Recargar_Click);
+            // 
             // btn_eliminar
             // 
             this.btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.Image")));
@@ -214,6 +276,18 @@
             this.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(45, 51);
+            this.toolStripLabel1.Text = "Buscar:";
+            // 
+            // BuscartoolStripTextBox
+            // 
+            this.BuscartoolStripTextBox.Name = "BuscartoolStripTextBox";
+            this.BuscartoolStripTextBox.Size = new System.Drawing.Size(100, 54);
+            this.BuscartoolStripTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BuscartoolStripTextBox_KeyUp);
             // 
             // groupBox1
             // 
@@ -234,14 +308,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos De Usuario";
             // 
-            // tb_nombreUsuario
-            // 
-            this.tb_nombreUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuariosBindingSource, "nombreUsuario", true));
-            this.tb_nombreUsuario.Location = new System.Drawing.Point(16, 106);
-            this.tb_nombreUsuario.Name = "tb_nombreUsuario";
-            this.tb_nombreUsuario.Size = new System.Drawing.Size(223, 20);
-            this.tb_nombreUsuario.TabIndex = 9;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -251,83 +317,17 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Nombre De Usuario:";
             // 
-            // usuariosBindingSource
+            // tb_nombreUsuario
             // 
-            this.usuariosBindingSource.DataMember = "Usuarios";
-            this.usuariosBindingSource.DataSource = this.usuarioDataSet;
-            // 
-            // usuarioDataSet
-            // 
-            this.usuarioDataSet.DataSetName = "UsuarioDataSet";
-            this.usuarioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nombre";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "nombreUsuario";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre de Usuario";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Contrasena";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Contrasena";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // tipoUsuarioDataGridViewTextBoxColumn
-            // 
-            this.tipoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "tipoUsuario";
-            this.tipoUsuarioDataGridViewTextBoxColumn.HeaderText = "Tipo de Usuario";
-            this.tipoUsuarioDataGridViewTextBoxColumn.Name = "tipoUsuarioDataGridViewTextBoxColumn";
-            this.tipoUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoUsuarioDataGridViewTextBoxColumn.Width = 150;
+            this.tb_nombreUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuariosBindingSource, "nombreUsuario", true));
+            this.tb_nombreUsuario.Location = new System.Drawing.Point(16, 106);
+            this.tb_nombreUsuario.Name = "tb_nombreUsuario";
+            this.tb_nombreUsuario.Size = new System.Drawing.Size(223, 20);
+            this.tb_nombreUsuario.TabIndex = 9;
             // 
             // usuariosTableAdapter
             // 
             this.usuariosTableAdapter.ClearBeforeFill = true;
-            // 
-            // btn_Recargar
-            // 
-            this.btn_Recargar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Recargar.Image")));
-            this.btn_Recargar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Recargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Recargar.Name = "btn_Recargar";
-            this.btn_Recargar.Size = new System.Drawing.Size(57, 51);
-            this.btn_Recargar.Text = "Recargar";
-            this.btn_Recargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Recargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Recargar.Click += new System.EventHandler(this.btn_Recargar_Click);
-            // 
-            // BuscartoolStripTextBox
-            // 
-            this.BuscartoolStripTextBox.Name = "BuscartoolStripTextBox";
-            this.BuscartoolStripTextBox.Size = new System.Drawing.Size(100, 54);
-            this.BuscartoolStripTextBox.Click += new System.EventHandler(this.BuscartoolStripTextBox_Click);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(45, 51);
-            this.toolStripLabel1.Text = "Buscar:";
             // 
             // UsuariosFrm
             // 
@@ -342,12 +342,12 @@
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.UsuariosFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).EndInit();
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
