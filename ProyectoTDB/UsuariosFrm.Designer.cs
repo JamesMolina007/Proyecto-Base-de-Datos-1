@@ -280,8 +280,8 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(45, 51);
-            this.toolStripLabel1.Text = "Buscar:";
+            this.toolStripLabel1.Size = new System.Drawing.Size(88, 51);
+            this.toolStripLabel1.Text = "Buscar Usuario:";
             // 
             // BuscartoolStripTextBox
             // 

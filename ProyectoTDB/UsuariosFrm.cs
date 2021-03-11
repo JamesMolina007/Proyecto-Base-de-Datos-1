@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace ProyectoDB
@@ -105,8 +104,6 @@ namespace ProyectoDB
             }catch(Exception exception){
                 MessageBox.Show(exception.ToString());
             }
-            
-        
         }
     
 
