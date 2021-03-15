@@ -60,7 +60,48 @@
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlmacenFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlmacenFrm.Designer.cs">
+      <DependentUpon>AlmacenFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseDeDatos.cs" />
+    <Compile Include="CategoriasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriasFrm.Designer.cs">
+      <DependentUpon>CategoriasFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesFrm.Designer.cs">
+      <DependentUpon>ClientesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\AlmacenDataSet.cs">
+      <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\AlmacenDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\CategoriasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CategoriasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ClientesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ProductosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductosDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\UsuarioDataSet.cs">
       <DependentUpon>UsuarioDataSet.xsd</DependentUpon>
     </Compile>
@@ -81,6 +122,12 @@
     <Compile Include="Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductoFrm.Designer.cs">
+      <DependentUpon>ProductoFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -90,11 +137,23 @@
     <Compile Include="UsuariosFrm.Designer.cs">
       <DependentUpon>UsuariosFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlmacenFrm.resx">
+      <DependentUpon>AlmacenFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoriasFrm.resx">
+      <DependentUpon>CategoriasFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesFrm.resx">
+      <DependentUpon>ClientesFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductoFrm.resx">
+      <DependentUpon>ProductoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -109,6 +168,50 @@
     <EmbeddedResource Include="UsuariosFrm.resx">
       <DependentUpon>UsuariosFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet\AlmacenDataSet.xsc">
+      <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\AlmacenDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AlmacenDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\AlmacenDataSet.xss">
+      <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\CategoriasDataSet.xsc">
+      <DependentUpon>CategoriasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\CategoriasDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CategoriasDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\CategoriasDataSet.xss">
+      <DependentUpon>CategoriasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ClientesDataSet.xsc">
+      <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ClientesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClientesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\ClientesDataSet.xss">
+      <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ProductosDataSet.xsc">
+      <DependentUpon>ProductosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ProductosDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductosDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\ProductosDataSet.xss">
+      <DependentUpon>ProductosDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\UsuarioDataSet.xsc">
       <DependentUpon>UsuarioDataSet.xsd</DependentUpon>
     </None>

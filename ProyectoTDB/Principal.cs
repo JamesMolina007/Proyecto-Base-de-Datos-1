@@ -72,6 +72,28 @@ namespace ProyectoDB
             this.Dispose();
         }
 
-       
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategoriasFrm categorias = new CategoriasFrm();
+            categorias.Show();
+        }
+
+        private void almacenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AlmacenFrm almacen = new AlmacenFrm();
+            almacen.Show();
+        }
+
+        private void configuraciónDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientesFrm clientes = new ClientesFrm();
+            clientes.Show();
+        }
+
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductoFrm productosFrm = new ProductoFrm();
+            productosFrm.Show();
+        }
     }
 }

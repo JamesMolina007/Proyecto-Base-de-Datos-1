@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.tb_nombreUsuario = new C1.Win.C1Input.C1TextBox();
-            this.tb_Contraseña = new C1.Win.C1Input.C1TextBox();
             this.lbl_nombreUsuario = new System.Windows.Forms.Label();
             this.lbl_contraseña = new System.Windows.Forms.Label();
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
@@ -40,29 +38,12 @@
             this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usuarioDataSet = new ProyectoDB.DataSet.UsuarioDataSet();
             this.usuariosTableAdapter = new ProyectoDB.DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_nombreUsuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_Contraseña)).BeginInit();
+            this.tb_Contraseña = new System.Windows.Forms.TextBox();
+            this.tb_nombreUsuario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tb_nombreUsuario
-            // 
-            this.tb_nombreUsuario.Location = new System.Drawing.Point(174, 47);
-            this.tb_nombreUsuario.Name = "tb_nombreUsuario";
-            this.tb_nombreUsuario.Size = new System.Drawing.Size(222, 18);
-            this.tb_nombreUsuario.TabIndex = 28;
-            this.tb_nombreUsuario.Tag = null;
-            // 
-            // tb_Contraseña
-            // 
-            this.tb_Contraseña.Location = new System.Drawing.Point(174, 102);
-            this.tb_Contraseña.Name = "tb_Contraseña";
-            this.tb_Contraseña.PasswordChar = '*';
-            this.tb_Contraseña.Size = new System.Drawing.Size(222, 18);
-            this.tb_Contraseña.TabIndex = 29;
-            this.tb_Contraseña.Tag = null;
             // 
             // lbl_nombreUsuario
             // 
@@ -98,7 +79,7 @@
             this.btn_aceptar.Location = new System.Drawing.Point(174, 139);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(95, 30);
-            this.btn_aceptar.TabIndex = 33;
+            this.btn_aceptar.TabIndex = 3;
             this.btn_aceptar.Text = "&Aceptar";
             this.btn_aceptar.UseVisualStyleBackColor = true;
             this.btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
@@ -127,25 +108,39 @@
             // 
             this.usuariosTableAdapter.ClearBeforeFill = true;
             // 
+            // tb_Contraseña
+            // 
+            this.tb_Contraseña.Location = new System.Drawing.Point(174, 102);
+            this.tb_Contraseña.Name = "tb_Contraseña";
+            this.tb_Contraseña.PasswordChar = '*';
+            this.tb_Contraseña.Size = new System.Drawing.Size(223, 20);
+            this.tb_Contraseña.TabIndex = 1;
+            // 
+            // tb_nombreUsuario
+            // 
+            this.tb_nombreUsuario.Location = new System.Drawing.Point(174, 48);
+            this.tb_nombreUsuario.Name = "tb_nombreUsuario";
+            this.tb_nombreUsuario.Size = new System.Drawing.Size(222, 20);
+            this.tb_nombreUsuario.TabIndex = 0;
+            this.tb_nombreUsuario.Tag = "";
+            // 
             // Login
             // 
             this.AcceptButton = this.btn_aceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 192);
+            this.ClientSize = new System.Drawing.Size(423, 192);
+            this.Controls.Add(this.tb_nombreUsuario);
+            this.Controls.Add(this.tb_Contraseña);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_aceptar);
             this.Controls.Add(this.LogoPictureBox);
             this.Controls.Add(this.lbl_contraseña);
             this.Controls.Add(this.lbl_nombreUsuario);
-            this.Controls.Add(this.tb_Contraseña);
-            this.Controls.Add(this.tb_nombreUsuario);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tb_nombreUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_Contraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).EndInit();
@@ -155,9 +150,6 @@
         }
 
         #endregion
-
-        private C1.Win.C1Input.C1TextBox tb_nombreUsuario;
-        private C1.Win.C1Input.C1TextBox tb_Contraseña;
         private System.Windows.Forms.Label lbl_nombreUsuario;
         private System.Windows.Forms.Label lbl_contraseña;
         internal System.Windows.Forms.PictureBox LogoPictureBox;
@@ -166,5 +158,7 @@
         private System.Windows.Forms.BindingSource PrincipalBindingSource;
         private DataSet.UsuarioDataSet usuarioDataSet;
         private DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
+        private System.Windows.Forms.TextBox tb_Contraseña;
+        private System.Windows.Forms.TextBox tb_nombreUsuario;
     }
 }
