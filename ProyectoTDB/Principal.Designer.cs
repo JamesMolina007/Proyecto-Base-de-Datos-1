@@ -168,6 +168,7 @@
             this.configuraciónDeTiendaToolStripMenuItem.Name = "configuraciónDeTiendaToolStripMenuItem";
             this.configuraciónDeTiendaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.configuraciónDeTiendaToolStripMenuItem.Text = "Configuración de Tienda";
+            this.configuraciónDeTiendaToolStripMenuItem.Click += new System.EventHandler(this.configuraciónDeTiendaToolStripMenuItem_Click);
             // 
             // almacenToolStripMenuItem1
             // 

@@ -95,5 +95,11 @@ namespace ProyectoDB
             ProductoFrm productosFrm = new ProductoFrm();
             productosFrm.Show();
         }
+
+        private void configuraciónDeTiendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TiendaFrm tienda = new TiendaFrm();
+            tienda.Show();
+        }
     }
 }
