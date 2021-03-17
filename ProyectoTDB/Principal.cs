@@ -101,5 +101,17 @@ namespace ProyectoDB
             TiendaFrm tienda = new TiendaFrm();
             tienda.Show();
         }
+
+        private void contratosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContratosFrm contratos = new ContratosFrm();
+            contratos.Show();
+        }
+
+        private void carritoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CarritoFrm carrito = new CarritoFrm();
+            carrito.Show();
+        }
     }
 }

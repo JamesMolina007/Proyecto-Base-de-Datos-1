@@ -67,6 +67,12 @@
       <DependentUpon>AlmacenFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseDeDatos.cs" />
+    <Compile Include="CarritoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarritoFrm.Designer.cs">
+      <DependentUpon>CarritoFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoriasFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,12 @@
     <Compile Include="ClientesFrm.Designer.cs">
       <DependentUpon>ClientesFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContratosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContratosFrm.Designer.cs">
+      <DependentUpon>ContratosFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\AlmacenDataSet.cs">
       <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
     </Compile>
@@ -86,6 +98,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\CarritoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarritoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\CategoriasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,6 +113,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ContratoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContratoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\ProductosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -151,11 +173,17 @@
     <EmbeddedResource Include="AlmacenFrm.resx">
       <DependentUpon>AlmacenFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarritoFrm.resx">
+      <DependentUpon>CarritoFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CategoriasFrm.resx">
       <DependentUpon>CategoriasFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientesFrm.resx">
       <DependentUpon>ClientesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContratosFrm.resx">
+      <DependentUpon>ContratosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -193,6 +221,17 @@
     <None Include="DataSet\AlmacenDataSet.xss">
       <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
     </None>
+    <None Include="DataSet\CarritoDataSet.xsc">
+      <DependentUpon>CarritoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\CarritoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarritoDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\CarritoDataSet.xss">
+      <DependentUpon>CarritoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\CategoriasDataSet.xsc">
       <DependentUpon>CategoriasDataSet.xsd</DependentUpon>
     </None>
@@ -214,6 +253,17 @@
     </None>
     <None Include="DataSet\ClientesDataSet.xss">
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ContratoDataSet.xsc">
+      <DependentUpon>ContratoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\ContratoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ContratoDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\ContratoDataSet.xss">
+      <DependentUpon>ContratoDataSet.xsd</DependentUpon>
     </None>
     <None Include="DataSet\ProductosDataSet.xsc">
       <DependentUpon>ProductosDataSet.xsd</DependentUpon>

@@ -74,3 +74,5 @@ C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\P
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClientesFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ProductoFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.TiendaFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ContratosFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.CarritoFrm.resources
