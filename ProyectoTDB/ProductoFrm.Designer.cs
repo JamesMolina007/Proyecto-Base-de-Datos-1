@@ -46,12 +46,19 @@
             this.fabricanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.almacenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosDataSet = new ProyectoDB.DataSet.ProductosDataSet();
             this.productoTableAdapter = new ProyectoDB.DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter();
             this.CategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaTableAdapter = new ProyectoDB.DataSet.ProductosDataSetTableAdapters.CategoriaTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.AlmacenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_Cantidad = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cb_Categoria = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_Precio = new System.Windows.Forms.TextBox();
@@ -66,12 +73,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_Nombre = new System.Windows.Forms.TextBox();
+            this.almacenTableAdapter = new ProyectoDB.DataSet.ProductosDataSetTableAdapters.AlmacenTableAdapter();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CategoriaBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AlmacenBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -86,7 +95,7 @@
             this.tb_Buscar});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(1303, 54);
+            this.toolStripMenu.Size = new System.Drawing.Size(1325, 54);
             this.toolStripMenu.TabIndex = 10;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -167,12 +176,14 @@
             this.tipoProductoDataGridViewTextBoxColumn,
             this.fabricanteDataGridViewTextBoxColumn,
             this.precioDataGridViewTextBoxColumn,
-            this.nombreCategoriaDataGridViewTextBoxColumn});
+            this.nombreCategoriaDataGridViewTextBoxColumn,
+            this.almacenDataGridViewTextBoxColumn,
+            this.cantidadDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.PrincipalBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 62);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(913, 458);
+            this.dataGridView1.Size = new System.Drawing.Size(959, 458);
             this.dataGridView1.TabIndex = 11;
             // 
             // idProductoDataGridViewTextBoxColumn
@@ -189,7 +200,6 @@
             this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "Producto";
             this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
             this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreProductoDataGridViewTextBoxColumn.Width = 150;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
@@ -197,7 +207,6 @@
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.Width = 150;
             // 
             // modeloDataGridViewTextBoxColumn
             // 
@@ -233,7 +242,20 @@
             this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Categoría";
             this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
             this.nombreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreCategoriaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // almacenDataGridViewTextBoxColumn
+            // 
+            this.almacenDataGridViewTextBoxColumn.DataPropertyName = "Almacen";
+            this.almacenDataGridViewTextBoxColumn.HeaderText = "Almacen";
+            this.almacenDataGridViewTextBoxColumn.Name = "almacenDataGridViewTextBoxColumn";
+            this.almacenDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantidadDataGridViewTextBoxColumn
+            // 
+            this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad";
+            this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
+            this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
+            this.cantidadDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // PrincipalBindingSource
             // 
@@ -261,6 +283,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.tb_Cantidad);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.cb_Categoria);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.tb_Precio);
@@ -275,12 +301,56 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tb_Nombre);
-            this.groupBox1.Location = new System.Drawing.Point(931, 62);
+            this.groupBox1.Location = new System.Drawing.Point(977, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 298);
+            this.groupBox1.Size = new System.Drawing.Size(336, 367);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.PrincipalBindingSource, "Almacen", true));
+            this.comboBox1.DataSource = this.AlmacenBindingSource;
+            this.comboBox1.DisplayMember = "codigoAlmacen";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(90, 326);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(219, 21);
+            this.comboBox1.TabIndex = 27;
+            this.comboBox1.ValueMember = "codigoAlmacen";
+            // 
+            // AlmacenBindingSource
+            // 
+            this.AlmacenBindingSource.DataMember = "Almacen";
+            this.AlmacenBindingSource.DataSource = this.productosDataSet;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 329);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Almacen";
+            // 
+            // tb_Cantidad
+            // 
+            this.tb_Cantidad.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.PrincipalBindingSource, "Cantidad", true));
+            this.tb_Cantidad.Location = new System.Drawing.Point(90, 291);
+            this.tb_Cantidad.Name = "tb_Cantidad";
+            this.tb_Cantidad.Size = new System.Drawing.Size(219, 20);
+            this.tb_Cantidad.TabIndex = 25;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(18, 294);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Cantidad";
             // 
             // cb_Categoria
             // 
@@ -406,11 +476,15 @@
             this.tb_Nombre.Size = new System.Drawing.Size(175, 20);
             this.tb_Nombre.TabIndex = 1;
             // 
+            // almacenTableAdapter
+            // 
+            this.almacenTableAdapter.ClearBeforeFill = true;
+            // 
             // ProductoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1303, 532);
+            this.ClientSize = new System.Drawing.Size(1325, 532);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStripMenu);
@@ -425,6 +499,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CategoriaBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AlmacenBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,14 +518,6 @@
         private DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter productoTableAdapter;
         private System.Windows.Forms.BindingSource CategoriaBindingSource;
         private DataSet.ProductosDataSetTableAdapters.CategoriaTableAdapter categoriaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modeloDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fabricanteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tb_Precio;
@@ -468,5 +535,21 @@
         private System.Windows.Forms.ComboBox cb_Categoria;
         private System.Windows.Forms.ToolStripButton btn_guardar;
         private System.Windows.Forms.ToolStripButton btn_eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modeloDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fabricanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn almacenDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tb_Cantidad;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.BindingSource AlmacenBindingSource;
+        private DataSet.ProductosDataSetTableAdapters.AlmacenTableAdapter almacenTableAdapter;
     }
 }

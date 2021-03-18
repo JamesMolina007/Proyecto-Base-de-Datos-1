@@ -186,6 +186,10 @@ namespace ProyectoDB
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            DataRowView dr = (DataRowView)PrincipalBindingSource.Current;
+            this.clienteFrecuenteTableAdapter.FillByID(this.clientesDataSet.ClienteFrecuente, (int)dr.Row["idCliente"]);
+            this.clientePocoFrecuenteTableAdapter.FillByID(this.clientesDataSet.ClientePocoFrecuente, (int)dr.Row["idCliente"]);
+            this.clienteTiendaTableAdapter.FillByID(this.clientesDataSet.ClienteTienda, (int)dr.Row["idCliente"]);
             PrincipalBindingSource.AddNew();
             PocoFrecuenteBindingSource.AddNew();
             VirtualBindingSource.AddNew();
@@ -220,6 +224,7 @@ namespace ProyectoDB
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
+
         {
             try
             {
@@ -293,19 +298,16 @@ namespace ProyectoDB
 
         private void PrincipalBindingSource_PositionChanged(object sender, EventArgs e)
         {
-            if( btn_Nuevo.Enabled == false)
-            {
+            //if( btn_Nuevo.Enabled == false)
+            //{
                 btn_Nuevo.Enabled = false;
                 btn_Guardar.Enabled = true;
                 btn_Eliminar.Enabled = true;
                 gb_ClienteVirtual.Enabled = true;
                 gb_tipoCompra.Enabled = true;
-            }
+            //}
             DataRowView dr = (DataRowView)PrincipalBindingSource.Current;
-            this.clienteFrecuenteTableAdapter.FillByID(this.clientesDataSet.ClienteFrecuente, (int)dr.Row["idCliente"]);
-            this.clientePocoFrecuenteTableAdapter.FillByID(this.clientesDataSet.ClientePocoFrecuente, (int)dr.Row["idCliente"]);
             this.clienteVirtualTableAdapter.FillByID(this.clientesDataSet.ClienteVirtual, (int)dr.Row["idCliente"]);
-            this.clienteTiendaTableAdapter.FillByID(this.clientesDataSet.ClienteTienda, (int)dr.Row["idCliente"]);
         }
     }
 }

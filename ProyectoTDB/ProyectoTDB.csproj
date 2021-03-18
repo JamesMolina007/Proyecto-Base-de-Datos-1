@@ -67,6 +67,12 @@
       <DependentUpon>AlmacenFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseDeDatos.cs" />
+    <Compile Include="CarritoClienteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarritoClienteFrm.Designer.cs">
+      <DependentUpon>CarritoClienteFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarritoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,18 @@
     </Compile>
     <Compile Include="CategoriasFrm.Designer.cs">
       <DependentUpon>CategoriasFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteContratoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteContratoFrm.Designer.cs">
+      <DependentUpon>ClienteContratoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteProcesaOrdenFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteProcesaOrdenFrm.Designer.cs">
+      <DependentUpon>ClienteProcesaOrdenFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientesFrm.cs">
       <SubType>Form</SubType>
@@ -99,6 +117,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\CarritoClienteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarritoClienteDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\CarritoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +142,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ContratoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\EmpresasDeEnvioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpresasDeEnvioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\FacturasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\OrdenDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrdenDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\ProductosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,6 +174,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UsuarioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmpresaDeEnvioFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpresaDeEnvioFrm.Designer.cs">
+      <DependentUpon>EmpresaDeEnvioFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacturasFrm.Designer.cs">
+      <DependentUpon>FacturasFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -173,17 +223,32 @@
     <EmbeddedResource Include="AlmacenFrm.resx">
       <DependentUpon>AlmacenFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarritoClienteFrm.resx">
+      <DependentUpon>CarritoClienteFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarritoFrm.resx">
       <DependentUpon>CarritoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CategoriasFrm.resx">
       <DependentUpon>CategoriasFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClienteContratoFrm.resx">
+      <DependentUpon>ClienteContratoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteProcesaOrdenFrm.resx">
+      <DependentUpon>ClienteProcesaOrdenFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientesFrm.resx">
       <DependentUpon>ClientesFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContratosFrm.resx">
       <DependentUpon>ContratosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpresaDeEnvioFrm.resx">
+      <DependentUpon>EmpresaDeEnvioFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacturasFrm.resx">
+      <DependentUpon>FacturasFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -220,6 +285,17 @@
     </None>
     <None Include="DataSet\AlmacenDataSet.xss">
       <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\CarritoClienteDataSet.xsc">
+      <DependentUpon>CarritoClienteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\CarritoClienteDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CarritoClienteDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\CarritoClienteDataSet.xss">
+      <DependentUpon>CarritoClienteDataSet.xsd</DependentUpon>
     </None>
     <None Include="DataSet\CarritoDataSet.xsc">
       <DependentUpon>CarritoDataSet.xsd</DependentUpon>
@@ -264,6 +340,39 @@
     </None>
     <None Include="DataSet\ContratoDataSet.xss">
       <DependentUpon>ContratoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\EmpresasDeEnvioDataSet.xsc">
+      <DependentUpon>EmpresasDeEnvioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\EmpresasDeEnvioDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmpresasDeEnvioDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\EmpresasDeEnvioDataSet.xss">
+      <DependentUpon>EmpresasDeEnvioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\FacturasDataSet.xsc">
+      <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\FacturasDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FacturasDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\FacturasDataSet.xss">
+      <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\OrdenDataSet.xsc">
+      <DependentUpon>OrdenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\OrdenDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrdenDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\OrdenDataSet.xss">
+      <DependentUpon>OrdenDataSet.xsd</DependentUpon>
     </None>
     <None Include="DataSet\ProductosDataSet.xsc">
       <DependentUpon>ProductosDataSet.xsd</DependentUpon>

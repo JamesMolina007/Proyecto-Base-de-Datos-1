@@ -18,6 +18,13 @@ namespace ProyectoDB
             this.tipoUsuario = tipoUsuario;
         }
 
+        private int idCliente;
+        public void setIdCliente(int idCliente)
+        {
+            this.idCliente = idCliente;
+        }
+
+
         public Principal()
         {
             InitializeComponent();
@@ -43,8 +50,13 @@ namespace ProyectoDB
                 inventarioToolStripMenuItem.Visible = true;
                 enviosToolStripMenuItem.Visible = true;
             }
+            else if(tipoUsuario.Equals("Cliente"))
+            {
+                opcionesClienteToolStripMenuItem.Visible = true;
+            }
             else
             {
+                opcionesClienteToolStripMenuItem.Visible = true;
                 inventarioToolStripMenuItem.Visible = true;
                 clientesToolStripMenuItem.Visible = true;
                 pedidosToolStripMenuItem.Visible = true;
@@ -112,6 +124,20 @@ namespace ProyectoDB
         {
             CarritoFrm carrito = new CarritoFrm();
             carrito.Show();
+        }
+
+        private void miCarritoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            CarritoClienteFrm carritocliente = new CarritoClienteFrm();
+            carritocliente.setId_Cliente(idCliente);
+            carritocliente.Show();
+        }
+
+        private void empresasDeEnvíoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmpresaDeEnvioFrm empresadeenvio = new EmpresaDeEnvioFrm();
+            empresadeenvio.Show();
         }
     }
 }

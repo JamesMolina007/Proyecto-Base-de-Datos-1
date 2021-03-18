@@ -30,7 +30,6 @@
         {
             this.BarraMenu = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.conectarBaseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +55,11 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contratosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carritoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcionesClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miCarritoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordenesProcesadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresasDeEnvíoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +74,8 @@
             this.inventarioToolStripMenuItem,
             this.pedidosToolStripMenuItem,
             this.enviosToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.opcionesClienteToolStripMenuItem});
             this.BarraMenu.Location = new System.Drawing.Point(0, 0);
             this.BarraMenu.Name = "BarraMenu";
             this.BarraMenu.Size = new System.Drawing.Size(840, 24);
@@ -80,18 +85,11 @@
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.conectarBaseDeDatosToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // conectarBaseDeDatosToolStripMenuItem
-            // 
-            this.conectarBaseDeDatosToolStripMenuItem.Name = "conectarBaseDeDatosToolStripMenuItem";
-            this.conectarBaseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.conectarBaseDeDatosToolStripMenuItem.Text = "Conectar Base de Datos";
             // 
             // cerrarSesiónToolStripMenuItem
             // 
@@ -228,7 +226,8 @@
             // 
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pedidosRealizadosToolStripMenuItem,
-            this.pedidosEnviadosToolStripMenuItem});
+            this.pedidosEnviadosToolStripMenuItem,
+            this.empresasDeEnvíoToolStripMenuItem});
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
@@ -243,8 +242,8 @@
             // pedidosEnviadosToolStripMenuItem
             // 
             this.pedidosEnviadosToolStripMenuItem.Name = "pedidosEnviadosToolStripMenuItem";
-            this.pedidosEnviadosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.pedidosEnviadosToolStripMenuItem.Text = "Pedidos Enviados";
+            this.pedidosEnviadosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.pedidosEnviadosToolStripMenuItem.Text = "Pedidos Procesados";
             // 
             // enviosToolStripMenuItem
             // 
@@ -282,6 +281,43 @@
             this.carritoToolStripMenuItem.Text = "Carrito";
             this.carritoToolStripMenuItem.Click += new System.EventHandler(this.carritoToolStripMenuItem_Click);
             // 
+            // opcionesClienteToolStripMenuItem
+            // 
+            this.opcionesClienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miCarritoToolStripMenuItem,
+            this.ordenesProcesadasToolStripMenuItem,
+            this.facturasToolStripMenuItem});
+            this.opcionesClienteToolStripMenuItem.Name = "opcionesClienteToolStripMenuItem";
+            this.opcionesClienteToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.opcionesClienteToolStripMenuItem.Text = "Opciones Cliente";
+            this.opcionesClienteToolStripMenuItem.Visible = false;
+            // 
+            // miCarritoToolStripMenuItem
+            // 
+            this.miCarritoToolStripMenuItem.Name = "miCarritoToolStripMenuItem";
+            this.miCarritoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.miCarritoToolStripMenuItem.Text = "Mi Carrito";
+            this.miCarritoToolStripMenuItem.Click += new System.EventHandler(this.miCarritoToolStripMenuItem_Click);
+            // 
+            // facturasToolStripMenuItem
+            // 
+            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.facturasToolStripMenuItem.Text = "Facturas";
+            // 
+            // ordenesProcesadasToolStripMenuItem
+            // 
+            this.ordenesProcesadasToolStripMenuItem.Name = "ordenesProcesadasToolStripMenuItem";
+            this.ordenesProcesadasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordenesProcesadasToolStripMenuItem.Text = "Ordenes Procesadas";
+            // 
+            // empresasDeEnvíoToolStripMenuItem
+            // 
+            this.empresasDeEnvíoToolStripMenuItem.Name = "empresasDeEnvíoToolStripMenuItem";
+            this.empresasDeEnvíoToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.empresasDeEnvíoToolStripMenuItem.Text = "Empresas de Envío";
+            this.empresasDeEnvíoToolStripMenuItem.Click += new System.EventHandler(this.empresasDeEnvíoToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,7 +344,6 @@
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tiendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem conectarBaseDeDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
@@ -332,5 +367,10 @@
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contratosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carritoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opcionesClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miCarritoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ordenesProcesadasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem empresasDeEnvíoToolStripMenuItem;
     }
 }

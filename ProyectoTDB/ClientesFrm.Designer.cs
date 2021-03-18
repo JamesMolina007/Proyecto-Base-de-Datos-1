@@ -148,6 +148,9 @@
             // cb_TipoCliente
             // 
             this.cb_TipoCliente.FormattingEnabled = true;
+            this.cb_TipoCliente.Items.AddRange(new object[] {
+            "Frecuente",
+            "Poco Frecuente"});
             this.cb_TipoCliente.Location = new System.Drawing.Point(93, 29);
             this.cb_TipoCliente.Name = "cb_TipoCliente";
             this.cb_TipoCliente.Size = new System.Drawing.Size(121, 21);

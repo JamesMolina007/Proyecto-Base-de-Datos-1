@@ -40,9 +40,14 @@
             this.usuariosTableAdapter = new ProyectoDB.DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter();
             this.tb_Contraseña = new System.Windows.Forms.TextBox();
             this.tb_nombreUsuario = new System.Windows.Forms.TextBox();
+            this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
+            this.clienteVirtualTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_nombreUsuario
@@ -124,6 +129,20 @@
             this.tb_nombreUsuario.TabIndex = 0;
             this.tb_nombreUsuario.Tag = "";
             // 
+            // ClienteBindingSource
+            // 
+            this.ClienteBindingSource.DataMember = "ClienteVirtual";
+            this.ClienteBindingSource.DataSource = this.clientesDataSet;
+            // 
+            // clientesDataSet
+            // 
+            this.clientesDataSet.DataSetName = "ClientesDataSet";
+            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clienteVirtualTableAdapter
+            // 
+            this.clienteVirtualTableAdapter.ClearBeforeFill = true;
+            // 
             // Login
             // 
             this.AcceptButton = this.btn_aceptar;
@@ -144,6 +163,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +181,8 @@
         private DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
         private System.Windows.Forms.TextBox tb_Contraseña;
         private System.Windows.Forms.TextBox tb_nombreUsuario;
+        private System.Windows.Forms.BindingSource ClienteBindingSource;
+        private DataSet.ClientesDataSet clientesDataSet;
+        private DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter clienteVirtualTableAdapter;
     }
 }

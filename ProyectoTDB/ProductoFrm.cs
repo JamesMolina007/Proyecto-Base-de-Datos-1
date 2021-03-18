@@ -13,6 +13,8 @@ namespace ProyectoDB
 
         private void ProductoFrm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'productosDataSet.Almacen' Puede moverla o quitarla según sea necesario.
+            this.almacenTableAdapter.Fill(this.productosDataSet.Almacen);
             // TODO: esta línea de código carga datos en la tabla 'productosDataSet.Categoria' Puede moverla o quitarla según sea necesario.
             this.categoriaTableAdapter.Fill(this.productosDataSet.Categoria);
             recargar();
@@ -119,6 +121,7 @@ namespace ProyectoDB
                 tb_Modelo.Text = drvProducto.Row["Modelo"].ToString();
                 tb_Precio.Text = drvProducto.Row["Precio"].ToString();
                 tb_tipo.Text = drvProducto.Row["tipoProducto"].ToString();
+                tb_Cantidad.Text = drvProducto.Row["Cantidad"].ToString();
                 habilitar();
                 btn_nuevo.Enabled = false;
                 btn_guardar.Enabled = true;
