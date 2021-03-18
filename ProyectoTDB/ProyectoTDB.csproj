@@ -91,6 +91,12 @@
     <Compile Include="ClienteContratoFrm.Designer.cs">
       <DependentUpon>ClienteContratoFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClienteFacturaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteFacturaFrm.Designer.cs">
+      <DependentUpon>ClienteFacturaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClienteProcesaOrdenFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClienteContratoFrm.resx">
       <DependentUpon>ClienteContratoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteFacturaFrm.resx">
+      <DependentUpon>ClienteFacturaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClienteProcesaOrdenFrm.resx">
       <DependentUpon>ClienteProcesaOrdenFrm.cs</DependentUpon>

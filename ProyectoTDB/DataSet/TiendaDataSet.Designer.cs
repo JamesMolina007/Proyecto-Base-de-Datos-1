@@ -865,7 +865,7 @@ namespace ProyectoDB.DataSet.TiendaDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::ProyectoDB.Properties.Settings.Default.ventasConnectionString1;
+            this._connection.ConnectionString = global::ProyectoDB.Properties.Settings.Default.ventasConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

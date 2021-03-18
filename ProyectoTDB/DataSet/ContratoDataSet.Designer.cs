@@ -462,13 +462,6 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ContratoRow FindBynumCuenta(int numCuenta) {
-                return ((ContratoRow)(this.Rows.Find(new object[] {
-                            numCuenta})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 ContratoDataTable cln = ((ContratoDataTable)(base.Clone()));
                 cln.InitVars();
@@ -498,10 +491,7 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnCuota);
                 this.columnidCliente = new global::System.Data.DataColumn("idCliente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidCliente);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnnumCuenta}, true));
                 this.columnnumCuenta.AllowDBNull = false;
-                this.columnnumCuenta.Unique = true;
                 this.columnCuota.AllowDBNull = false;
                 this.columnidCliente.AllowDBNull = false;
             }
@@ -1812,14 +1802,6 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(double p2, int p3, int p4, double p5, int p6) {
-            return this.Update(p4, p2, p3, p4, p5, p6);
         }
     }
     

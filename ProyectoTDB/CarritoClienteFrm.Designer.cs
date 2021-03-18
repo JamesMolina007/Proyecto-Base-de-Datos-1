@@ -70,9 +70,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_Total = new System.Windows.Forms.TextBox();
+            this.tb_ISV = new System.Windows.Forms.TextBox();
+            this.tb_subTotal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).BeginInit();
@@ -427,9 +427,9 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tb_Total);
+            this.groupBox1.Controls.Add(this.tb_ISV);
+            this.groupBox1.Controls.Add(this.tb_subTotal);
             this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(573, 343);
             this.groupBox1.Name = "groupBox1";
@@ -465,26 +465,26 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "SubTotal:";
             // 
-            // textBox3
+            // tb_Total
             // 
-            this.textBox3.Location = new System.Drawing.Point(77, 131);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(266, 20);
-            this.textBox3.TabIndex = 2;
+            this.tb_Total.Location = new System.Drawing.Point(77, 131);
+            this.tb_Total.Name = "tb_Total";
+            this.tb_Total.Size = new System.Drawing.Size(266, 20);
+            this.tb_Total.TabIndex = 2;
             // 
-            // textBox2
+            // tb_ISV
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(266, 20);
-            this.textBox2.TabIndex = 1;
+            this.tb_ISV.Location = new System.Drawing.Point(77, 89);
+            this.tb_ISV.Name = "tb_ISV";
+            this.tb_ISV.Size = new System.Drawing.Size(266, 20);
+            this.tb_ISV.TabIndex = 1;
             // 
-            // textBox1
+            // tb_subTotal
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 20);
-            this.textBox1.TabIndex = 0;
+            this.tb_subTotal.Location = new System.Drawing.Point(77, 47);
+            this.tb_subTotal.Name = "tb_subTotal";
+            this.tb_subTotal.Size = new System.Drawing.Size(266, 20);
+            this.tb_subTotal.TabIndex = 0;
             // 
             // button1
             // 
@@ -577,9 +577,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_Total;
+        private System.Windows.Forms.TextBox tb_ISV;
+        private System.Windows.Forms.TextBox tb_subTotal;
         private System.Windows.Forms.Button button1;
     }
 }

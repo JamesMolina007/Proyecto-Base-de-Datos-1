@@ -70,7 +70,22 @@ namespace ProyectoDB
 
         private void btn_Comprar_Click(object sender, EventArgs e)
         {
+            double subTotal = 0.00, isv = 0.00, total = 0.00;
+            for (int i = 0; i < dataGridView1.RowCount; i++){
+                string idProducto = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", idProducto);
+                DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
+                subTotal += Convert.ToInt32(drvProducto.Row["Precio"]) * Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value);
+            }
+            isv = subTotal * 0.15;
+            total = isv + subTotal;
+            tb_ISV.Text = isv.ToString();
+            tb_subTotal.Text = subTotal.ToString();
+            tb_Total.Text = total.ToString();
             ClienteProcesaOrdenFrm clienteprocesaorden = new ClienteProcesaOrdenFrm();
+            clienteprocesaorden.setTotal(total);
+            clienteprocesaorden.setCarrito(dataGridView1);
+            ProductosBindingSource.RemoveFilter();
             clienteprocesaorden.Show();
             clienteprocesaorden.setId_Cliente(id_Cliente);
         }

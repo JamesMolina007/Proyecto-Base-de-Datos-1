@@ -364,6 +364,8 @@ namespace ProyectoDB.DataSet {
             
             private global::System.Data.DataColumn columnNoFactura;
             
+            private global::System.Data.DataColumn columnidProducto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DetalleFacturaDataTable() {
@@ -431,6 +433,14 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn idProductoColumn {
+                get {
+                    return this.columnidProducto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -466,13 +476,14 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DetalleFacturaRow AddDetalleFacturaRow(int isv, int Total, int cantidadProducto, FacturaRow parentFacturaRowByFKNoFactura) {
+            public DetalleFacturaRow AddDetalleFacturaRow(int isv, int Total, int cantidadProducto, FacturaRow parentFacturaRowByFKNoFactura, int idProducto) {
                 DetalleFacturaRow rowDetalleFacturaRow = ((DetalleFacturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         isv,
                         Total,
                         cantidadProducto,
-                        null};
+                        null,
+                        idProducto};
                 if ((parentFacturaRowByFKNoFactura != null)) {
                     columnValuesArray[3] = parentFacturaRowByFKNoFactura[0];
                 }
@@ -502,6 +513,7 @@ namespace ProyectoDB.DataSet {
                 this.columnTotal = base.Columns["Total"];
                 this.columncantidadProducto = base.Columns["cantidadProducto"];
                 this.columnNoFactura = base.Columns["NoFactura"];
+                this.columnidProducto = base.Columns["idProducto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -515,10 +527,13 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columncantidadProducto);
                 this.columnNoFactura = new global::System.Data.DataColumn("NoFactura", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNoFactura);
+                this.columnidProducto = new global::System.Data.DataColumn("idProducto", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidProducto);
                 this.columnisv.AllowDBNull = false;
                 this.columnTotal.AllowDBNull = false;
                 this.columncantidadProducto.AllowDBNull = false;
                 this.columnNoFactura.AllowDBNull = false;
+                this.columnidProducto.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1317,6 +1332,17 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idProducto {
+                get {
+                    return ((int)(this[this.tableDetalleFactura.idProductoColumn]));
+                }
+                set {
+                    this[this.tableDetalleFactura.idProductoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public FacturaRow FacturaRow {
                 get {
                     return ((FacturaRow)(this.GetParentRow(this.Table.ParentRelations["FKNoFactura"])));
@@ -1721,11 +1747,12 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Total", "Total");
             tableMapping.ColumnMappings.Add("cantidadProducto", "cantidadProducto");
             tableMapping.ColumnMappings.Add("NoFactura", "NoFactura");
+            tableMapping.ColumnMappings.Add("idProducto", "idProducto");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `DetalleFactura` (`isv`, `Total`, `cantidadProducto`, `NoFactura`) VA" +
-                "LUES (@p1, @p2, @p3, @p4)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `DetalleFactura` (`isv`, `Total`, `cantidadProducto`, `NoFactura`, `i" +
+                "dProducto`) VALUES (@p1, @p2, @p3, @p4, @p5)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1759,6 +1786,14 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
             param.SourceColumn = "NoFactura";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "idProducto";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1774,7 +1809,8 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `isv`, `Total`, `cantidadProducto`, `NoFactura` FROM `DetalleFactura`";
+            this._commandCollection[0].CommandText = "SELECT        isv, Total, cantidadProducto, NoFactura, idProducto\r\nFROM          " +
+                "  DetalleFactura";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1829,31 +1865,6 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int p1, int p2, int p3, int p4) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     

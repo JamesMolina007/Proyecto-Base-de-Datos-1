@@ -48,7 +48,7 @@ namespace ProyectoDB
         {
             if (tb_BuscarCliente.Text.Length > 0)
             {
-                PrincipalBindingSource.Filter = "nombreCliente LIKE '*" + tb_BuscarCliente.Text + "*'";
+                PrincipalBindingSource.Filter = "nombreCliente LIKE *'" + tb_BuscarCliente.Text + "'*";
             }
             else
             {
