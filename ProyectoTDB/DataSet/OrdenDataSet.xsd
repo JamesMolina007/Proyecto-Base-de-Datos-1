@@ -83,7 +83,7 @@
         <xs:element name="Orden" msprop:Generator_TableClassName="OrdenDataTable" msprop:Generator_TableVarName="tableOrden" msprop:Generator_TablePropName="Orden" msprop:Generator_RowDeletingName="OrdenRowDeleting" msprop:Generator_RowChangingName="OrdenRowChanging" msprop:Generator_RowEvHandlerName="OrdenRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdenRowDeleted" msprop:Generator_UserTableName="Orden" msprop:Generator_RowChangedName="OrdenRowChanged" msprop:Generator_RowEvArgName="OrdenRowChangeEvent" msprop:Generator_RowClassName="OrdenRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="noOrden" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnnoOrden" msprop:Generator_ColumnPropNameInRow="noOrden" msprop:Generator_ColumnPropNameInTable="noOrdenColumn" msprop:Generator_UserColumnName="noOrden" type="xs:int" />
+              <xs:element name="noOrden" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnoOrden" msprop:Generator_ColumnPropNameInRow="noOrden" msprop:Generator_ColumnPropNameInTable="noOrdenColumn" msprop:Generator_UserColumnName="noOrden" type="xs:int" />
               <xs:element name="nombreRemitente" msprop:Generator_ColumnVarNameInTable="columnnombreRemitente" msprop:Generator_ColumnPropNameInRow="nombreRemitente" msprop:Generator_ColumnPropNameInTable="nombreRemitenteColumn" msprop:Generator_UserColumnName="nombreRemitente">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

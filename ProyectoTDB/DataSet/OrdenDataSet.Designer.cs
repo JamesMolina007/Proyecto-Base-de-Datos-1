@@ -409,10 +409,10 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrdenRow AddOrdenRow(string nombreRemitente, string empresaEnvio, string direccionEnvio, int idCliente) {
+            public OrdenRow AddOrdenRow(int noOrden, string nombreRemitente, string empresaEnvio, string direccionEnvio, int idCliente) {
                 OrdenRow rowOrdenRow = ((OrdenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        noOrden,
                         nombreRemitente,
                         empresaEnvio,
                         direccionEnvio,
@@ -472,8 +472,8 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnidCliente);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnoOrden}, true));
-                this.columnnoOrden.AutoIncrement = true;
-                this.columnnoOrden.AutoIncrementSeed = 1;
+                this.columnnoOrden.AutoIncrementSeed = -1;
+                this.columnnoOrden.AutoIncrementStep = -1;
                 this.columnnoOrden.AllowDBNull = false;
                 this.columnnoOrden.Unique = true;
                 this.columnnombreRemitente.AllowDBNull = false;

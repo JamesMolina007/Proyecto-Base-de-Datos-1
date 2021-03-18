@@ -69,6 +69,9 @@
             this.CarritoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carritoClienteDataSet = new ProyectoDB.DataSet.CarritoClienteDataSet();
             this.carritoTableAdapter = new ProyectoDB.DataSet.CarritoClienteDataSetTableAdapters.CarritoTableAdapter();
+            this.ProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productosDataSet = new ProyectoDB.DataSet.ProductosDataSet();
+            this.productoTableAdapter = new ProyectoDB.DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
@@ -84,6 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.FacturaDetalleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -396,6 +401,20 @@
             // 
             this.carritoTableAdapter.ClearBeforeFill = true;
             // 
+            // ProductosBindingSource
+            // 
+            this.ProductosBindingSource.DataMember = "Producto";
+            this.ProductosBindingSource.DataSource = this.productosDataSet;
+            // 
+            // productosDataSet
+            // 
+            this.productosDataSet.DataSetName = "ProductosDataSet";
+            this.productosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productoTableAdapter
+            // 
+            this.productoTableAdapter.ClearBeforeFill = true;
+            // 
             // ClienteProcesaOrdenFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,6 +441,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.FacturaDetalleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,5 +488,8 @@
         private System.Windows.Forms.BindingSource CarritoBindingSource;
         private DataSet.CarritoClienteDataSet carritoClienteDataSet;
         private DataSet.CarritoClienteDataSetTableAdapters.CarritoTableAdapter carritoTableAdapter;
+        private System.Windows.Forms.BindingSource ProductosBindingSource;
+        private DataSet.ProductosDataSet productosDataSet;
+        private DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter productoTableAdapter;
     }
 }

@@ -32,6 +32,8 @@ namespace ProyectoDB
 
         private void ClienteProcesaOrdenFrm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'productosDataSet.Producto' Puede moverla o quitarla según sea necesario.
+            this.productoTableAdapter.Fill(this.productosDataSet.Producto);
             // TODO: esta línea de código carga datos en la tabla 'carritoClienteDataSet.Carrito' Puede moverla o quitarla según sea necesario.
             this.carritoTableAdapter.Fill(this.carritoClienteDataSet.Carrito);
             // TODO: esta línea de código carga datos en la tabla 'tiendaDataSet.Tienda' Puede moverla o quitarla según sea necesario.
@@ -77,6 +79,7 @@ namespace ProyectoDB
                 this.contratoTableAdapter.Update(this.contratoDataSet.Contrato);
 
                 this.Validate();
+                drvOrden.Row["noOrden"] = Convert.ToInt32(drvOrden.Row["noSeguimiento"]);
                 this.OrdenBindingSource.EndEdit();
                 this.ordenTableAdapter.Update(this.ordenDataSet.Orden);
 

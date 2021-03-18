@@ -81,13 +81,19 @@ namespace ProyectoDB
             total = isv + subTotal;
             tb_ISV.Text = isv.ToString();
             tb_subTotal.Text = subTotal.ToString();
-            tb_Total.Text = total.ToString();
+            textBox3.Text = total.ToString();
             ClienteProcesaOrdenFrm clienteprocesaorden = new ClienteProcesaOrdenFrm();
             clienteprocesaorden.setTotal(total);
             clienteprocesaorden.setCarrito(dataGridView1);
             ProductosBindingSource.RemoveFilter();
             clienteprocesaorden.Show();
             clienteprocesaorden.setId_Cliente(id_Cliente);
+        }
+
+        private void ProductosBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            if(tb_Cantidad.Text.Length > 1)
+                ne_Cantidad.Maximum = Convert.ToInt32(tb_Cantidad.Text);
         }
     }
 }
