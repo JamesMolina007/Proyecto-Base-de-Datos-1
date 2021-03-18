@@ -2,14 +2,15 @@
 <xs:schema id="CategoriasDataSet" targetNamespace="http://tempuri.org/CategoriasDataSet.xsd" xmlns:mstns="http://tempuri.org/CategoriasDataSet.xsd" xmlns="http://tempuri.org/CategoriasDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ventasConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ventasConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProyectoDB.Properties.Settings.GlobalReference.Default.ventasConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ventasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ventasConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProyectoDB.Properties.Settings.GlobalReference.Default.ventasConnectionString" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CategoriaTableAdapter" GeneratorDataComponentClassName="CategoriaTableAdapter" Name="Categoria" UserDataComponentName="CategoriaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ventasConnectionString1 (Settings)" DbObjectName="ventas.Categoria" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.Categoria" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Categoria` WHERE ((`nombreCategoria` = @p1))</CommandText>
@@ -47,7 +48,7 @@
               <Mapping SourceColumn="nombreCategoria" DataSetColumn="nombreCategoria" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ventasConnectionString1 (Settings)" DbObjectName="ventas.Categoria" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCategoria" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCategoria" GeneratorSourceName="FillByCategoria" GetMethodModifier="Public" GetMethodName="GetDataByCategoria" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCategoria" UserSourceName="FillByCategoria">
+              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.Categoria" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCategoria" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCategoria" GeneratorSourceName="FillByCategoria" GetMethodModifier="Public" GetMethodName="GetDataByCategoria" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCategoria" UserSourceName="FillByCategoria">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        nombreCategoria
@@ -69,7 +70,7 @@ WHERE        (nombreCategoria LIKE CONCAT('%', @caracter, '%'))</CommandText>
   <xs:element name="CategoriasDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CategoriasDataSet" msprop:Generator_UserDSName="CategoriasDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Categoria" msprop:Generator_TableClassName="CategoriaDataTable" msprop:Generator_TableVarName="tableCategoria" msprop:Generator_TablePropName="Categoria" msprop:Generator_RowDeletingName="CategoriaRowDeleting" msprop:Generator_RowChangingName="CategoriaRowChanging" msprop:Generator_RowEvHandlerName="CategoriaRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriaRowDeleted" msprop:Generator_UserTableName="Categoria" msprop:Generator_RowChangedName="CategoriaRowChanged" msprop:Generator_RowEvArgName="CategoriaRowChangeEvent" msprop:Generator_RowClassName="CategoriaRow">
+        <xs:element name="Categoria" msprop:Generator_TableClassName="CategoriaDataTable" msprop:Generator_TableVarName="tableCategoria" msprop:Generator_RowChangedName="CategoriaRowChanged" msprop:Generator_TablePropName="Categoria" msprop:Generator_RowDeletingName="CategoriaRowDeleting" msprop:Generator_RowChangingName="CategoriaRowChanging" msprop:Generator_RowEvHandlerName="CategoriaRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriaRowDeleted" msprop:Generator_RowClassName="CategoriaRow" msprop:Generator_UserTableName="Categoria" msprop:Generator_RowEvArgName="CategoriaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombreCategoria" msprop:Generator_ColumnVarNameInTable="columnnombreCategoria" msprop:Generator_ColumnPropNameInRow="nombreCategoria" msprop:Generator_ColumnPropNameInTable="nombreCategoriaColumn" msprop:Generator_UserColumnName="nombreCategoria">

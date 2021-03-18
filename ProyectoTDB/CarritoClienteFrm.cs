@@ -84,6 +84,7 @@ namespace ProyectoDB
             textBox3.Text = total.ToString();
             ClienteProcesaOrdenFrm clienteprocesaorden = new ClienteProcesaOrdenFrm();
             clienteprocesaorden.setTotal(total);
+            clienteprocesaorden.setIsv(isv);
             clienteprocesaorden.setCarrito(dataGridView1);
             ProductosBindingSource.RemoveFilter();
             clienteprocesaorden.Show();

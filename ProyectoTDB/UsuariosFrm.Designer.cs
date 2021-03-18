@@ -57,11 +57,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tb_nombreUsuario = new System.Windows.Forms.TextBox();
             this.usuariosTableAdapter = new ProyectoDB.DataSet.UsuarioDataSetTableAdapters.UsuariosTableAdapter();
+            this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
+            this.clienteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).BeginInit();
             this.toolStripMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -168,7 +173,8 @@
             "Administrador",
             "Servicio al Cliente",
             "Personal de Centro de Llamadas",
-            "Empleado de Almacen"});
+            "Empleado de Almacen",
+            "Cliente"});
             this.cb_TipoUsuario.Location = new System.Drawing.Point(16, 175);
             this.cb_TipoUsuario.Name = "cb_TipoUsuario";
             this.cb_TipoUsuario.Size = new System.Drawing.Size(223, 21);
@@ -329,6 +335,20 @@
             // 
             this.usuariosTableAdapter.ClearBeforeFill = true;
             // 
+            // ClienteBindingSource
+            // 
+            this.ClienteBindingSource.DataMember = "Cliente";
+            this.ClienteBindingSource.DataSource = this.clientesDataSet;
+            // 
+            // clientesDataSet
+            // 
+            this.clientesDataSet.DataSetName = "ClientesDataSet";
+            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
             // UsuariosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +368,8 @@
             this.toolStripMenu.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +408,8 @@
         private System.Windows.Forms.ToolStripButton btn_Recargar;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox BuscartoolStripTextBox;
+        private System.Windows.Forms.BindingSource ClienteBindingSource;
+        private DataSet.ClientesDataSet clientesDataSet;
+        private DataSet.ClientesDataSetTableAdapters.ClienteTableAdapter clienteTableAdapter;
     }
 }

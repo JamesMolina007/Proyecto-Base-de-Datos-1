@@ -139,5 +139,17 @@ namespace ProyectoDB
             EmpresaDeEnvioFrm empresadeenvio = new EmpresaDeEnvioFrm();
             empresadeenvio.Show();
         }
+
+        private void frecuentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientesFrecuentesFrm clientesfrecuentes = new ClientesFrecuentesFrm();
+            clientesfrecuentes.Show();
+        }
+
+        private void tiendaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClienteTiendaFrm clientetienda = new ClienteTiendaFrm();
+            clientetienda.Show();
+        }
     }
 }

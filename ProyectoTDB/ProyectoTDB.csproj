@@ -103,11 +103,29 @@
     <Compile Include="ClienteProcesaOrdenFrm.Designer.cs">
       <DependentUpon>ClienteProcesaOrdenFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientesFrecuentesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesFrecuentesFrm.Designer.cs">
+      <DependentUpon>ClientesFrecuentesFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientesFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientesFrm.Designer.cs">
       <DependentUpon>ClientesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteTiendaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteTiendaFrm.Designer.cs">
+      <DependentUpon>ClienteTiendaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteVirtualFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteVirtualFrm.Designer.cs">
+      <DependentUpon>ClienteVirtualFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ContratosFrm.cs">
       <SubType>Form</SubType>
@@ -247,8 +265,17 @@
     <EmbeddedResource Include="ClienteProcesaOrdenFrm.resx">
       <DependentUpon>ClienteProcesaOrdenFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientesFrecuentesFrm.resx">
+      <DependentUpon>ClientesFrecuentesFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientesFrm.resx">
       <DependentUpon>ClientesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteTiendaFrm.resx">
+      <DependentUpon>ClienteTiendaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteVirtualFrm.resx">
+      <DependentUpon>ClienteVirtualFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContratosFrm.resx">
       <DependentUpon>ContratosFrm.cs</DependentUpon>

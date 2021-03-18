@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientesFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_Nombre = new System.Windows.Forms.TextBox();
@@ -42,6 +46,7 @@
             this.gb_ClienteVirtual = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_CodigoSeguridad = new System.Windows.Forms.TextBox();
+            this.VirtualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,11 +68,6 @@
             this.btn_Recargar = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tb_BuscarCliente = new System.Windows.Forms.ToolStripTextBox();
-            this.VirtualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
-            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteTableAdapter();
             this.clienteVirtualTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter();
             this.FrecuenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -77,13 +77,13 @@
             this.TiendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clienteTiendaTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteTiendaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gb_tipoCompra.SuspendLayout();
             this.gb_ClienteVirtual.SuspendLayout();
-            this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VirtualBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
+            this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FrecuenteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PocoFrecuenteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TiendaBindingSource)).BeginInit();
@@ -105,6 +105,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(324, 318);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idClienteDataGridViewTextBoxColumn.Visible = false;
+            this.idClienteDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nombreClienteDataGridViewTextBoxColumn
+            // 
+            this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "nombreCliente";
+            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Nombre del Cliente";
+            this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
+            this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreClienteDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // PrincipalBindingSource
+            // 
+            this.PrincipalBindingSource.DataMember = "Cliente";
+            this.PrincipalBindingSource.DataSource = this.clientesDataSet;
+            this.PrincipalBindingSource.PositionChanged += new System.EventHandler(this.PrincipalBindingSource_PositionChanged);
+            // 
+            // clientesDataSet
+            // 
+            this.clientesDataSet.DataSetName = "ClientesDataSet";
+            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -231,6 +259,11 @@
             this.tb_CodigoSeguridad.PasswordChar = '*';
             this.tb_CodigoSeguridad.Size = new System.Drawing.Size(129, 20);
             this.tb_CodigoSeguridad.TabIndex = 5;
+            // 
+            // VirtualBindingSource
+            // 
+            this.VirtualBindingSource.DataMember = "ClienteVirtual";
+            this.VirtualBindingSource.DataSource = this.clientesDataSet;
             // 
             // label12
             // 
@@ -437,39 +470,6 @@
             this.tb_BuscarCliente.Size = new System.Drawing.Size(100, 54);
             this.tb_BuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Buscar_KeyPress);
             // 
-            // VirtualBindingSource
-            // 
-            this.VirtualBindingSource.DataMember = "ClienteVirtual";
-            this.VirtualBindingSource.DataSource = this.clientesDataSet;
-            // 
-            // clientesDataSet
-            // 
-            this.clientesDataSet.DataSetName = "ClientesDataSet";
-            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // PrincipalBindingSource
-            // 
-            this.PrincipalBindingSource.DataMember = "Cliente";
-            this.PrincipalBindingSource.DataSource = this.clientesDataSet;
-            this.PrincipalBindingSource.PositionChanged += new System.EventHandler(this.PrincipalBindingSource_PositionChanged);
-            // 
-            // idClienteDataGridViewTextBoxColumn
-            // 
-            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
-            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idClienteDataGridViewTextBoxColumn.Visible = false;
-            this.idClienteDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nombreClienteDataGridViewTextBoxColumn
-            // 
-            this.nombreClienteDataGridViewTextBoxColumn.DataPropertyName = "nombreCliente";
-            this.nombreClienteDataGridViewTextBoxColumn.HeaderText = "Nombre del Cliente";
-            this.nombreClienteDataGridViewTextBoxColumn.Name = "nombreClienteDataGridViewTextBoxColumn";
-            this.nombreClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreClienteDataGridViewTextBoxColumn.Width = 250;
-            // 
             // clienteTableAdapter
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
@@ -520,17 +520,17 @@
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.ClientesFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gb_tipoCompra.ResumeLayout(false);
             this.gb_tipoCompra.PerformLayout();
             this.gb_ClienteVirtual.ResumeLayout(false);
             this.gb_ClienteVirtual.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VirtualBindingSource)).EndInit();
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VirtualBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FrecuenteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PocoFrecuenteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TiendaBindingSource)).EndInit();

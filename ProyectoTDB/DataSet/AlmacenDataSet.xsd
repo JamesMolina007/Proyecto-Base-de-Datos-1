@@ -2,14 +2,15 @@
 <xs:schema id="AlmacenDataSet" targetNamespace="http://tempuri.org/AlmacenDataSet.xsd" xmlns:mstns="http://tempuri.org/AlmacenDataSet.xsd" xmlns="http://tempuri.org/AlmacenDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ventasConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ventasConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProyectoDB.Properties.Settings.GlobalReference.Default.ventasConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ventasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ventasConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProyectoDB.Properties.Settings.GlobalReference.Default.ventasConnectionString" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AlmacenTableAdapter" GeneratorDataComponentClassName="AlmacenTableAdapter" Name="Almacen" UserDataComponentName="AlmacenTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ventasConnectionString1 (Settings)" DbObjectName="ventas.Almacen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.Almacen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Almacen` WHERE ((`codigoAlmacen` = @p1) AND (`ciudad` = @p2))</CommandText>
@@ -52,7 +53,7 @@
               <Mapping SourceColumn="ciudad" DataSetColumn="ciudad" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ventasConnectionString1 (Settings)" DbObjectName="ventas.Almacen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.Almacen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        codigoAlmacen, ciudad
@@ -76,7 +77,7 @@ WHERE        (codigoAlmacen LIKE CONCAT('%', @codigoAlmacen, '%')) OR
   <xs:element name="AlmacenDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AlmacenDataSet" msprop:Generator_UserDSName="AlmacenDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Almacen" msprop:Generator_TableClassName="AlmacenDataTable" msprop:Generator_TableVarName="tableAlmacen" msprop:Generator_TablePropName="Almacen" msprop:Generator_RowDeletingName="AlmacenRowDeleting" msprop:Generator_RowChangingName="AlmacenRowChanging" msprop:Generator_RowEvHandlerName="AlmacenRowChangeEventHandler" msprop:Generator_RowDeletedName="AlmacenRowDeleted" msprop:Generator_UserTableName="Almacen" msprop:Generator_RowChangedName="AlmacenRowChanged" msprop:Generator_RowEvArgName="AlmacenRowChangeEvent" msprop:Generator_RowClassName="AlmacenRow">
+        <xs:element name="Almacen" msprop:Generator_TableClassName="AlmacenDataTable" msprop:Generator_TableVarName="tableAlmacen" msprop:Generator_RowChangedName="AlmacenRowChanged" msprop:Generator_TablePropName="Almacen" msprop:Generator_RowDeletingName="AlmacenRowDeleting" msprop:Generator_RowChangingName="AlmacenRowChanging" msprop:Generator_RowEvHandlerName="AlmacenRowChangeEventHandler" msprop:Generator_RowDeletedName="AlmacenRowDeleted" msprop:Generator_RowClassName="AlmacenRow" msprop:Generator_UserTableName="Almacen" msprop:Generator_RowEvArgName="AlmacenRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="codigoAlmacen" msprop:Generator_ColumnVarNameInTable="columncodigoAlmacen" msprop:Generator_ColumnPropNameInRow="codigoAlmacen" msprop:Generator_ColumnPropNameInTable="codigoAlmacenColumn" msprop:Generator_UserColumnName="codigoAlmacen">

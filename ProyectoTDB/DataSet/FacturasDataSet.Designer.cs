@@ -476,7 +476,7 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DetalleFacturaRow AddDetalleFacturaRow(int isv, int Total, int cantidadProducto, FacturaRow parentFacturaRowByFKNoFactura, int idProducto) {
+            public DetalleFacturaRow AddDetalleFacturaRow(double isv, double Total, int cantidadProducto, FacturaRow parentFacturaRowByFKNoFactura, int idProducto) {
                 DetalleFacturaRow rowDetalleFacturaRow = ((DetalleFacturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         isv,
@@ -519,9 +519,9 @@ namespace ProyectoDB.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnisv = new global::System.Data.DataColumn("isv", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnisv = new global::System.Data.DataColumn("isv", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnisv);
-                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
                 this.columncantidadProducto = new global::System.Data.DataColumn("cantidadProducto", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidadProducto);
@@ -1288,9 +1288,9 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int isv {
+            public double isv {
                 get {
-                    return ((int)(this[this.tableDetalleFactura.isvColumn]));
+                    return ((double)(this[this.tableDetalleFactura.isvColumn]));
                 }
                 set {
                     this[this.tableDetalleFactura.isvColumn] = value;
@@ -1299,9 +1299,9 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Total {
+            public double Total {
                 get {
-                    return ((int)(this[this.tableDetalleFactura.TotalColumn]));
+                    return ((double)(this[this.tableDetalleFactura.TotalColumn]));
                 }
                 set {
                     this[this.tableDetalleFactura.TotalColumn] = value;
@@ -2622,7 +2622,7 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::ProyectoDB.Properties.Settings.Default.ventasConnectionString1;
+            this._connection.ConnectionString = global::ProyectoDB.Properties.Settings.Default.ventasConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

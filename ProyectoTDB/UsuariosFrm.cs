@@ -13,6 +13,8 @@ namespace ProyectoDB
 
         private void UsuariosFrm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.Cliente' Puede moverla o quitarla según sea necesario.
+            this.clienteTableAdapter.Fill(this.clientesDataSet.Cliente);
             this.usuariosTableAdapter.Fill(this.usuarioDataSet.Usuarios);
             deshabilitar();
         }
@@ -67,6 +69,14 @@ namespace ProyectoDB
             {
                 if (tb_Contrasena1.Text.Equals(tb_Contrasena2.Text))
                 {
+                    if (cb_TipoUsuario.SelectedItem.ToString().Equals("Cliente"))
+                    {
+                        DataRowView drvCliente = (DataRowView)ClienteBindingSource.AddNew();
+                        drvCliente["nombreCliente"] = tb_nombre.Text;
+                        ClienteBindingSource.EndEdit();
+                        clienteTableAdapter.Update(this.clientesDataSet.Cliente);
+                    }
+                   
                     DataRowView reg = (DataRowView)usuariosBindingSource.Current;
                     this.Validate();
                     this.usuariosBindingSource.EndEdit();
