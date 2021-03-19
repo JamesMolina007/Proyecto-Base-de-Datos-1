@@ -153,8 +153,8 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(88, 51);
-            this.toolStripLabel1.Text = "Buscar Usuario:";
+            this.toolStripLabel1.Size = new System.Drawing.Size(97, 51);
+            this.toolStripLabel1.Text = "Buscar Producto:";
             // 
             // tb_Buscar
             // 
@@ -489,6 +489,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStripMenu);
             this.Name = "ProductoFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.ProductoFrm_Load);
             this.toolStripMenu.ResumeLayout(false);

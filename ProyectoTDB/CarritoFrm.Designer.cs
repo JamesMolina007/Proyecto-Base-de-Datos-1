@@ -44,6 +44,14 @@
             this.CarritoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carritoDataSet = new ProyectoDB.DataSet.CarritoDataSet();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.idProductoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modeloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fabricanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carritoTableAdapter = new ProyectoDB.DataSet.CarritoDataSetTableAdapters.CarritoTableAdapter();
@@ -56,14 +64,6 @@
             this.cb_idProducto = new System.Windows.Forms.ComboBox();
             this.cb_idCliente = new System.Windows.Forms.ComboBox();
             this.tb_Cantidad = new System.Windows.Forms.TextBox();
-            this.idProductoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modeloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fabricanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).BeginInit();
@@ -151,6 +151,7 @@
             // 
             this.tb_BuscarCliente.Name = "tb_BuscarCliente";
             this.tb_BuscarCliente.Size = new System.Drawing.Size(100, 54);
+            this.tb_BuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_BuscarCliente_KeyPress);
             // 
             // dataGridView1
             // 
@@ -222,6 +223,69 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(628, 85);
             this.dataGridView2.TabIndex = 23;
+            // 
+            // idProductoDataGridViewTextBoxColumn1
+            // 
+            this.idProductoDataGridViewTextBoxColumn1.DataPropertyName = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.idProductoDataGridViewTextBoxColumn1.Name = "idProductoDataGridViewTextBoxColumn1";
+            this.idProductoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idProductoDataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // nombreProductoDataGridViewTextBoxColumn
+            // 
+            this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
+            this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
+            this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreProductoDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // modeloDataGridViewTextBoxColumn
+            // 
+            this.modeloDataGridViewTextBoxColumn.DataPropertyName = "Modelo";
+            this.modeloDataGridViewTextBoxColumn.HeaderText = "Modelo";
+            this.modeloDataGridViewTextBoxColumn.Name = "modeloDataGridViewTextBoxColumn";
+            this.modeloDataGridViewTextBoxColumn.ReadOnly = true;
+            this.modeloDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tipoProductoDataGridViewTextBoxColumn
+            // 
+            this.tipoProductoDataGridViewTextBoxColumn.DataPropertyName = "tipoProducto";
+            this.tipoProductoDataGridViewTextBoxColumn.HeaderText = "tipoProducto";
+            this.tipoProductoDataGridViewTextBoxColumn.Name = "tipoProductoDataGridViewTextBoxColumn";
+            this.tipoProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoProductoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fabricanteDataGridViewTextBoxColumn
+            // 
+            this.fabricanteDataGridViewTextBoxColumn.DataPropertyName = "fabricante";
+            this.fabricanteDataGridViewTextBoxColumn.HeaderText = "fabricante";
+            this.fabricanteDataGridViewTextBoxColumn.Name = "fabricanteDataGridViewTextBoxColumn";
+            this.fabricanteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fabricanteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreCategoriaDataGridViewTextBoxColumn
+            // 
+            this.nombreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombreCategoria";
+            this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Categoría";
+            this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
+            this.nombreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreCategoriaDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ProductoBindingSource
             // 
@@ -318,69 +382,6 @@
             this.tb_Cantidad.Name = "tb_Cantidad";
             this.tb_Cantidad.Size = new System.Drawing.Size(195, 20);
             this.tb_Cantidad.TabIndex = 0;
-            // 
-            // idProductoDataGridViewTextBoxColumn1
-            // 
-            this.idProductoDataGridViewTextBoxColumn1.DataPropertyName = "idProducto";
-            this.idProductoDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.idProductoDataGridViewTextBoxColumn1.Name = "idProductoDataGridViewTextBoxColumn1";
-            this.idProductoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idProductoDataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // nombreProductoDataGridViewTextBoxColumn
-            // 
-            this.nombreProductoDataGridViewTextBoxColumn.DataPropertyName = "nombreProducto";
-            this.nombreProductoDataGridViewTextBoxColumn.HeaderText = "Producto";
-            this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
-            this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreProductoDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripción";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // modeloDataGridViewTextBoxColumn
-            // 
-            this.modeloDataGridViewTextBoxColumn.DataPropertyName = "Modelo";
-            this.modeloDataGridViewTextBoxColumn.HeaderText = "Modelo";
-            this.modeloDataGridViewTextBoxColumn.Name = "modeloDataGridViewTextBoxColumn";
-            this.modeloDataGridViewTextBoxColumn.ReadOnly = true;
-            this.modeloDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tipoProductoDataGridViewTextBoxColumn
-            // 
-            this.tipoProductoDataGridViewTextBoxColumn.DataPropertyName = "tipoProducto";
-            this.tipoProductoDataGridViewTextBoxColumn.HeaderText = "tipoProducto";
-            this.tipoProductoDataGridViewTextBoxColumn.Name = "tipoProductoDataGridViewTextBoxColumn";
-            this.tipoProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoProductoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fabricanteDataGridViewTextBoxColumn
-            // 
-            this.fabricanteDataGridViewTextBoxColumn.DataPropertyName = "fabricante";
-            this.fabricanteDataGridViewTextBoxColumn.HeaderText = "fabricante";
-            this.fabricanteDataGridViewTextBoxColumn.Name = "fabricanteDataGridViewTextBoxColumn";
-            this.fabricanteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fabricanteDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreCategoriaDataGridViewTextBoxColumn
-            // 
-            this.nombreCategoriaDataGridViewTextBoxColumn.DataPropertyName = "nombreCategoria";
-            this.nombreCategoriaDataGridViewTextBoxColumn.HeaderText = "Categoría";
-            this.nombreCategoriaDataGridViewTextBoxColumn.Name = "nombreCategoriaDataGridViewTextBoxColumn";
-            this.nombreCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreCategoriaDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // precioDataGridViewTextBoxColumn
-            // 
-            this.precioDataGridViewTextBoxColumn.DataPropertyName = "Precio";
-            this.precioDataGridViewTextBoxColumn.HeaderText = "Precio";
-            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
-            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // CarritoFrm
             // 

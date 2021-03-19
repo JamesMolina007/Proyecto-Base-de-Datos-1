@@ -18,7 +18,7 @@ namespace ProyectoDB
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClientePocoFrecuente' Puede moverla o quitarla según sea necesario.
             this.clientePocoFrecuenteTableAdapter.Fill(this.clientesDataSet.ClientePocoFrecuente);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteFrecuente' Puede moverla o quitarla según sea necesario.
-            // this.clienteFrecuenteTableAdapter.Fill(this.clientesDataSet.ClienteFrecuente);
+             this.clienteFrecuenteTableAdapter.Fill(this.clientesDataSet.ClienteFrecuente);
 
         }
 

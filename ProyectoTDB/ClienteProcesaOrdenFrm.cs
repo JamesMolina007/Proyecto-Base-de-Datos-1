@@ -47,7 +47,7 @@ namespace ProyectoDB
             //// TODO: esta línea de código carga datos en la tabla 'facturasDataSet.DetalleFactura' Puede moverla o quitarla según sea necesario.
             //this.detalleFacturaTableAdapter.Fill(this.facturasDataSet.DetalleFactura);
             //// TODO: esta línea de código carga datos en la tabla 'facturasDataSet.Factura' Puede moverla o quitarla según sea necesario.
-            //this.facturaTableAdapter.Fill(this.facturasDataSet.Factura);
+            this.facturaTableAdapter.Fill(this.facturasDataSet.Factura);
             //// TODO: esta línea de código carga datos en la tabla 'contratoDataSet.Contrato' Puede moverla o quitarla según sea necesario.
             //this.contratoTableAdapter.Fill(this.contratoDataSet.Contrato);
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
@@ -106,7 +106,7 @@ namespace ProyectoDB
                 this.Validate();
                 this.OrdenBindingSource.EndEdit();
                 this.ordenTableAdapter.Update(this.ordenDataSet.Orden);
-                this.ordenTableAdapter.Fill(this.ordenDataSet.Orden);
+                //this.ordenTableAdapter.Fill(this.ordenDataSet.Orden);
                 drvOrden = (DataRowView)OrdenBindingSource.Current;
                 drvOrden.Row["noSeguimiento"] = Convert.ToInt32(drvOrden.Row["noOrden"]);
                 this.OrdenBindingSource.EndEdit();

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoDB
@@ -92,7 +86,7 @@ namespace ProyectoDB
         {
             if (tb_Buscar.Text.Length > 0)
             {
-                PrincipalBindingSource.Filter = "idCliente LIKE '*" + Convert.ToInt32(tb_Buscar.Text) + "*'";
+                PrincipalBindingSource.Filter = string.Format("convert(idCliente, 'System.String') Like '{0}' ", tb_Buscar.Text);
             }
             else
             {

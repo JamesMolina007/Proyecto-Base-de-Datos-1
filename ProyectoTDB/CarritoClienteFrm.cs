@@ -30,14 +30,20 @@ namespace ProyectoDB
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            DataRowView drv = (DataRowView)ProductosBindingSource.Current;
-            DataRowView drvC = (DataRowView)CarritoBindingSource.AddNew();
-            drvC.Row["cantidadProductoCarrito"] = ne_Cantidad.Value;
-            drvC.Row["idProducto"] = Convert.ToInt32(drv.Row["idProducto"]);
-            drvC.Row["idCliente"] = id_Cliente;
-            CarritoBindingSource.EndEdit();
-            carritoTableAdapter.Update(this.carritoClienteDataSet.Carrito);
+            try
+            {
+                this.Validate();
+                DataRowView drv = (DataRowView)ProductosBindingSource.Current;
+                DataRowView drvC = (DataRowView)CarritoBindingSource.AddNew();
+                drvC.Row["cantidadProductoCarrito"] = ne_Cantidad.Value;
+                drvC.Row["idProducto"] = Convert.ToInt32(drv.Row["idProducto"]);
+                drvC.Row["idCliente"] = id_Cliente;
+                CarritoBindingSource.EndEdit();
+                carritoTableAdapter.Update(this.carritoClienteDataSet.Carrito);
+            }catch(Exception ex)
+            {
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

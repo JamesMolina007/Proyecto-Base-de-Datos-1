@@ -15,7 +15,7 @@ namespace ProyectoDB
             recargar();
             this.productoTableAdapter.Fill(this.carritoDataSet.Producto);
             // TODO: esta línea de código carga datos en la tabla 'carritoDataSet.Carrito' Puede moverla o quitarla según sea necesario.
-            this.carritoTableAdapter.Fill(this.carritoDataSet.Carrito);
+           // this.carritoTableAdapter.Fill(this.carritoDataSet.Carrito);
         }
 
         private void recargar()
@@ -89,6 +89,19 @@ namespace ProyectoDB
             btn_Guardar.Enabled = true;
             btn_Nuevo.Enabled = false;
             gb_Datos.Enabled = true;
+        }
+
+        private void tb_BuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (tb_BuscarCliente.Text.Length > 0)
+            {
+                CarritoBindingSource.Filter = string.Format("convert(idCliente, 'System.String') Like '{0}' ", tb_BuscarCliente.Text);
+            }
+            else
+            {
+                CarritoBindingSource.RemoveFilter();
+            }
+            
         }
     }
 }

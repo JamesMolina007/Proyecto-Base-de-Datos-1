@@ -125,7 +125,7 @@ namespace ProyectoDB
         {
             if (tb_BuscarCliente.Text.Length > 0)
             {
-                ClienteVirtualBindingSource.Filter = "idCliente LIKE '*" + Convert.ToInt32(tb_BuscarCliente.Text) + "*'";
+                ClienteVirtualBindingSource.Filter = string.Format("convert(idCliente, 'System.String') Like '{0}' ", Convert.ToInt32(tb_BuscarCliente));
             }
             else
             {

@@ -81,7 +81,6 @@ C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\P
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteProcesaOrdenFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.EmpresaDeEnvioFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteContratoFrm.resources
-C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteFacturaFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClientesFrecuentesFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteTiendaFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteVirtualFrm.resources
@@ -89,4 +88,7 @@ C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\C
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\C1.Win.C1Editor.2.xml
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClientePocoFrecuenteFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ConsultaOrdenFrm.resources
-C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.OrdenEnviadaFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ConsultaFacturaClienteFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ConsultaOrdenClienteFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.OrdenClienteFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ProcesoOrdenFrm.resources

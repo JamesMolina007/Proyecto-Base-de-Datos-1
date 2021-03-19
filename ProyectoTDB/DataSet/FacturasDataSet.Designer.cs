@@ -861,8 +861,7 @@ namespace ProyectoDB.DataSet {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnoFactura}, true));
                 this.columnnoFactura.AutoIncrement = true;
-                this.columnnoFactura.AutoIncrementSeed = -1;
-                this.columnnoFactura.AutoIncrementStep = -1;
+                this.columnnoFactura.AutoIncrementSeed = 1;
                 this.columnnoFactura.AllowDBNull = false;
                 this.columnnoFactura.Unique = true;
                 this.columnDireccion.MaxLength = 50;
@@ -2284,14 +2283,14 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        noFactura, Direccion, RTN, FechaEmision, idCliente, codigoTienda\r\nF" +
-                "ROM            Factura\r\nWHERE        (noFactura = @noFactura)";
+                "ROM            Factura\r\nWHERE        (idCliente  = @idCliente )";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@noFactura";
+            param.ParameterName = "@idCliente";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "noFactura";
+            param.SourceColumn = "idCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._commandCollection[1].Parameters.Add(param);
         }
@@ -2324,9 +2323,9 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByFactura(FacturasDataSet.FacturaDataTable dataTable, int noFactura) {
+        public virtual int FillByFactura(FacturasDataSet.FacturaDataTable dataTable, int idCliente) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noFactura));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idCliente));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2338,9 +2337,9 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FacturasDataSet.FacturaDataTable GetDataByFactura(int noFactura) {
+        public virtual FacturasDataSet.FacturaDataTable GetDataByFactura(int idCliente) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noFactura));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idCliente));
             FacturasDataSet.FacturaDataTable dataTable = new FacturasDataSet.FacturaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

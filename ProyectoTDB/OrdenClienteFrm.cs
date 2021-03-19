@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoDB
 {
-    public partial class ClienteFacturaFrm : Form
+    public partial class OrdenClienteFrm : Form
     {
-        public ClienteFacturaFrm()
+        public OrdenClienteFrm()
         {
             InitializeComponent();
         }

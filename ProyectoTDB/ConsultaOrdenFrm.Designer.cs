@@ -49,8 +49,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
+            this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
             this.gb_ClienteVirtual = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox21 = new System.Windows.Forms.TextBox();
@@ -76,7 +77,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.EncabezadoFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -87,6 +87,11 @@
             this.clienteVirtualTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter();
             this.facturaTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.noFacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetalleFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detalleFacturaTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.DetalleFacturaTableAdapter();
             this.ProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -104,11 +109,6 @@
             this.almacenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteTableAdapter1 = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
-            this.noFacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.tb_ISV = new System.Windows.Forms.TextBox();
@@ -118,12 +118,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
             this.gb_Cliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
             this.gb_ClienteVirtual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteVirtualBindingSource)).BeginInit();
             this.gb_EncabezadoFactura.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EncabezadoFacturaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleFacturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).BeginInit();
@@ -310,10 +310,10 @@
             this.ClienteBindingSource.DataMember = "Cliente";
             this.ClienteBindingSource.DataSource = this.facturasDataSet;
             // 
-            // clientesDataSet
+            // facturasDataSet
             // 
-            this.clientesDataSet.DataSetName = "ClientesDataSet";
-            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.facturasDataSet.DataSetName = "FacturasDataSet";
+            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // textBox7
             // 
@@ -322,6 +322,11 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(111, 20);
             this.textBox7.TabIndex = 6;
+            // 
+            // clientesDataSet
+            // 
+            this.clientesDataSet.DataSetName = "ClientesDataSet";
+            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gb_ClienteVirtual
             // 
@@ -562,11 +567,6 @@
             this.EncabezadoFacturaBindingSource.DataMember = "Factura";
             this.EncabezadoFacturaBindingSource.DataSource = this.facturasDataSet;
             // 
-            // facturasDataSet
-            // 
-            this.facturasDataSet.DataSetName = "FacturasDataSet";
-            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // textBox19
             // 
             this.textBox19.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EncabezadoFacturaBindingSource, "idCliente", true));
@@ -641,6 +641,44 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(432, 260);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // noFacturaDataGridViewTextBoxColumn
+            // 
+            this.noFacturaDataGridViewTextBoxColumn.DataPropertyName = "NoFactura";
+            this.noFacturaDataGridViewTextBoxColumn.HeaderText = "NoFactura";
+            this.noFacturaDataGridViewTextBoxColumn.Name = "noFacturaDataGridViewTextBoxColumn";
+            this.noFacturaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idProductoDataGridViewTextBoxColumn
+            // 
+            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "ID Producto";
+            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantidadProductoDataGridViewTextBoxColumn
+            // 
+            this.cantidadProductoDataGridViewTextBoxColumn.DataPropertyName = "cantidadProducto";
+            this.cantidadProductoDataGridViewTextBoxColumn.HeaderText = "Cantidad de Producto";
+            this.cantidadProductoDataGridViewTextBoxColumn.Name = "cantidadProductoDataGridViewTextBoxColumn";
+            this.cantidadProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cantidadProductoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // isvDataGridViewTextBoxColumn
+            // 
+            this.isvDataGridViewTextBoxColumn.DataPropertyName = "isv";
+            this.isvDataGridViewTextBoxColumn.HeaderText = "ISV";
+            this.isvDataGridViewTextBoxColumn.Name = "isvDataGridViewTextBoxColumn";
+            this.isvDataGridViewTextBoxColumn.ReadOnly = true;
+            this.isvDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.Visible = false;
             // 
             // DetalleFacturaBindingSource
             // 
@@ -770,44 +808,6 @@
             // 
             this.clienteTableAdapter1.ClearBeforeFill = true;
             // 
-            // noFacturaDataGridViewTextBoxColumn
-            // 
-            this.noFacturaDataGridViewTextBoxColumn.DataPropertyName = "NoFactura";
-            this.noFacturaDataGridViewTextBoxColumn.HeaderText = "NoFactura";
-            this.noFacturaDataGridViewTextBoxColumn.Name = "noFacturaDataGridViewTextBoxColumn";
-            this.noFacturaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idProductoDataGridViewTextBoxColumn
-            // 
-            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
-            this.idProductoDataGridViewTextBoxColumn.HeaderText = "ID Producto";
-            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
-            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cantidadProductoDataGridViewTextBoxColumn
-            // 
-            this.cantidadProductoDataGridViewTextBoxColumn.DataPropertyName = "cantidadProducto";
-            this.cantidadProductoDataGridViewTextBoxColumn.HeaderText = "Cantidad de Producto";
-            this.cantidadProductoDataGridViewTextBoxColumn.Name = "cantidadProductoDataGridViewTextBoxColumn";
-            this.cantidadProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cantidadProductoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // isvDataGridViewTextBoxColumn
-            // 
-            this.isvDataGridViewTextBoxColumn.DataPropertyName = "isv";
-            this.isvDataGridViewTextBoxColumn.HeaderText = "ISV";
-            this.isvDataGridViewTextBoxColumn.Name = "isvDataGridViewTextBoxColumn";
-            this.isvDataGridViewTextBoxColumn.ReadOnly = true;
-            this.isvDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalDataGridViewTextBoxColumn.Visible = false;
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -870,6 +870,7 @@
             this.gb_Cliente.ResumeLayout(false);
             this.gb_Cliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
             this.gb_ClienteVirtual.ResumeLayout(false);
             this.gb_ClienteVirtual.PerformLayout();
@@ -877,7 +878,6 @@
             this.gb_EncabezadoFactura.ResumeLayout(false);
             this.gb_EncabezadoFactura.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EncabezadoFacturaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleFacturaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).EndInit();

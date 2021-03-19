@@ -30,33 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiendaFrm));
-            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tiendaDataSet = new ProyectoDB.DataSet.TiendaDataSet();
-            this.tiendaTableAdapter = new ProyectoDB.DataSet.TiendaDataSetTableAdapters.TiendaTableAdapter();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.tb_Buscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.codigoTiendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ubicacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiendaDataSet = new ProyectoDB.DataSet.TiendaDataSet();
+            this.tiendaTableAdapter = new ProyectoDB.DataSet.TiendaDataSetTableAdapters.TiendaTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiendaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PrincipalBindingSource
-            // 
-            this.PrincipalBindingSource.DataMember = "Tienda";
-            this.PrincipalBindingSource.DataSource = this.tiendaDataSet;
-            // 
-            // tiendaDataSet
-            // 
-            this.tiendaDataSet.DataSetName = "TiendaDataSet";
-            this.tiendaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tiendaTableAdapter
-            // 
-            this.tiendaTableAdapter.ClearBeforeFill = true;
             // 
             // btn_Eliminar
             // 
@@ -118,6 +104,20 @@
             this.ubicacionDataGridViewTextBoxColumn.Name = "ubicacionDataGridViewTextBoxColumn";
             this.ubicacionDataGridViewTextBoxColumn.Width = 250;
             // 
+            // PrincipalBindingSource
+            // 
+            this.PrincipalBindingSource.DataMember = "Tienda";
+            this.PrincipalBindingSource.DataSource = this.tiendaDataSet;
+            // 
+            // tiendaDataSet
+            // 
+            this.tiendaDataSet.DataSetName = "TiendaDataSet";
+            this.tiendaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tiendaTableAdapter
+            // 
+            this.tiendaTableAdapter.ClearBeforeFill = true;
+            // 
             // TiendaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,11 +128,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "TiendaFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tiendas";
             this.Load += new System.EventHandler(this.TiendaFrm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiendaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

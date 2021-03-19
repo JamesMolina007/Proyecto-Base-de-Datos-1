@@ -1,6 +1,6 @@
 ﻿namespace ProyectoDB
 {
-    partial class OrdenEnviadaFrm
+    partial class ProcesoOrdenFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdenEnviadaFrm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcesoOrdenFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.OrdenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordenDataSet = new ProyectoDB.DataSet.OrdenDataSet();

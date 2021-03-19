@@ -38,6 +38,8 @@ namespace ProyectoDB
 
         private void Principal_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'facturasDataSet.Cliente' Puede moverla o quitarla según sea necesario.
+            //this.clienteTableAdapter.Fill(this.facturasDataSet.Cliente);
             if ( tipoUsuario.Equals("Servicio al Cliente"))
             {
                 inventarioToolStripMenuItem.Visible = true;
@@ -176,8 +178,27 @@ namespace ProyectoDB
 
         private void pedidosRealizadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OrdenEnviadaFrm ordenenviada = new OrdenEnviadaFrm();
+            ProcesoOrdenFrm ordenenviada = new ProcesoOrdenFrm();
             ordenenviada.Show();
+        }
+
+        private void ordenesProcesadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaOrdenClienteFrm consultaordencliente = new ConsultaOrdenClienteFrm();
+            consultaordencliente.setIdCliente(idCliente);
+            consultaordencliente.Show();
+        }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaFacturaClienteFrm consultafactura = new ConsultaFacturaClienteFrm();
+            consultafactura.setIdCliente(idCliente);
+            consultafactura.Show();
+        }
+
+        private void ordenesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

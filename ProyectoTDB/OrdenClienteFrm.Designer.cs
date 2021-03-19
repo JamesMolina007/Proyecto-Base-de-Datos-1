@@ -1,6 +1,6 @@
 ﻿namespace ProyectoDB
 {
-    partial class ClienteFacturaFrm
+    partial class OrdenClienteFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // ClienteFacturaFrm
+            // OrdenClienteFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 416);
-            this.Name = "ClienteFacturaFrm";
-            this.Text = "Facturación";
+            this.ClientSize = new System.Drawing.Size(697, 415);
+            this.Name = "OrdenClienteFrm";
+            this.Text = "Ordenes";
             this.ResumeLayout(false);
 
         }
