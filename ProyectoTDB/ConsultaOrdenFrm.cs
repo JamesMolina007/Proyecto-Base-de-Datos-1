@@ -19,6 +19,12 @@ namespace ProyectoDB
             InitializeComponent();
         }
 
+        private void EncabezadoFacturaBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            DataRowView drvFactura = (DataRowView)EncabezadoFacturaBindingSource.Current;
+            this.detalleFacturaTableAdapter.FillByFactura(this.facturasDataSet.DetalleFactura, Convert.ToInt32(drvFactura["noFactura"]));
+        }
+
         private void ConsultaOrdenFrm_Load(object sender, EventArgs e)
         {
             this.ordenTableAdapter.FillByOrden(this.ordenDataSet.Orden, noOrden);

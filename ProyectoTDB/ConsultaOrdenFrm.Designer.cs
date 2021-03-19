@@ -97,6 +97,18 @@
             this.ProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosDataSet = new ProyectoDB.DataSet.ProductosDataSet();
             this.productoTableAdapter = new ProyectoDB.DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter();
+            this.clienteTableAdapter1 = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tb_ISV = new System.Windows.Forms.TextBox();
+            this.tb_Total = new System.Windows.Forms.TextBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.noFacturaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rTNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaEmisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoTiendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.idProductoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,11 +120,6 @@
             this.nombreCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.almacenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteTableAdapter1 = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.tb_ISV = new System.Windows.Forms.TextBox();
-            this.tb_Total = new System.Windows.Forms.TextBox();
             this.gb_Orden.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
@@ -128,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DetalleFacturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -566,6 +574,7 @@
             // 
             this.EncabezadoFacturaBindingSource.DataMember = "Factura";
             this.EncabezadoFacturaBindingSource.DataSource = this.facturasDataSet;
+            this.EncabezadoFacturaBindingSource.PositionChanged += new System.EventHandler(this.EncabezadoFacturaBindingSource_PositionChanged);
             // 
             // textBox19
             // 
@@ -703,6 +712,110 @@
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
             // 
+            // clienteTableAdapter1
+            // 
+            this.clienteTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(978, 15);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(27, 13);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "ISV:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(978, 70);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(34, 13);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Total:";
+            // 
+            // tb_ISV
+            // 
+            this.tb_ISV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DetalleFacturaBindingSource, "isv", true));
+            this.tb_ISV.Enabled = false;
+            this.tb_ISV.Location = new System.Drawing.Point(978, 36);
+            this.tb_ISV.Name = "tb_ISV";
+            this.tb_ISV.Size = new System.Drawing.Size(89, 20);
+            this.tb_ISV.TabIndex = 9;
+            // 
+            // tb_Total
+            // 
+            this.tb_Total.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DetalleFacturaBindingSource, "Total", true));
+            this.tb_Total.Enabled = false;
+            this.tb_Total.Location = new System.Drawing.Point(977, 90);
+            this.tb_Total.Name = "tb_Total";
+            this.tb_Total.Size = new System.Drawing.Size(89, 20);
+            this.tb_Total.TabIndex = 10;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.noFacturaDataGridViewTextBoxColumn1,
+            this.direccionDataGridViewTextBoxColumn,
+            this.rTNDataGridViewTextBoxColumn,
+            this.fechaEmisionDataGridViewTextBoxColumn,
+            this.idClienteDataGridViewTextBoxColumn,
+            this.codigoTiendaDataGridViewTextBoxColumn});
+            this.dataGridView3.DataSource = this.EncabezadoFacturaBindingSource;
+            this.dataGridView3.Location = new System.Drawing.Point(539, 290);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.Size = new System.Drawing.Size(467, 107);
+            this.dataGridView3.TabIndex = 11;
+            // 
+            // noFacturaDataGridViewTextBoxColumn1
+            // 
+            this.noFacturaDataGridViewTextBoxColumn1.DataPropertyName = "noFactura";
+            this.noFacturaDataGridViewTextBoxColumn1.HeaderText = "No. Factura";
+            this.noFacturaDataGridViewTextBoxColumn1.Name = "noFacturaDataGridViewTextBoxColumn1";
+            this.noFacturaDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Direccion";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rTNDataGridViewTextBoxColumn
+            // 
+            this.rTNDataGridViewTextBoxColumn.DataPropertyName = "RTN";
+            this.rTNDataGridViewTextBoxColumn.HeaderText = "RTN";
+            this.rTNDataGridViewTextBoxColumn.Name = "rTNDataGridViewTextBoxColumn";
+            this.rTNDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaEmisionDataGridViewTextBoxColumn
+            // 
+            this.fechaEmisionDataGridViewTextBoxColumn.DataPropertyName = "FechaEmision";
+            this.fechaEmisionDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaEmisionDataGridViewTextBoxColumn.Name = "fechaEmisionDataGridViewTextBoxColumn";
+            this.fechaEmisionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idClienteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // codigoTiendaDataGridViewTextBoxColumn
+            // 
+            this.codigoTiendaDataGridViewTextBoxColumn.DataPropertyName = "codigoTienda";
+            this.codigoTiendaDataGridViewTextBoxColumn.HeaderText = "codigoTienda";
+            this.codigoTiendaDataGridViewTextBoxColumn.Name = "codigoTiendaDataGridViewTextBoxColumn";
+            this.codigoTiendaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoTiendaDataGridViewTextBoxColumn.Visible = false;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -721,11 +834,11 @@
             this.almacenDataGridViewTextBoxColumn,
             this.cantidadDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.ProductosBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(538, 290);
+            this.dataGridView2.Location = new System.Drawing.Point(539, 424);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(529, 165);
-            this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.TabIndex = 12;
             // 
             // idProductoDataGridViewTextBoxColumn1
             // 
@@ -804,56 +917,17 @@
             this.cantidadDataGridViewTextBoxColumn.ReadOnly = true;
             this.cantidadDataGridViewTextBoxColumn.Visible = false;
             // 
-            // clienteTableAdapter1
-            // 
-            this.clienteTableAdapter1.ClearBeforeFill = true;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(978, 15);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(27, 13);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "ISV:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(978, 70);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(34, 13);
-            this.label24.TabIndex = 7;
-            this.label24.Text = "Total:";
-            // 
-            // tb_ISV
-            // 
-            this.tb_ISV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DetalleFacturaBindingSource, "isv", true));
-            this.tb_ISV.Enabled = false;
-            this.tb_ISV.Location = new System.Drawing.Point(978, 36);
-            this.tb_ISV.Name = "tb_ISV";
-            this.tb_ISV.Size = new System.Drawing.Size(89, 20);
-            this.tb_ISV.TabIndex = 9;
-            // 
-            // tb_Total
-            // 
-            this.tb_Total.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DetalleFacturaBindingSource, "Total", true));
-            this.tb_Total.Enabled = false;
-            this.tb_Total.Location = new System.Drawing.Point(977, 90);
-            this.tb_Total.Name = "tb_Total";
-            this.tb_Total.Size = new System.Drawing.Size(89, 20);
-            this.tb_Total.TabIndex = 10;
-            // 
             // ConsultaOrdenFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 601);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.tb_Total);
             this.Controls.Add(this.tb_ISV);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gb_EncabezadoFactura);
             this.Controls.Add(this.gb_ClienteVirtual);
@@ -861,7 +935,7 @@
             this.Controls.Add(this.gb_Orden);
             this.Name = "ConsultaOrdenFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta de Orden";
+            this.Text = "Consulta de Orden y Factura";
             this.Load += new System.EventHandler(this.ConsultaOrdenFrm_Load);
             this.gb_Orden.ResumeLayout(false);
             this.gb_Orden.PerformLayout();
@@ -882,6 +956,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DetalleFacturaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -952,17 +1027,6 @@
         private System.Windows.Forms.BindingSource ProductosBindingSource;
         private DataSet.ProductosDataSet productosDataSet;
         private DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter productoTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modeloDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fabricanteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn almacenDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource OrdenBindingSource;
         private DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter clienteTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn noFacturaDataGridViewTextBoxColumn;
@@ -974,5 +1038,23 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox tb_ISV;
         private System.Windows.Forms.TextBox tb_Total;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noFacturaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rTNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaEmisionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoTiendaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modeloDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fabricanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn almacenDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
     }
 }

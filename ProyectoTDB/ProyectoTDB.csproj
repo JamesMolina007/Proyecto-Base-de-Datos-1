@@ -240,11 +240,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrdenClienteFrm.cs">
+    <Compile Include="OrdenesFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrdenClienteFrm.Designer.cs">
-      <DependentUpon>OrdenClienteFrm.cs</DependentUpon>
+    <Compile Include="OrdenesFrm.Designer.cs">
+      <DependentUpon>OrdenesFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProcesoOrdenFrm.cs">
       <SubType>Form</SubType>
@@ -333,8 +333,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrdenClienteFrm.resx">
-      <DependentUpon>OrdenClienteFrm.cs</DependentUpon>
+    <EmbeddedResource Include="OrdenesFrm.resx">
+      <DependentUpon>OrdenesFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProcesoOrdenFrm.resx">
       <DependentUpon>ProcesoOrdenFrm.cs</DependentUpon>
