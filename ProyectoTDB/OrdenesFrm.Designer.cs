@@ -38,33 +38,35 @@
             this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
             this.ordenTableAdapter = new ProyectoDB.DataSet.OrdenDataSetTableAdapters.OrdenTableAdapter();
             this.empresaDeEnvioTableAdapter = new ProyectoDB.DataSet.EmpresasDeEnvioDataSetTableAdapters.EmpresaDeEnvioTableAdapter();
-            this.clientePocoFrecuenteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClientePocoFrecuenteTableAdapter();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.btn_Nuevo = new System.Windows.Forms.ToolStripButton();
             this.btn_Guardar = new System.Windows.Forms.ToolStripButton();
             this.btn_Eliminar = new System.Windows.Forms.ToolStripButton();
             this.btn_Recargar = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tb_BuscarCliente = new System.Windows.Forms.ToolStripTextBox();
+            this.tb_Buscar = new System.Windows.Forms.ToolStripTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noOrdenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreRemitenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresaEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noSeguimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tb_Remitente = new System.Windows.Forms.TextBox();
-            this.tb_Direccion = new System.Windows.Forms.TextBox();
-            this.cb_Cliente = new System.Windows.Forms.ComboBox();
-            this.cb_EmpresaEnvio = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.gb_DatosOrden = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cb_Estatus = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cb_EmpresaEnvio = new System.Windows.Forms.ComboBox();
+            this.cb_Cliente = new System.Windows.Forms.ComboBox();
+            this.tb_Direccion = new System.Windows.Forms.TextBox();
+            this.tb_Remitente = new System.Windows.Forms.TextBox();
+            this.tb_NoSeguimiento = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.clienteVirtualTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresaEnvíoBindingSource)).BeginInit();
@@ -73,13 +75,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gb_DatosOrden.SuspendLayout();
             this.SuspendLayout();
             // 
             // OrdenBindingSource
             // 
             this.OrdenBindingSource.DataMember = "Orden";
             this.OrdenBindingSource.DataSource = this.ordenDataSet;
+            this.OrdenBindingSource.PositionChanged += new System.EventHandler(this.OrdenBindingSource_PositionChanged);
             // 
             // ordenDataSet
             // 
@@ -98,7 +101,7 @@
             // 
             // ClienteBindingSource
             // 
-            this.ClienteBindingSource.DataMember = "ClientePocoFrecuente";
+            this.ClienteBindingSource.DataMember = "ClienteVirtual";
             this.ClienteBindingSource.DataSource = this.clientesDataSet;
             // 
             // clientesDataSet
@@ -114,10 +117,6 @@
             // 
             this.empresaDeEnvioTableAdapter.ClearBeforeFill = true;
             // 
-            // clientePocoFrecuenteTableAdapter
-            // 
-            this.clientePocoFrecuenteTableAdapter.ClearBeforeFill = true;
-            // 
             // toolStripMenu
             // 
             this.toolStripMenu.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -127,7 +126,7 @@
             this.btn_Eliminar,
             this.btn_Recargar,
             this.toolStripLabel1,
-            this.tb_BuscarCliente});
+            this.tb_Buscar});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(923, 54);
@@ -145,6 +144,7 @@
             this.btn_Nuevo.Text = "Nuevo";
             this.btn_Nuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.btn_Nuevo.Click += new System.EventHandler(this.btn_Nuevo_Click);
             // 
             // btn_Guardar
             // 
@@ -157,6 +157,7 @@
             this.btn_Guardar.Text = "Guardar";
             this.btn_Guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // btn_Eliminar
             // 
@@ -169,6 +170,7 @@
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_Recargar
             // 
@@ -180,6 +182,7 @@
             this.btn_Recargar.Text = "Recargar";
             this.btn_Recargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Recargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Recargar.Click += new System.EventHandler(this.btn_Recargar_Click);
             // 
             // toolStripLabel1
             // 
@@ -187,10 +190,11 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(85, 51);
             this.toolStripLabel1.Text = "Buscar Cliente:";
             // 
-            // tb_BuscarCliente
+            // tb_Buscar
             // 
-            this.tb_BuscarCliente.Name = "tb_BuscarCliente";
-            this.tb_BuscarCliente.Size = new System.Drawing.Size(100, 54);
+            this.tb_Buscar.Name = "tb_Buscar";
+            this.tb_Buscar.Size = new System.Drawing.Size(100, 54);
+            this.tb_Buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Buscar_KeyPress);
             // 
             // dataGridView1
             // 
@@ -199,12 +203,12 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idClienteDataGridViewTextBoxColumn,
             this.noOrdenDataGridViewTextBoxColumn,
             this.nombreRemitenteDataGridViewTextBoxColumn,
             this.empresaEnvioDataGridViewTextBoxColumn,
             this.direccionEnvioDataGridViewTextBoxColumn,
             this.noSeguimientoDataGridViewTextBoxColumn,
-            this.idClienteDataGridViewTextBoxColumn,
             this.estatusDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.OrdenBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 68);
@@ -212,6 +216,13 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(630, 335);
             this.dataGridView1.TabIndex = 24;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID Cliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // noOrdenDataGridViewTextBoxColumn
             // 
@@ -251,13 +262,6 @@
             this.noSeguimientoDataGridViewTextBoxColumn.ReadOnly = true;
             this.noSeguimientoDataGridViewTextBoxColumn.Visible = false;
             // 
-            // idClienteDataGridViewTextBoxColumn
-            // 
-            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID Cliente";
-            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
-            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // estatusDataGridViewTextBoxColumn
             // 
             this.estatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus";
@@ -265,103 +269,26 @@
             this.estatusDataGridViewTextBoxColumn.Name = "estatusDataGridViewTextBoxColumn";
             this.estatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // groupBox1
+            // gb_DatosOrden
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cb_Estatus);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cb_EmpresaEnvio);
-            this.groupBox1.Controls.Add(this.cb_Cliente);
-            this.groupBox1.Controls.Add(this.tb_Direccion);
-            this.groupBox1.Controls.Add(this.tb_Remitente);
-            this.groupBox1.Location = new System.Drawing.Point(662, 68);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(249, 268);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos de Orden:";
-            // 
-            // tb_Remitente
-            // 
-            this.tb_Remitente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "nombreRemitente", true));
-            this.tb_Remitente.Location = new System.Drawing.Point(78, 33);
-            this.tb_Remitente.Name = "tb_Remitente";
-            this.tb_Remitente.Size = new System.Drawing.Size(165, 20);
-            this.tb_Remitente.TabIndex = 0;
-            // 
-            // tb_Direccion
-            // 
-            this.tb_Direccion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "direccionEnvio", true));
-            this.tb_Direccion.Location = new System.Drawing.Point(78, 72);
-            this.tb_Direccion.Multiline = true;
-            this.tb_Direccion.Name = "tb_Direccion";
-            this.tb_Direccion.Size = new System.Drawing.Size(165, 52);
-            this.tb_Direccion.TabIndex = 1;
-            // 
-            // cb_Cliente
-            // 
-            this.cb_Cliente.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.OrdenBindingSource, "idCliente", true));
-            this.cb_Cliente.DataSource = this.ClienteBindingSource;
-            this.cb_Cliente.DisplayMember = "idCliente";
-            this.cb_Cliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Cliente.FormattingEnabled = true;
-            this.cb_Cliente.Location = new System.Drawing.Point(55, 187);
-            this.cb_Cliente.Name = "cb_Cliente";
-            this.cb_Cliente.Size = new System.Drawing.Size(188, 21);
-            this.cb_Cliente.TabIndex = 2;
-            this.cb_Cliente.ValueMember = "idCliente";
-            // 
-            // cb_EmpresaEnvio
-            // 
-            this.cb_EmpresaEnvio.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.OrdenBindingSource, "empresaEnvio", true));
-            this.cb_EmpresaEnvio.DataSource = this.EmpresaEnvíoBindingSource;
-            this.cb_EmpresaEnvio.DisplayMember = "nombreEmpresa";
-            this.cb_EmpresaEnvio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_EmpresaEnvio.FormattingEnabled = true;
-            this.cb_EmpresaEnvio.Location = new System.Drawing.Point(108, 145);
-            this.cb_EmpresaEnvio.Name = "cb_EmpresaEnvio";
-            this.cb_EmpresaEnvio.Size = new System.Drawing.Size(135, 21);
-            this.cb_EmpresaEnvio.TabIndex = 3;
-            this.cb_EmpresaEnvio.ValueMember = "nombreEmpresa";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Remitente:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Dirección:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 148);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Empresa de Envío";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 190);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Cliente:";
+            this.gb_DatosOrden.Controls.Add(this.label6);
+            this.gb_DatosOrden.Controls.Add(this.tb_NoSeguimiento);
+            this.gb_DatosOrden.Controls.Add(this.label5);
+            this.gb_DatosOrden.Controls.Add(this.cb_Estatus);
+            this.gb_DatosOrden.Controls.Add(this.label4);
+            this.gb_DatosOrden.Controls.Add(this.label3);
+            this.gb_DatosOrden.Controls.Add(this.label2);
+            this.gb_DatosOrden.Controls.Add(this.label1);
+            this.gb_DatosOrden.Controls.Add(this.cb_EmpresaEnvio);
+            this.gb_DatosOrden.Controls.Add(this.cb_Cliente);
+            this.gb_DatosOrden.Controls.Add(this.tb_Direccion);
+            this.gb_DatosOrden.Controls.Add(this.tb_Remitente);
+            this.gb_DatosOrden.Location = new System.Drawing.Point(662, 68);
+            this.gb_DatosOrden.Name = "gb_DatosOrden";
+            this.gb_DatosOrden.Size = new System.Drawing.Size(249, 335);
+            this.gb_DatosOrden.TabIndex = 25;
+            this.gb_DatosOrden.TabStop = false;
+            this.gb_DatosOrden.Text = "Datos de Orden:";
             // 
             // label5
             // 
@@ -386,15 +313,116 @@
             this.cb_Estatus.Size = new System.Drawing.Size(188, 21);
             this.cb_Estatus.TabIndex = 8;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 190);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Cliente:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 148);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Empresa de Envío";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Dirección:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Remitente:";
+            // 
+            // cb_EmpresaEnvio
+            // 
+            this.cb_EmpresaEnvio.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.OrdenBindingSource, "empresaEnvio", true));
+            this.cb_EmpresaEnvio.DataSource = this.EmpresaEnvíoBindingSource;
+            this.cb_EmpresaEnvio.DisplayMember = "nombreEmpresa";
+            this.cb_EmpresaEnvio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_EmpresaEnvio.FormattingEnabled = true;
+            this.cb_EmpresaEnvio.Location = new System.Drawing.Point(108, 145);
+            this.cb_EmpresaEnvio.Name = "cb_EmpresaEnvio";
+            this.cb_EmpresaEnvio.Size = new System.Drawing.Size(135, 21);
+            this.cb_EmpresaEnvio.TabIndex = 3;
+            this.cb_EmpresaEnvio.ValueMember = "nombreEmpresa";
+            // 
+            // cb_Cliente
+            // 
+            this.cb_Cliente.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.OrdenBindingSource, "idCliente", true));
+            this.cb_Cliente.DataSource = this.ClienteBindingSource;
+            this.cb_Cliente.DisplayMember = "idCliente";
+            this.cb_Cliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Cliente.FormattingEnabled = true;
+            this.cb_Cliente.Location = new System.Drawing.Point(55, 187);
+            this.cb_Cliente.Name = "cb_Cliente";
+            this.cb_Cliente.Size = new System.Drawing.Size(188, 21);
+            this.cb_Cliente.TabIndex = 2;
+            this.cb_Cliente.ValueMember = "idCliente";
+            // 
+            // tb_Direccion
+            // 
+            this.tb_Direccion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "direccionEnvio", true));
+            this.tb_Direccion.Location = new System.Drawing.Point(78, 72);
+            this.tb_Direccion.Multiline = true;
+            this.tb_Direccion.Name = "tb_Direccion";
+            this.tb_Direccion.Size = new System.Drawing.Size(165, 52);
+            this.tb_Direccion.TabIndex = 1;
+            // 
+            // tb_Remitente
+            // 
+            this.tb_Remitente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "nombreRemitente", true));
+            this.tb_Remitente.Location = new System.Drawing.Point(78, 33);
+            this.tb_Remitente.Name = "tb_Remitente";
+            this.tb_Remitente.Size = new System.Drawing.Size(165, 20);
+            this.tb_Remitente.TabIndex = 0;
+            // 
+            // tb_NoSeguimiento
+            // 
+            this.tb_NoSeguimiento.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "noSeguimiento", true));
+            this.tb_NoSeguimiento.Location = new System.Drawing.Point(101, 269);
+            this.tb_NoSeguimiento.Name = "tb_NoSeguimiento";
+            this.tb_NoSeguimiento.Size = new System.Drawing.Size(142, 20);
+            this.tb_NoSeguimiento.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 273);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "No. Seguimiento:";
+            // 
+            // clienteVirtualTableAdapter
+            // 
+            this.clienteVirtualTableAdapter.ClearBeforeFill = true;
+            // 
             // OrdenesFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 415);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gb_DatosOrden);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStripMenu);
             this.Name = "OrdenesFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ordenes";
             this.Load += new System.EventHandler(this.OrdenClienteFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).EndInit();
@@ -406,8 +434,8 @@
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gb_DatosOrden.ResumeLayout(false);
+            this.gb_DatosOrden.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,23 +451,15 @@
         private DataSet.EmpresasDeEnvioDataSet empresasDeEnvioDataSet;
         private DataSet.EmpresasDeEnvioDataSetTableAdapters.EmpresaDeEnvioTableAdapter empresaDeEnvioTableAdapter;
         private DataSet.ClientesDataSet clientesDataSet;
-        private DataSet.ClientesDataSetTableAdapters.ClientePocoFrecuenteTableAdapter clientePocoFrecuenteTableAdapter;
         private System.Windows.Forms.ToolStrip toolStripMenu;
         private System.Windows.Forms.ToolStripButton btn_Nuevo;
         private System.Windows.Forms.ToolStripButton btn_Guardar;
         private System.Windows.Forms.ToolStripButton btn_Eliminar;
         private System.Windows.Forms.ToolStripButton btn_Recargar;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox tb_BuscarCliente;
+        private System.Windows.Forms.ToolStripTextBox tb_Buscar;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noOrdenDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreRemitenteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empresaEnvioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccionEnvioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noSeguimientoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gb_DatosOrden;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_Estatus;
         private System.Windows.Forms.Label label4;
@@ -450,5 +470,15 @@
         private System.Windows.Forms.ComboBox cb_Cliente;
         private System.Windows.Forms.TextBox tb_Direccion;
         private System.Windows.Forms.TextBox tb_Remitente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noOrdenDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreRemitenteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresaEnvioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionEnvioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noSeguimientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tb_NoSeguimiento;
+        private DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter clienteVirtualTableAdapter;
     }
 }

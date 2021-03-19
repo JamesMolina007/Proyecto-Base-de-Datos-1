@@ -90,5 +90,5 @@ C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\P
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ConsultaOrdenFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ConsultaFacturaClienteFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ConsultaOrdenClienteFrm.resources
-C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.OrdenClienteFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ProcesoOrdenFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.OrdenesFrm.resources

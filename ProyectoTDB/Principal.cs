@@ -198,7 +198,8 @@ namespace ProyectoDB
 
         private void ordenesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OrdenesFrm ordenes = new OrdenesFrm();
+            ordenes.Show();
         }
     }
 }

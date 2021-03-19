@@ -21,8 +21,6 @@ namespace ProyectoDB
         {
             // TODO: esta línea de código carga datos en la tabla 'productosDataSet.Producto' Puede moverla o quitarla según sea necesario.
             this.productoTableAdapter.Fill(this.productosDataSet.Producto);
-            // TODO: esta línea de código carga datos en la tabla 'productosDataSet.Categoria' Puede moverla o quitarla según sea necesario.
-            this.categoriaTableAdapter.Fill(this.productosDataSet.Categoria);
             // TODO: esta línea de código carga datos en la tabla 'tiendaDataSet.Tienda' Puede moverla o quitarla según sea necesario.
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteVirtual' Puede moverla o quitarla según sea necesario.
