@@ -79,6 +79,7 @@
             // 
             this.FacturaBindingSource.DataMember = "Factura";
             this.FacturaBindingSource.DataSource = this.facturasDataSet;
+            this.FacturaBindingSource.PositionChanged += new System.EventHandler(this.FacturaBindingSource_PositionChanged);
             // 
             // facturasDataSet
             // 

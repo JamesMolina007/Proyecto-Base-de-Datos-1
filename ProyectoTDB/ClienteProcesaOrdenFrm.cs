@@ -52,6 +52,7 @@ namespace ProyectoDB
             //this.contratoTableAdapter.Fill(this.contratoDataSet.Contrato);
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             this.empresaDeEnvioTableAdapter.Fill(this.empresasDeEnvioDataSet.EmpresaDeEnvio);
+            this.ordenTableAdapter.Fill(this.ordenDataSet.Orden);
             OrdenBindingSource.AddNew();
             ContratoBindingSource.AddNew();
             //FacturaDetalleBindingSource.AddNew();
@@ -70,54 +71,53 @@ namespace ProyectoDB
             DataRowView drvContrato = (DataRowView)ContratoBindingSource.Current;
             DataRowView drvFacturaEncabezado = (DataRowView)FacturaEncabezadoBindingSource.Current;
             drvOrden.Row["idCliente"] = id_Cliente;
-            //try
-            //{
-            drvFacturaEncabezado.Row["Direccion"] = tb_Direccion.Text;
-            drvFacturaEncabezado.Row["FechaEmision"] = DateTime.Now;
-            drvFacturaEncabezado.Row["idCliente"] = id_Cliente;
-            this.FacturaEncabezadoBindingSource.EndEdit();
-            this.facturaTableAdapter.Update(this.facturasDataSet.Factura);
-            // facturaTableAdapter.Fill(this.facturasDataSet.Factura);
-
-            drvContrato.Row["Cuota"] = Convert.ToDouble(lbl_Cuota.Text);
-            drvContrato.Row["idCliente"] = id_Cliente;
-            this.ContratoBindingSource.EndEdit();
-            this.contratoTableAdapter.Update(this.contratoDataSet.Contrato);
-            drvFacturaEncabezado = (DataRowView)FacturaEncabezadoBindingSource.Current;
-            for (int i = 0; i < carrito.RowCount; i++)
+            try
             {
-                ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", Convert.ToInt32(carrito.Rows[i].Cells[0].Value));
-                DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
-                if (Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value) > 0)
+                drvFacturaEncabezado.Row["Direccion"] = tb_Direccion.Text;
+                drvFacturaEncabezado.Row["FechaEmision"] = DateTime.Now;
+                drvFacturaEncabezado.Row["idCliente"] = id_Cliente;
+                this.FacturaEncabezadoBindingSource.EndEdit();
+                this.facturaTableAdapter.Update(this.facturasDataSet.Factura);
+                // facturaTableAdapter.Fill(this.facturasDataSet.Factura);
+
+                drvContrato.Row["Cuota"] = Convert.ToDouble(lbl_Cuota.Text);
+                drvContrato.Row["idCliente"] = id_Cliente;
+                this.ContratoBindingSource.EndEdit();
+                this.contratoTableAdapter.Update(this.contratoDataSet.Contrato);
+                drvFacturaEncabezado = (DataRowView)FacturaEncabezadoBindingSource.Current;
+                for (int i = 0; i < carrito.RowCount; i++)
                 {
-                    DataRowView drvFacturaDetalle = (DataRowView)FacturaDetalleBindingSource.AddNew();
-                    drvFacturaDetalle["idProducto"] = carrito.Rows[i].Cells[0].Value;
-                    drvFacturaDetalle["cantidadProducto"] = carrito.Rows[i].Cells[2].Value;
-                    drvFacturaDetalle["Total"] = total;
-                    drvFacturaDetalle["isv"] = isv;
-                    drvFacturaDetalle["NoFactura"] = drvFacturaEncabezado["noFactura"];
-                    this.FacturaDetalleBindingSource.EndEdit();
-                    this.detalleFacturaTableAdapter.Update(this.facturasDataSet.DetalleFactura);
-                    drvProducto["Cantidad"] = Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value);
-                }
-                else
-                    MessageBox.Show("No se puede llevar más producto de lo que hay disponible");
-                }
+                    ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", Convert.ToInt32(carrito.Rows[i].Cells[0].Value));
+                    DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
+                    if (Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value) > 0)
+                    {
+                        DataRowView drvFacturaDetalle = (DataRowView)FacturaDetalleBindingSource.AddNew();
+                        drvFacturaDetalle["idProducto"] = carrito.Rows[i].Cells[0].Value;
+                        drvFacturaDetalle["cantidadProducto"] = carrito.Rows[i].Cells[2].Value;
+                        drvFacturaDetalle["Total"] = total;
+                        drvFacturaDetalle["isv"] = isv;
+                        drvFacturaDetalle["NoFactura"] = drvFacturaEncabezado["noFactura"];
+                        this.FacturaDetalleBindingSource.EndEdit();
+                        this.detalleFacturaTableAdapter.Update(this.facturasDataSet.DetalleFactura);
+                        drvProducto["Cantidad"] = Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value);
+                    }
+                    else
+                        MessageBox.Show("No se puede llevar más producto de lo que hay disponible");
+                    }
                 this.Validate();
-                this.OrdenBindingSource.EndEdit();
-                this.ordenTableAdapter.Update(this.ordenDataSet.Orden);
-                //this.ordenTableAdapter.Fill(this.ordenDataSet.Orden);
                 drvOrden = (DataRowView)OrdenBindingSource.Current;
                 drvOrden.Row["noSeguimiento"] = Convert.ToInt32(drvOrden.Row["noOrden"]);
+                drvOrden.Row["Estatus"] = "En Proceso";
                 this.OrdenBindingSource.EndEdit();
                 this.ordenTableAdapter.Update(this.ordenDataSet.Orden);
                 MessageBox.Show("Guardado Correctamente");
-            //}
-            //catch (Exception exception)
-            //{
-            //    MessageBox.Show(exception.ToString());
-            //}
-            
+                this.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+
 
         }
 

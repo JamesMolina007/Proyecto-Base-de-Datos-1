@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteProcesaOrdenFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cb_CodigoTienda = new System.Windows.Forms.ComboBox();
             this.FacturaEncabezadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
+            this.cb_CodigoTienda = new System.Windows.Forms.ComboBox();
             this.TiendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiendaDataSet = new ProyectoDB.DataSet.TiendaDataSet();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,7 +72,6 @@
             this.ProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosDataSet = new ProyectoDB.DataSet.ProductosDataSet();
             this.productoTableAdapter = new ProyectoDB.DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
@@ -94,7 +93,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.cb_CodigoTienda);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lbl_Cuota);
@@ -120,6 +118,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Proceso:";
             // 
+            // FacturaEncabezadoBindingSource
+            // 
+            this.FacturaEncabezadoBindingSource.DataMember = "Factura";
+            this.FacturaEncabezadoBindingSource.DataSource = this.facturasDataSet;
+            // 
+            // facturasDataSet
+            // 
+            this.facturasDataSet.DataSetName = "FacturasDataSet";
+            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cb_CodigoTienda
             // 
             this.cb_CodigoTienda.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.FacturaEncabezadoBindingSource, "codigoTienda", true));
@@ -132,16 +140,6 @@
             this.cb_CodigoTienda.Size = new System.Drawing.Size(203, 21);
             this.cb_CodigoTienda.TabIndex = 19;
             this.cb_CodigoTienda.ValueMember = "codigoTienda";
-            // 
-            // FacturaEncabezadoBindingSource
-            // 
-            this.FacturaEncabezadoBindingSource.DataMember = "Factura";
-            this.FacturaEncabezadoBindingSource.DataSource = this.facturasDataSet;
-            // 
-            // facturasDataSet
-            // 
-            this.facturasDataSet.DataSetName = "FacturasDataSet";
-            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TiendaBindingSource
             // 
@@ -417,16 +415,6 @@
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FacturaEncabezadoBindingSource, "noFactura", true));
-            this.label9.Location = new System.Drawing.Point(127, 236);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "label9";
-            // 
             // ClienteProcesaOrdenFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,6 +491,5 @@
         private System.Windows.Forms.BindingSource ProductosBindingSource;
         private DataSet.ProductosDataSet productosDataSet;
         private DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter productoTableAdapter;
-        private System.Windows.Forms.Label label9;
     }
 }

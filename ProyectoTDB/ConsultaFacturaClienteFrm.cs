@@ -23,5 +23,11 @@ namespace ProyectoDB
             DataRowView drvFactura = (DataRowView)FacturaBindingSource.Current;
             this.detalleFacturaTableAdapter.FillByFactura(this.facturasDataSet.DetalleFactura, Convert.ToInt32(drvFactura["noFactura"]));
         }
+
+        private void FacturaBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            DataRowView drvFactura = (DataRowView)FacturaBindingSource.Current;
+            this.detalleFacturaTableAdapter.FillByFactura(this.facturasDataSet.DetalleFactura, Convert.ToInt32(drvFactura["noFactura"]));
+        }
     }
 }
