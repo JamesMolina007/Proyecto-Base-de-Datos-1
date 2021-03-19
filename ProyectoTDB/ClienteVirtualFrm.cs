@@ -50,7 +50,7 @@ namespace ProyectoDB
         {
             try
             {
-                if (tb_Contrasena.Text.Equals(tb_Contrasena2.Text) && ( Convert.ToInt32(tb_MesVencimiento) <= 12 || Convert.ToInt32(tb_MesVencimiento) > 0) && Convert.ToInt32(tb_MesVencimiento) > DateTime.Now.Year) 
+                if (tb_Contrasena.Text.Equals(tb_Contrasena2.Text) && ( Convert.ToInt32(tb_MesVencimiento.Text) <= 12 && Convert.ToInt32(tb_MesVencimiento.Text) > 0) && Convert.ToInt32(tb_AñoVencimiento.Text) > DateTime.Now.Year) 
                 {
                     DataRow drCliFrecuente = clientesDataSet.ClienteFrecuente.FindByidCliente(Convert.ToInt32(cb_IdCliente.SelectedValue));
                     if (drCliFrecuente == null)
@@ -123,13 +123,20 @@ namespace ProyectoDB
 
         private void tb_BuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (tb_BuscarCliente.Text.Length > 0)
+            try
             {
-                ClienteVirtualBindingSource.Filter = string.Format("convert(idCliente, 'System.String') Like '{0}' ", Convert.ToInt32(tb_BuscarCliente));
+                if (tb_BuscarCliente.Text.Length > 0)
+                {
+                    ClienteVirtualBindingSource.Filter = string.Format("convert(idCliente, 'System.String') Like '{0}' ", Convert.ToInt32(tb_BuscarCliente.Text));
+                }
+                else
+                {
+                    ClienteVirtualBindingSource.RemoveFilter();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ClienteVirtualBindingSource.RemoveFilter();
+
             }
         }
     }

@@ -35,10 +35,10 @@ namespace ProyectoDB
                     drvClientePocoFrecuente["idCliente"] = Convert.ToInt32(cb_IdCliente.SelectedValue.ToString());
                     drvClienteTienda["idCliente"] = Convert.ToInt32(cb_IdCliente.SelectedValue.ToString());
                     this.Validate();
-                    ClientePocoFrecuenteBindingSource.EndEdit();
-                    clientePocoFrecuenteTableAdapter.Update(this.clientesDataSet.ClientePocoFrecuente);
                     ClienteTiendaBindingSource.EndEdit();
                     clienteTiendaTableAdapter.Update(this.clientesDataSet.ClienteTienda);
+                    ClientePocoFrecuenteBindingSource.EndEdit();
+                    clientePocoFrecuenteTableAdapter.Update(this.clientesDataSet.ClientePocoFrecuente);
                     MessageBox.Show("Agregado exitosamente!");
                 }
                 else

@@ -100,6 +100,10 @@ namespace ProyectoDB
             try{
                 DialogResult dialogResult = MessageBox.Show("¿Está Seguro que quiere eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes){
+                    if (cb_TipoUsuario.SelectedItem.ToString().Equals("Cliente"))
+                    {
+                        clienteTableAdapter.DeleteQuery(tb_nombre.Text);
+                    }
                     usuariosBindingSource.RemoveCurrent();
                     this.usuariosBindingSource.EndEdit();
                     this.usuariosTableAdapter.Update(this.usuarioDataSet.Usuarios);
