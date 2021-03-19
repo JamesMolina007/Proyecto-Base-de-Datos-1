@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoDB
@@ -21,20 +15,59 @@ namespace ProyectoDB
         {
             // TODO: esta línea de código carga datos en la tabla 'productosDataSet.Producto' Puede moverla o quitarla según sea necesario.
             this.productoTableAdapter.Fill(this.productosDataSet.Producto);
-            // TODO: esta línea de código carga datos en la tabla 'tiendaDataSet.Tienda' Puede moverla o quitarla según sea necesario.
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
-            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteVirtual' Puede moverla o quitarla según sea necesario.
             this.clienteVirtualTableAdapter.Fill(this.clientesDataSet.ClienteVirtual);
-            // TODO: esta línea de código carga datos en la tabla 'facturasDataSet.Factura' Puede moverla o quitarla según sea necesario.
-            this.facturaTableAdapter.Fill(this.facturasDataSet.Factura);
-            // TODO: esta línea de código carga datos en la tabla 'facturasDataSet.DetalleFactura' Puede moverla o quitarla según sea necesario.
-            this.detalleFacturaTableAdapter.Fill(this.facturasDataSet.DetalleFactura);
-
+            recargar();
         }
 
-        private void btn_Guardar_Click(object sender, EventArgs e)
+        private void recargar()
         {
+            this.facturaTableAdapter.Fill(this.facturasDataSet.Factura);
+        }
 
+        private void btn_Recargar_Click(object sender, EventArgs e)
+        {
+            recargar();
+        }
+
+        private void EncabezadoFacturaBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRowView drvFactura = (DataRowView)EncabezadoFacturaBindingSource.Current;
+                detalleFacturaTableAdapter.FillByFactura(this.facturasDataSet.DetalleFactura, Convert.ToInt32(drvFactura["noFactura"]));
+            }
+            catch (Exception ex)
+            {
+
+            }
+         }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("¿Está Seguro que quiere eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DataRowView drvEncabezado = (DataRowView)EncabezadoFacturaBindingSource.Current;
+                    detalleFacturaTableAdapter.FillByDeleteFactura(this.facturasDataSet.DetalleFactura, Convert.ToInt32(drvEncabezado["noFactura"]));
+                    EncabezadoFacturaBindingSource.RemoveCurrent();
+                    this.EncabezadoFacturaBindingSource.EndEdit();
+                    this.facturaTableAdapter.Update(this.facturasDataSet.Factura);
+                    MessageBox.Show("El registro ha sido eliminado");
+                    recargar();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("El registro no ha sido eliminado");
+                }
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
         }
     }
 }

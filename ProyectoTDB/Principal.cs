@@ -51,13 +51,18 @@ namespace ProyectoDB
             {
                 inventarioToolStripMenuItem.Visible = true;
             }
-            else if(tipoUsuario.Equals("Cliente"))
+            else if(tipoUsuario.Equals("ClienteV"))
             {
                 opcionesClienteToolStripMenuItem.Visible = true;
             }
-            else
+            else if (tipoUsuario.Equals("Cliente"))
             {
                 opcionesClienteToolStripMenuItem.Visible = true;
+                opcionesClienteToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                //opcionesClienteToolStripMenuItem.Visible = true;
                 inventarioToolStripMenuItem.Visible = true;
                 clientesToolStripMenuItem.Visible = true;
                 pedidosToolStripMenuItem.Visible = true;
@@ -200,6 +205,12 @@ namespace ProyectoDB
         {
             OrdenesFrm ordenes = new OrdenesFrm();
             ordenes.Show();
+        }
+
+        private void facturasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FacturasFrm facturas = new FacturasFrm();
+            facturas.Show();
         }
     }
 }

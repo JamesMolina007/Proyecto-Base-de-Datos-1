@@ -497,7 +497,7 @@ namespace ProyectoDB.DataSet {
                 this.columnempresaEnvio.MaxLength = 50;
                 this.columndireccionEnvio.AllowDBNull = false;
                 this.columndireccionEnvio.MaxLength = 50;
-                this.columnnoSeguimiento.AllowDBNull = false;
+                this.columnnoSeguimiento.DefaultValue = ((int)(100000));
                 this.columnidCliente.AllowDBNull = false;
                 this.columnEstatus.MaxLength = 50;
             }
@@ -688,7 +688,12 @@ namespace ProyectoDB.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int noSeguimiento {
                 get {
-                    return ((int)(this[this.tableOrden.noSeguimientoColumn]));
+                    try {
+                        return ((int)(this[this.tableOrden.noSeguimientoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'noSeguimiento\' de la tabla \'Orden\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableOrden.noSeguimientoColumn] = value;
@@ -720,6 +725,18 @@ namespace ProyectoDB.DataSet {
                 set {
                     this[this.tableOrden.EstatusColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnoSeguimientoNull() {
+                return this.IsNull(this.tableOrden.noSeguimientoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnoSeguimientoNull() {
+                this[this.tableOrden.noSeguimientoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -904,10 +921,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Orden` WHERE ((`noOrden` = @p1) AND (`nombreRemitente` = @p2) AND (`" +
-                "empresaEnvio` = @p3) AND (`direccionEnvio` = @p4) AND (`noSeguimiento` = @p5) AN" +
-                "D (`idCliente` = @p6) AND ((@p7 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p8))" +
-                ")";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Orden` WHERE ((`noOrden` = @p1) AND (`nombreRemitente` = @p2) AND (`empresaEnvio` = @p3) AND (`direccionEnvio` = @p4) AND ((@p5 = 1 AND `noSeguimiento` IS NULL) OR (`noSeguimiento` = @p6)) AND (`idCliente` = @p7) AND ((@p8 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p9)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -948,9 +962,18 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "noSeguimiento";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noSeguimiento";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -958,7 +981,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -967,7 +990,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1029,7 +1052,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Orden` SET `nombreRemitente` = @p1, `empresaEnvio` = @p2, `direccionEnvio` = @p3, `noSeguimiento` = @p4, `idCliente` = @p5, `Estatus` = @p6 WHERE ((`noOrden` = @p7) AND (`nombreRemitente` = @p8) AND (`empresaEnvio` = @p9) AND (`direccionEnvio` = @p10) AND (`noSeguimiento` = @p11) AND (`idCliente` = @p12) AND ((@p13 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p14)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Orden` SET `nombreRemitente` = @p1, `empresaEnvio` = @p2, `direccionEnvio` = @p3, `noSeguimiento` = @p4, `idCliente` = @p5, `Estatus` = @p6 WHERE ((`noOrden` = @p7) AND (`nombreRemitente` = @p8) AND (`empresaEnvio` = @p9) AND (`direccionEnvio` = @p10) AND ((@p11 = 1 AND `noSeguimiento` IS NULL) OR (`noSeguimiento` = @p12)) AND (`idCliente` = @p13) AND ((@p14 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p15)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1118,9 +1141,18 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "noSeguimiento";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noSeguimiento";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1128,7 +1160,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1137,7 +1169,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1160,13 +1192,12 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        noOrden, nombreRemitente, empresaEnvio, direccionEnvio, noSeguimien" +
-                "to, idCliente, Estatus\r\nFROM            Orden";
+                "to, idCliente, Estatus\r\nFROM            Orden\r\nORDER BY noSeguimiento DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        noOrden, nombreRemitente, empresaEnvio, direccionEnvio, noSeguimien" +
-                "to, idCliente, Estatus\r\nFROM            Orden\r\nWHERE        (idCliente = @idClie" +
-                "nte)";
+            this._commandCollection[1].CommandText = "SELECT Estatus, direccionEnvio, empresaEnvio, idCliente, noOrden, noSeguimiento, " +
+                "nombreRemitente FROM Orden WHERE (idCliente = @idCliente)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idCliente";
@@ -1178,9 +1209,8 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        noOrden, nombreRemitente, empresaEnvio, direccionEnvio, noSeguimien" +
-                "to, idCliente, Estatus\r\nFROM            Orden\r\nWHERE        (noOrden = @noOrden)" +
-                "";
+            this._commandCollection[2].CommandText = "SELECT Estatus, direccionEnvio, empresaEnvio, idCliente, noOrden, noSeguimiento, " +
+                "nombreRemitente FROM Orden WHERE (noOrden = @noOrden)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@noOrden";

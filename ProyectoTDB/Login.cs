@@ -42,7 +42,7 @@ namespace ProyectoDB{
                     if (drC != null)
                     {
                         Principal principal = new Principal();
-                        principal.setTipoUsuario("Cliente");
+                        principal.setTipoUsuario("ClienteV");
                         principal.setIdCliente(Convert.ToInt32(tb_nombreUsuario.Text));
                         principal.setLogin(this);
                         tb_Contraseña.Text = "";

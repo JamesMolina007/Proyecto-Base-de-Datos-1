@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteProcesaOrdenFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_CodigoTienda = new System.Windows.Forms.ComboBox();
             this.FacturaEncabezadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
-            this.cb_CodigoTienda = new System.Windows.Forms.ComboBox();
             this.TiendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiendaDataSet = new ProyectoDB.DataSet.TiendaDataSet();
             this.label8 = new System.Windows.Forms.Label();
@@ -118,16 +118,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Proceso:";
             // 
-            // FacturaEncabezadoBindingSource
-            // 
-            this.FacturaEncabezadoBindingSource.DataMember = "Factura";
-            this.FacturaEncabezadoBindingSource.DataSource = this.facturasDataSet;
-            // 
-            // facturasDataSet
-            // 
-            this.facturasDataSet.DataSetName = "FacturasDataSet";
-            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cb_CodigoTienda
             // 
             this.cb_CodigoTienda.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.FacturaEncabezadoBindingSource, "codigoTienda", true));
@@ -140,6 +130,16 @@
             this.cb_CodigoTienda.Size = new System.Drawing.Size(203, 21);
             this.cb_CodigoTienda.TabIndex = 19;
             this.cb_CodigoTienda.ValueMember = "codigoTienda";
+            // 
+            // FacturaEncabezadoBindingSource
+            // 
+            this.FacturaEncabezadoBindingSource.DataMember = "Factura";
+            this.FacturaEncabezadoBindingSource.DataSource = this.facturasDataSet;
+            // 
+            // facturasDataSet
+            // 
+            this.facturasDataSet.DataSetName = "FacturasDataSet";
+            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TiendaBindingSource
             // 
