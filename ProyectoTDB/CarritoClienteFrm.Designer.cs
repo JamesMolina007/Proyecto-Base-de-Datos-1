@@ -238,7 +238,6 @@
             // 
             // ne_Cantidad
             // 
-            this.ne_Cantidad.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.CarritoBindingSource, "cantidadProductoCarrito", true));
             this.ne_Cantidad.Location = new System.Drawing.Point(420, 123);
             this.ne_Cantidad.Minimum = new decimal(new int[] {
             1,

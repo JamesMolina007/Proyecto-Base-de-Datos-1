@@ -1,24 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoDB
 {
-    public partial class ClientesFrecuentesFrm : Form
+    public partial class ClientePocoFrecuenteFrm : Form
     {
-        public ClientesFrecuentesFrm()
+        public ClientePocoFrecuenteFrm()
         {
             InitializeComponent();
         }
 
-        private void ClientesFrecuentesFrm_Load(object sender, EventArgs e)
+        private void ClientePocoFrecuenteFrm_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.Cliente' Puede moverla o quitarla según sea necesario.
             this.clienteTableAdapter.Fill(this.clientesDataSet.Cliente);
-            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClientePocoFrecuente' Puede moverla o quitarla según sea necesario.
-            this.clientePocoFrecuenteTableAdapter.Fill(this.clientesDataSet.ClientePocoFrecuente);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteFrecuente' Puede moverla o quitarla según sea necesario.
-            // this.clienteFrecuenteTableAdapter.Fill(this.clientesDataSet.ClienteFrecuente);
+            this.clienteFrecuenteTableAdapter.Fill(this.clientesDataSet.ClienteFrecuente);
+            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClientePocoFrecuente' Puede moverla o quitarla según sea necesario.
+            //this.clientePocoFrecuenteTableAdapter.Fill(this.clientesDataSet.ClientePocoFrecuente);
 
         }
 
@@ -27,15 +33,15 @@ namespace ProyectoDB
             try
             {
 
-                DataRow drCliPoco = clientesDataSet.ClientePocoFrecuente.FindByidCliente(Convert.ToInt32(cb_IdCliente.SelectedValue));
-                if (drCliPoco == null)
+                DataRow drCliFrec = clientesDataSet.ClienteFrecuente.FindByidCliente(Convert.ToInt32(cb_IdCliente.SelectedValue));
+                if (drCliFrec == null)
                 {
-                    ClienteFrecuenteBindingSource.AddNew();
-                    DataRowView drvClienteFrecuente = (DataRowView)ClienteFrecuenteBindingSource.Current;
-                    drvClienteFrecuente["idCliente"] = Convert.ToInt32(cb_IdCliente.SelectedValue.ToString());
+                    ClientePocoFrecuenteBindingSource.AddNew();
+                    DataRowView drvClientePocoFrecuente = (DataRowView)ClientePocoFrecuenteBindingSource.Current;
+                    drvClientePocoFrecuente["idCliente"] = Convert.ToInt32(cb_IdCliente.SelectedValue.ToString());
                     this.Validate();
-                    ClienteFrecuenteBindingSource.EndEdit();
-                    clienteFrecuenteTableAdapter.Update(this.clientesDataSet.ClienteFrecuente);
+                    ClientePocoFrecuenteBindingSource.EndEdit();
+                    clientePocoFrecuenteTableAdapter.Update(this.clientesDataSet.ClientePocoFrecuente);
                     MessageBox.Show("Agregado exitosamente!");
                 }
                 else
@@ -54,9 +60,9 @@ namespace ProyectoDB
             DialogResult dialogResult = MessageBox.Show("¿Está Seguro que quiere eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                ClienteFrecuenteBindingSource.RemoveCurrent();
-                this.ClienteFrecuenteBindingSource.EndEdit();
-                this.clienteFrecuenteTableAdapter.Update(this.clientesDataSet.ClienteFrecuente);
+                ClientePocoFrecuenteBindingSource.RemoveCurrent();
+                this.ClientePocoFrecuenteBindingSource.EndEdit();
+                this.clientePocoFrecuenteTableAdapter.Update(this.clientesDataSet.ClientePocoFrecuente);
                 MessageBox.Show("El registro ha sido eliminado");
             }
             else if (dialogResult == DialogResult.No)

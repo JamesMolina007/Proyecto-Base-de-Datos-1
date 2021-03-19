@@ -86,12 +86,11 @@ namespace ProyectoDB
             drvFacturaEncabezado = (DataRowView)FacturaEncabezadoBindingSource.Current;
             for (int i = 0; i < carrito.RowCount; i++)
             {
-                ProductosBindingSource.Filter = "idProducto like *'" + carrito.Rows[i].Cells[0].Value.ToString() + "'*";
+                ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", Convert.ToInt32(carrito.Rows[i].Cells[0].Value));
                 DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
                 if (Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value) > 0)
                 {
-                    FacturaDetalleBindingSource.AddNew();
-                    DataRowView drvFacturaDetalle = (DataRowView)FacturaDetalleBindingSource.Current;
+                    DataRowView drvFacturaDetalle = (DataRowView)FacturaDetalleBindingSource.AddNew();
                     drvFacturaDetalle["idProducto"] = carrito.Rows[i].Cells[0].Value;
                     drvFacturaDetalle["cantidadProducto"] = carrito.Rows[i].Cells[2].Value;
                     drvFacturaDetalle["Total"] = total;

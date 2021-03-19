@@ -84,3 +84,9 @@ C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\P
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteFacturaFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClientesFrecuentesFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteTiendaFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClienteVirtualFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\C1.Win.C1Editor.2.dll
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\C1.Win.C1Editor.2.xml
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ClientePocoFrecuenteFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.ConsultaOrdenFrm.resources
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.OrdenEnviadaFrm.resources

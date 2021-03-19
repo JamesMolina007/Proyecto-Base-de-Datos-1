@@ -35,6 +35,7 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
     <Reference Include="C1.Win.2, Version=2.0.20172.271, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1Command.2, Version=2.0.20172.271, Culture=neutral, PublicKeyToken=e808566f358766d8" />
+    <Reference Include="C1.Win.C1Editor.2, Version=2.0.20172.271, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.2, Version=2.0.20172.271, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604" />
     <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d" />
@@ -47,6 +48,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -97,6 +99,12 @@
     <Compile Include="ClienteFacturaFrm.Designer.cs">
       <DependentUpon>ClienteFacturaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientePocoFrecuenteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientePocoFrecuenteFrm.Designer.cs">
+      <DependentUpon>ClientePocoFrecuenteFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClienteProcesaOrdenFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +135,12 @@
     <Compile Include="ClienteVirtualFrm.Designer.cs">
       <DependentUpon>ClienteVirtualFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaOrdenFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaOrdenFrm.Designer.cs">
+      <DependentUpon>ConsultaOrdenFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContratosFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +169,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CategoriasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\ClientesDataSet.cs">
+      <DependentUpon>ClientesDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSet\ClientesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -217,6 +234,18 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrdenEntregadaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenEntregadaFrm.Designer.cs">
+      <DependentUpon>OrdenEntregadaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenEnviadaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenEnviadaFrm.Designer.cs">
+      <DependentUpon>OrdenEnviadaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +291,9 @@
     <EmbeddedResource Include="ClienteFacturaFrm.resx">
       <DependentUpon>ClienteFacturaFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientePocoFrecuenteFrm.resx">
+      <DependentUpon>ClientePocoFrecuenteFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClienteProcesaOrdenFrm.resx">
       <DependentUpon>ClienteProcesaOrdenFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +309,9 @@
     <EmbeddedResource Include="ClienteVirtualFrm.resx">
       <DependentUpon>ClienteVirtualFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaOrdenFrm.resx">
+      <DependentUpon>ConsultaOrdenFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContratosFrm.resx">
       <DependentUpon>ContratosFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdenEnviadaFrm.resx">
+      <DependentUpon>OrdenEnviadaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

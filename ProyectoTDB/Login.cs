@@ -11,7 +11,7 @@ namespace ProyectoDB{
 
         private void Login_Load(object sender, EventArgs e){
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteVirtual' Puede moverla o quitarla según sea necesario.
-           // this.clienteVirtualTableAdapter.Fill(this.clientesDataSet.ClienteVirtual);
+            this.clienteVirtualTableAdapter.Fill(this.clientesDataSet.ClienteVirtual);
             // TODO: esta línea de código carga datos en la tabla 'usuarioDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
             this.usuariosTableAdapter.Fill(this.usuarioDataSet.Usuarios);
         }
@@ -47,7 +47,7 @@ namespace ProyectoDB{
                         principal.setLogin(this);
                         tb_Contraseña.Text = "";
                         tb_nombreUsuario.Text = "";
-                    principal.Show();
+                        principal.Show();
                         this.Visible = false;
                     }
                     else

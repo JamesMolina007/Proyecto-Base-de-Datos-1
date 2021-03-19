@@ -51,5 +51,21 @@ namespace ProyectoDB
                 MessageBox.Show("Cliente ya asignado");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Está Seguro que quiere eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ClienteTiendaBindingSource.RemoveCurrent();
+                this.ClienteTiendaBindingSource.EndEdit();
+                this.clienteTiendaTableAdapter.Update(this.clientesDataSet.ClienteTienda);
+                MessageBox.Show("El registro ha sido eliminado");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                MessageBox.Show("El registro no ha sido eliminado");
+            }
+        }
     }
 }

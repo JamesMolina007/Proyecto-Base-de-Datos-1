@@ -291,6 +291,8 @@ namespace ProyectoDB.DataSet {
             
             private global::System.Data.DataColumn columnidCliente;
             
+            private global::System.Data.DataColumn columnEstatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public OrdenDataTable() {
@@ -374,6 +376,14 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EstatusColumn {
+                get {
+                    return this.columnEstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -409,7 +419,7 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrdenRow AddOrdenRow(string nombreRemitente, string empresaEnvio, string direccionEnvio, int noSeguimiento, int idCliente) {
+            public OrdenRow AddOrdenRow(string nombreRemitente, string empresaEnvio, string direccionEnvio, int noSeguimiento, int idCliente, string Estatus) {
                 OrdenRow rowOrdenRow = ((OrdenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -417,7 +427,8 @@ namespace ProyectoDB.DataSet {
                         empresaEnvio,
                         direccionEnvio,
                         noSeguimiento,
-                        idCliente};
+                        idCliente,
+                        Estatus};
                 rowOrdenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrdenRow);
                 return rowOrdenRow;
@@ -453,6 +464,7 @@ namespace ProyectoDB.DataSet {
                 this.columndireccionEnvio = base.Columns["direccionEnvio"];
                 this.columnnoSeguimiento = base.Columns["noSeguimiento"];
                 this.columnidCliente = base.Columns["idCliente"];
+                this.columnEstatus = base.Columns["Estatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -470,6 +482,8 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnnoSeguimiento);
                 this.columnidCliente = new global::System.Data.DataColumn("idCliente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidCliente);
+                this.columnEstatus = new global::System.Data.DataColumn("Estatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnoOrden}, true));
                 this.columnnoOrden.AutoIncrement = true;
@@ -485,6 +499,7 @@ namespace ProyectoDB.DataSet {
                 this.columndireccionEnvio.MaxLength = 50;
                 this.columnnoSeguimiento.AllowDBNull = false;
                 this.columnidCliente.AllowDBNull = false;
+                this.columnEstatus.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -690,6 +705,34 @@ namespace ProyectoDB.DataSet {
                     this[this.tableOrden.idClienteColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Estatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrden.EstatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estatus\' de la tabla \'Orden\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrden.EstatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEstatusNull() {
+                return this.IsNull(this.tableOrden.EstatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEstatusNull() {
+                this[this.tableOrden.EstatusColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -857,12 +900,14 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("direccionEnvio", "direccionEnvio");
             tableMapping.ColumnMappings.Add("noSeguimiento", "noSeguimiento");
             tableMapping.ColumnMappings.Add("idCliente", "idCliente");
+            tableMapping.ColumnMappings.Add("Estatus", "Estatus");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `Orden` WHERE ((`noOrden` = @p1) AND (`nombreRemitente` = @p2) AND (`" +
                 "empresaEnvio` = @p3) AND (`direccionEnvio` = @p4) AND (`noSeguimiento` = @p5) AN" +
-                "D (`idCliente` = @p6))";
+                "D (`idCliente` = @p6) AND ((@p7 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p8))" +
+                ")";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -912,10 +957,27 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceColumn = "idCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Estatus";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Estatus";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Orden` (`nombreRemitente`, `empresaEnvio`, `direccionEnvio`, `noSegu" +
-                "imiento`, `idCliente`) VALUES (@p1, @p2, @p3, @p4, @p5)";
+                "imiento`, `idCliente`, `Estatus`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -957,9 +1019,17 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceColumn = "idCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Estatus";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Orden` SET `nombreRemitente` = @p1, `empresaEnvio` = @p2, `direccionEnvio` = @p3, `noSeguimiento` = @p4, `idCliente` = @p5 WHERE ((`noOrden` = @p6) AND (`nombreRemitente` = @p7) AND (`empresaEnvio` = @p8) AND (`direccionEnvio` = @p9) AND (`noSeguimiento` = @p10) AND (`idCliente` = @p11))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Orden` SET `nombreRemitente` = @p1, `empresaEnvio` = @p2, `direccionEnvio` = @p3, `noSeguimiento` = @p4, `idCliente` = @p5, `Estatus` = @p6 WHERE ((`noOrden` = @p7) AND (`nombreRemitente` = @p8) AND (`empresaEnvio` = @p9) AND (`direccionEnvio` = @p10) AND (`noSeguimiento` = @p11) AND (`idCliente` = @p12) AND ((@p13 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p14)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1003,6 +1073,14 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Estatus";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1010,7 +1088,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1018,7 +1096,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1026,7 +1104,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -1034,7 +1112,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
+            param.ParameterName = "@p11";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1042,11 +1120,28 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "idCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Estatus";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Estatus";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -1061,12 +1156,26 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `noOrden`, `nombreRemitente`, `empresaEnvio`, `direccionEnvio`, `noSeguimi" +
-                "ento`, `idCliente` FROM `Orden`";
+            this._commandCollection[0].CommandText = "SELECT        noOrden, nombreRemitente, empresaEnvio, direccionEnvio, noSeguimien" +
+                "to, idCliente, Estatus\r\nFROM            Orden";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        noOrden, nombreRemitente, empresaEnvio, direccionEnvio, noSeguimien" +
+                "to, idCliente, Estatus\r\nFROM            Orden\r\nWHERE        (noOrden = @noOrden)" +
+                "";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@noOrden";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noOrden";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1088,6 +1197,32 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual OrdenDataSet.OrdenDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            OrdenDataSet.OrdenDataTable dataTable = new OrdenDataSet.OrdenDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByOrden(OrdenDataSet.OrdenDataTable dataTable, int noOrden) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noOrden));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual OrdenDataSet.OrdenDataTable GetDataByOrden(int noOrden) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noOrden));
             OrdenDataSet.OrdenDataTable dataTable = new OrdenDataSet.OrdenDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1120,151 +1255,6 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, string p2, string p3, string p4, int p5, int p6) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(p2));
-            }
-            if ((p3 == null)) {
-                throw new global::System.ArgumentNullException("p3");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
-            }
-            if ((p4 == null)) {
-                throw new global::System.ArgumentNullException("p4");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(p4));
-            }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(p6));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, int p4, int p5) {
-            if ((p1 == null)) {
-                throw new global::System.ArgumentNullException("p1");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
-            }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
-            }
-            if ((p3 == null)) {
-                throw new global::System.ArgumentNullException("p3");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(p3));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(p5));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, string p3, int p4, int p5, int p6, string p7, string p8, string p9, int p10, int p11) {
-            if ((p1 == null)) {
-                throw new global::System.ArgumentNullException("p1");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
-            }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
-            }
-            if ((p3 == null)) {
-                throw new global::System.ArgumentNullException("p3");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(p3));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
-            if ((p7 == null)) {
-                throw new global::System.ArgumentNullException("p7");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
-            }
-            if ((p8 == null)) {
-                throw new global::System.ArgumentNullException("p8");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
-            }
-            if ((p9 == null)) {
-                throw new global::System.ArgumentNullException("p9");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(p9));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(p11));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
     }
     

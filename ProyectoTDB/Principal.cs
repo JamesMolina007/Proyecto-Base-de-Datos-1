@@ -48,7 +48,6 @@ namespace ProyectoDB
             }else if( tipoUsuario.Equals("Empleado de Almacen"))
             {
                 inventarioToolStripMenuItem.Visible = true;
-                enviosToolStripMenuItem.Visible = true;
             }
             else if(tipoUsuario.Equals("Cliente"))
             {
@@ -61,7 +60,6 @@ namespace ProyectoDB
                 clientesToolStripMenuItem.Visible = true;
                 pedidosToolStripMenuItem.Visible = true;
                 inventarioToolStripMenuItem.Visible = true;
-                enviosToolStripMenuItem.Visible = true;
                 reportesToolStripMenuItem.Visible = true;
                 tiendaToolStripMenuItem.Visible = true;
                 usuariosToolStripMenuItem.Visible = true;
@@ -150,6 +148,36 @@ namespace ProyectoDB
         {
             ClienteTiendaFrm clientetienda = new ClienteTiendaFrm();
             clientetienda.Show();
+        }
+
+        private void virtualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClienteVirtualFrm clientevirtual = new ClienteVirtualFrm();
+            clientevirtual.Show();
+        }
+
+        private void pocoFrecuenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientePocoFrecuenteFrm clientepocofrecuente = new ClientePocoFrecuenteFrm();
+            clientepocofrecuente.Show();
+        }
+
+        private void almacenToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AlmacenFrm almacen = new AlmacenFrm();
+            almacen.Show();
+        }
+
+        private void porLlamadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CarritoFrm carrito = new CarritoFrm();
+            carrito.Show();
+        }
+
+        private void pedidosRealizadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrdenEnviadaFrm ordenenviada = new OrdenEnviadaFrm();
+            ordenenviada.Show();
         }
     }
 }

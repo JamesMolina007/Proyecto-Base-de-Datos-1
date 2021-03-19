@@ -137,6 +137,7 @@
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_Recargar
             // 
@@ -148,6 +149,7 @@
             this.btn_Recargar.Text = "Recargar";
             this.btn_Recargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Recargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Recargar.Click += new System.EventHandler(this.btn_Recargar_Click);
             // 
             // toolStripLabel1
             // 
@@ -159,6 +161,7 @@
             // 
             this.tb_BuscarCliente.Name = "tb_BuscarCliente";
             this.tb_BuscarCliente.Size = new System.Drawing.Size(100, 54);
+            this.tb_BuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_BuscarCliente_KeyPress);
             // 
             // gb_ClienteVirtual
             // 
@@ -379,6 +382,7 @@
             // 
             this.ClienteVirtualBindingSource.DataMember = "ClienteVirtual";
             this.ClienteVirtualBindingSource.DataSource = this.clientesDataSet;
+            this.ClienteVirtualBindingSource.PositionChanged += new System.EventHandler(this.ClienteVirtualBindingSource_PositionChanged);
             // 
             // clientesDataSet
             // 
@@ -489,6 +493,7 @@
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.gb_ClienteVirtual);
             this.Name = "ClienteVirtualFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes Virtuales";
             this.Load += new System.EventHandler(this.ClienteVirtualFrm_Load);
             this.toolStripMenu.ResumeLayout(false);
