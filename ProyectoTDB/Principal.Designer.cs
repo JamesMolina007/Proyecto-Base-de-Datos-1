@@ -421,6 +421,7 @@
             this.consulta5ToolStripMenuItem.Name = "consulta5ToolStripMenuItem";
             this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consulta5ToolStripMenuItem.Text = "Vista 5";
+            this.consulta5ToolStripMenuItem.Click += new System.EventHandler(this.consulta5ToolStripMenuItem_Click);
             // 
             // consulta6ToolStripMenuItem
             // 

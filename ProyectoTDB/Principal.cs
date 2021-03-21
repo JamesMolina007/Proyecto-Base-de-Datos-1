@@ -238,5 +238,11 @@ namespace ProyectoDB
             VistaTresFrm vistatres = new VistaTresFrm();
             vistatres.Show();
         }
+
+        private void consulta5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VistaCincoFrm vistacinco = new VistaCincoFrm();
+            vistacinco.Show();
+        }
     }
 }
