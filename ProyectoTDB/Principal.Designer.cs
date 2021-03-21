@@ -59,8 +59,23 @@
             this.miCarritoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordenesProcesadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.lbl_Usuario = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.lbl_Fecha = new System.Windows.Forms.ToolStripLabel();
+            this.consulta1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consulta2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
+            this.consulta3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consulta4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consulta5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consulta6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraMenu.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BarraMenu
@@ -74,6 +89,7 @@
             this.inventarioToolStripMenuItem,
             this.pedidosToolStripMenuItem,
             this.reportesToolStripMenuItem,
+            this.bitacoraToolStripMenuItem,
             this.opcionesClienteToolStripMenuItem});
             this.BarraMenu.Location = new System.Drawing.Point(0, 0);
             this.BarraMenu.Name = "BarraMenu";
@@ -282,6 +298,13 @@
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consulta1ToolStripMenuItem,
+            this.consulta2ToolStripMenuItem,
+            this.consulta3ToolStripMenuItem,
+            this.consulta4ToolStripMenuItem,
+            this.consulta5ToolStripMenuItem,
+            this.consulta6ToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -319,9 +342,106 @@
             this.facturasToolStripMenuItem.Text = "Facturas";
             this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.lbl_Usuario,
+            this.toolStripSeparator2,
+            this.lbl_Fecha});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 497);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(840, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(50, 22);
+            this.toolStripLabel1.Text = "Usuario:";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // lbl_Usuario
+            // 
+            this.lbl_Usuario.Name = "lbl_Usuario";
+            this.lbl_Usuario.Size = new System.Drawing.Size(10, 22);
+            this.lbl_Usuario.Text = ".";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // lbl_Fecha
+            // 
+            this.lbl_Fecha.Name = "lbl_Fecha";
+            this.lbl_Fecha.Size = new System.Drawing.Size(10, 22);
+            this.lbl_Fecha.Text = ".";
+            // 
+            // consulta1ToolStripMenuItem
+            // 
+            this.consulta1ToolStripMenuItem.Name = "consulta1ToolStripMenuItem";
+            this.consulta1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta1ToolStripMenuItem.Text = "Vista 1";
+            // 
+            // consulta2ToolStripMenuItem
+            // 
+            this.consulta2ToolStripMenuItem.Name = "consulta2ToolStripMenuItem";
+            this.consulta2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta2ToolStripMenuItem.Text = "Vista 2";
+            this.consulta2ToolStripMenuItem.Click += new System.EventHandler(this.consulta2ToolStripMenuItem_Click);
+            // 
             // clienteTableAdapter
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // consulta3ToolStripMenuItem
+            // 
+            this.consulta3ToolStripMenuItem.Name = "consulta3ToolStripMenuItem";
+            this.consulta3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta3ToolStripMenuItem.Text = "Vista 3";
+            this.consulta3ToolStripMenuItem.Click += new System.EventHandler(this.consulta3ToolStripMenuItem_Click);
+            // 
+            // consulta4ToolStripMenuItem
+            // 
+            this.consulta4ToolStripMenuItem.Name = "consulta4ToolStripMenuItem";
+            this.consulta4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta4ToolStripMenuItem.Text = "Vista 4";
+            this.consulta4ToolStripMenuItem.Click += new System.EventHandler(this.consulta4ToolStripMenuItem_Click);
+            // 
+            // consulta5ToolStripMenuItem
+            // 
+            this.consulta5ToolStripMenuItem.Name = "consulta5ToolStripMenuItem";
+            this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta5ToolStripMenuItem.Text = "Vista 5";
+            // 
+            // consulta6ToolStripMenuItem
+            // 
+            this.consulta6ToolStripMenuItem.Name = "consulta6ToolStripMenuItem";
+            this.consulta6ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta6ToolStripMenuItem.Text = "Vista 6";
+            this.consulta6ToolStripMenuItem.Click += new System.EventHandler(this.consulta6ToolStripMenuItem_Click);
+            // 
+            // bitacoraToolStripMenuItem
+            // 
+            this.bitacoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bitacoraToolStripMenuItem1});
+            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            // 
+            // bitacoraToolStripMenuItem1
+            // 
+            this.bitacoraToolStripMenuItem1.Name = "bitacoraToolStripMenuItem1";
+            this.bitacoraToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bitacoraToolStripMenuItem1.Text = "Bitacora";
             // 
             // Principal
             // 
@@ -329,6 +449,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(840, 522);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.BarraMenu);
             this.MainMenuStrip = this.BarraMenu;
             this.Name = "Principal";
@@ -338,6 +459,8 @@
             this.Load += new System.EventHandler(this.Principal_Load);
             this.BarraMenu.ResumeLayout(false);
             this.BarraMenu.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +500,19 @@
         private System.Windows.Forms.ToolStripMenuItem ordenesToolStripMenuItem;
         private DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter clienteTableAdapter;
         private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel lbl_Usuario;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel lbl_Fecha;
+        private System.Windows.Forms.ToolStripMenuItem consulta1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consulta2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consulta3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consulta4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consulta5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consulta6ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem1;
     }
 }

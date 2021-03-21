@@ -145,6 +145,7 @@
             // 
             this.tb_BuscarCliente.Name = "tb_BuscarCliente";
             this.tb_BuscarCliente.Size = new System.Drawing.Size(100, 54);
+            this.tb_BuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_BuscarCliente_KeyPress);
             // 
             // dataGridView1
             // 

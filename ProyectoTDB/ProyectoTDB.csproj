@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,6 +70,12 @@
       <DependentUpon>AlmacenFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseDeDatos.cs" />
+    <Compile Include="BitacoraFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BitacoraFrm.Designer.cs">
+      <DependentUpon>BitacoraFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CarritoClienteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +135,29 @@
     </Compile>
     <Compile Include="ClienteVirtualFrm.Designer.cs">
       <DependentUpon>ClienteVirtualFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\BitacoraDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BitacoraDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VistaCincoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaCincoFrm.Designer.cs">
+      <DependentUpon>VistaCincoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaCuatroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaCuatroFrm.Designer.cs">
+      <DependentUpon>VistaCuatroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaDosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaDosFrm.Designer.cs">
+      <DependentUpon>VistaDosFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsultaFacturaClienteFrm.cs">
       <SubType>Form</SubType>
@@ -222,6 +252,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsuarioDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\VistasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VistasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmpresaDeEnvioFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,8 +314,29 @@
     <Compile Include="UsuariosFrm.Designer.cs">
       <DependentUpon>UsuariosFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaSeisFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaSeisFrm.Designer.cs">
+      <DependentUpon>VistaSeisFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaTresFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaTresFrm.Designer.cs">
+      <DependentUpon>VistaTresFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaUnoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaUnoFrm.Designer.cs">
+      <DependentUpon>VistaUnoFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AlmacenFrm.resx">
       <DependentUpon>AlmacenFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BitacoraFrm.resx">
+      <DependentUpon>BitacoraFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CarritoClienteFrm.resx">
       <DependentUpon>CarritoClienteFrm.cs</DependentUpon>
@@ -311,6 +367,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClienteVirtualFrm.resx">
       <DependentUpon>ClienteVirtualFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaCincoFrm.resx">
+      <DependentUpon>VistaCincoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaCuatroFrm.resx">
+      <DependentUpon>VistaCuatroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaDosFrm.resx">
+      <DependentUpon>VistaDosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaFacturaClienteFrm.resx">
       <DependentUpon>ConsultaFacturaClienteFrm.cs</DependentUpon>
@@ -361,6 +426,15 @@
     <EmbeddedResource Include="UsuariosFrm.resx">
       <DependentUpon>UsuariosFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistaSeisFrm.resx">
+      <DependentUpon>VistaSeisFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaTresFrm.resx">
+      <DependentUpon>VistaTresFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaUnoFrm.resx">
+      <DependentUpon>VistaUnoFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSet\AlmacenDataSet.xsc">
       <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
     </None>
@@ -371,6 +445,17 @@
     </None>
     <None Include="DataSet\AlmacenDataSet.xss">
       <DependentUpon>AlmacenDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\BitacoraDataSet.xsc">
+      <DependentUpon>BitacoraDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\BitacoraDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BitacoraDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\BitacoraDataSet.xss">
+      <DependentUpon>BitacoraDataSet.xsd</DependentUpon>
     </None>
     <None Include="DataSet\CarritoClienteDataSet.xsc">
       <DependentUpon>CarritoClienteDataSet.xsd</DependentUpon>
@@ -492,6 +577,17 @@
     </None>
     <None Include="DataSet\UsuarioDataSet.xss">
       <DependentUpon>UsuarioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\VistasDataSet.xsc">
+      <DependentUpon>VistasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\VistasDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VistasDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\VistasDataSet.xss">
+      <DependentUpon>VistasDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

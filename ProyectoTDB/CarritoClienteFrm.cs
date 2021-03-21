@@ -77,13 +77,9 @@ namespace ProyectoDB
         private void btn_Comprar_Click(object sender, EventArgs e)
         {
             double subTotal = 0.00, isv = 0.00, total = 0.00;
-            foreach (DataRowView drvDet in this.CarritoBindingSource)
-            {
-                
-            }
             for (int i = 0; i < dataGridView1.RowCount; i++){
                 string idProducto = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", idProducto);
+                ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') = '{0}' ", idProducto);
 
                 DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
                 subTotal += Convert.ToInt32(drvProducto.Row["Precio"]) * Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value);
@@ -100,7 +96,7 @@ namespace ProyectoDB
             ProductosBindingSource.RemoveFilter();
             clienteprocesaorden.Show();
             clienteprocesaorden.setId_Cliente(id_Cliente);
-            this.Close();
+            //this.Close();
         }
 
         private void ProductosBindingSource_PositionChanged(object sender, EventArgs e)

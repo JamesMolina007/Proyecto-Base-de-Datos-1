@@ -28,6 +28,7 @@ namespace ProyectoDB
         private void btn_Recargar_Click(object sender, EventArgs e)
         {
             recargar();
+            EncabezadoFacturaBindingSource.RemoveFilter();
         }
 
         private void EncabezadoFacturaBindingSource_PositionChanged(object sender, EventArgs e)
@@ -67,6 +68,25 @@ namespace ProyectoDB
             catch (Exception exception)
             {
                 MessageBox.Show(exception.ToString());
+            }
+        }
+
+        private void tb_BuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (tb_BuscarCliente.Text.Length > 0)
+                {
+                    EncabezadoFacturaBindingSource.Filter = string.Format("convert(idCliente, 'System.String') = '{0}' ", tb_BuscarCliente.Text);
+                }
+                else
+                {
+                    EncabezadoFacturaBindingSource.RemoveFilter();
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }

@@ -18,10 +18,18 @@ namespace ProyectoDB
 
         private void ConsultaFacturaClienteFrm_Load(object sender, EventArgs e)
         {
-            this.facturaTableAdapter.FillByFactura(this.facturasDataSet.Factura, idCliente);
-            this.productoTableAdapter.Fill(this.productosDataSet.Producto);
-            DataRowView drvFactura = (DataRowView)FacturaBindingSource.Current;
-            this.detalleFacturaTableAdapter.FillByFactura(this.facturasDataSet.DetalleFactura, Convert.ToInt32(drvFactura["noFactura"]));
+            try
+            {
+                this.facturaTableAdapter.FillByFactura(this.facturasDataSet.Factura, idCliente);
+                this.productoTableAdapter.Fill(this.productosDataSet.Producto);
+                DataRowView drvFactura = (DataRowView)FacturaBindingSource.Current;
+                this.detalleFacturaTableAdapter.FillByFactura(this.facturasDataSet.DetalleFactura, Convert.ToInt32(drvFactura["noFactura"]));
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         private void FacturaBindingSource_PositionChanged(object sender, EventArgs e)

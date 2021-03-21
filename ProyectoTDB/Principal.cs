@@ -40,6 +40,8 @@ namespace ProyectoDB
         {
             // TODO: esta línea de código carga datos en la tabla 'facturasDataSet.Cliente' Puede moverla o quitarla según sea necesario.
             //this.clienteTableAdapter.Fill(this.facturasDataSet.Cliente);
+            lbl_Fecha.Text = DateTime.Now.ToShortDateString();
+            lbl_Usuario.Text = tipoUsuario; 
             if ( tipoUsuario.Equals("Servicio al Cliente"))
             {
                 inventarioToolStripMenuItem.Visible = true;
@@ -211,6 +213,30 @@ namespace ProyectoDB
         {
             FacturasFrm facturas = new FacturasFrm();
             facturas.Show();
+        }
+
+        private void consulta2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VistaDosFrm consultados = new VistaDosFrm();
+            consultados.Show();
+        }
+
+        private void consulta4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VistaCuatroFrm consultacuatro = new VistaCuatroFrm();
+            consultacuatro.Show();
+        }
+
+        private void consulta6ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VistaSeisFrm vistaseis = new VistaSeisFrm();
+            vistaseis.Show();
+        }
+
+        private void consulta3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VistaTresFrm vistatres = new VistaTresFrm();
+            vistatres.Show();
         }
     }
 }

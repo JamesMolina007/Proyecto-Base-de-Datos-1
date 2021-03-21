@@ -2315,13 +2315,13 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `noFactura`, `Direccion`, `RTN`, `FechaEmision`, `idCliente`, `codigoTiend" +
-                "a` FROM `Factura`";
+            this._commandCollection[0].CommandText = "SELECT        noFactura, Direccion, RTN, FechaEmision, idCliente, codigoTienda\r\nF" +
+                "ROM            Factura\r\nORDER BY noFactura DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        noFactura, Direccion, RTN, FechaEmision, idCliente, codigoTienda\r\nF" +
-                "ROM            Factura\r\nWHERE        (idCliente  = @idCliente )";
+            this._commandCollection[1].CommandText = "SELECT Direccion, FechaEmision, RTN, codigoTienda, idCliente, noFactura FROM Fact" +
+                "ura WHERE (idCliente = @idCliente)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idCliente";

@@ -3778,7 +3778,7 @@ namespace ProyectoDB.DataSet.ClientesDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `idCliente`, `password`, `direccionFacturacion`, `numeroTarjeta`, `tarjeta" +
@@ -3799,6 +3799,21 @@ namespace ProyectoDB.DataSet.ClientesDataSetTableAdapters {
             param.SourceColumn = "idCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        Factura.idCliente, Factura.FechaEmision, SUM(DetalleFactura.Total) AS Total
+FROM            Factura INNER JOIN
+                         DetalleFactura ON Factura.noFactura = DetalleFactura.NoFactura
+WHERE        (YEAR(Factura.FechaEmision) = @FechaEmision)
+GROUP BY Factura.idCliente";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@FechaEmision";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.IsNullable = true;
+            param.SourceColumn = "";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3846,6 +3861,32 @@ namespace ProyectoDB.DataSet.ClientesDataSetTableAdapters {
         public virtual ClientesDataSet.ClienteVirtualDataTable GetDataByID(int idCliente) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idCliente));
+            ClientesDataSet.ClienteVirtualDataTable dataTable = new ClientesDataSet.ClienteVirtualDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTotal(ClientesDataSet.ClienteVirtualDataTable dataTable, decimal FechaEmision) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(FechaEmision));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual ClientesDataSet.ClienteVirtualDataTable GetDataByTotal(decimal FechaEmision) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(FechaEmision));
             ClientesDataSet.ClienteVirtualDataTable dataTable = new ClientesDataSet.ClienteVirtualDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
