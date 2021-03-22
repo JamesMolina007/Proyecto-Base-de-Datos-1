@@ -14,8 +14,6 @@ namespace ProyectoDB
         {
             recargar();
             this.productoTableAdapter.Fill(this.carritoDataSet.Producto);
-            // TODO: esta línea de código carga datos en la tabla 'carritoDataSet.Carrito' Puede moverla o quitarla según sea necesario.
-           // this.carritoTableAdapter.Fill(this.carritoDataSet.Carrito);
         }
 
         private void recargar()
@@ -24,9 +22,7 @@ namespace ProyectoDB
             btn_Nuevo.Enabled = true;
             btn_Guardar.Enabled = false;
             btn_Eliminar.Enabled = false;
-            // TODO: esta línea de código carga datos en la tabla 'carritoDataSet.ClienteVirtual' Puede moverla o quitarla según sea necesario.
             this.clienteVirtualTableAdapter.Fill(this.carritoDataSet.ClienteVirtual);
-            // TODO: esta línea de código carga datos en la tabla 'carritoDataSet.Producto' Puede moverla o quitarla según sea necesario.
         }
 
         private void btn_Nuevo_Click(object sender, EventArgs e)

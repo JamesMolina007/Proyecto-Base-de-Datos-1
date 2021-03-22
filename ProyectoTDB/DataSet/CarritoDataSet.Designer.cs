@@ -462,13 +462,6 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CarritoRow FindByidProducto(int idProducto) {
-                return ((CarritoRow)(this.Rows.Find(new object[] {
-                            idProducto})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 CarritoDataTable cln = ((CarritoDataTable)(base.Clone()));
                 cln.InitVars();
@@ -498,10 +491,7 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnidCliente);
                 this.columncantidadProductoCarrito = new global::System.Data.DataColumn("cantidadProductoCarrito", typeof(sbyte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidadProductoCarrito);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnidProducto}, true));
                 this.columnidProducto.AllowDBNull = false;
-                this.columnidProducto.Unique = true;
                 this.columnidCliente.AllowDBNull = false;
                 this.columncantidadProductoCarrito.AllowDBNull = false;
             }
@@ -2155,14 +2145,6 @@ namespace ProyectoDB.DataSet.CarritoDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int p2, byte p3, int p4, int p5, byte p6) {
-            return this.Update(p4, p2, p3, p4, p5, p6);
         }
     }
     

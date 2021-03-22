@@ -279,13 +279,13 @@ namespace ProyectoDB.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class BitacoraDataTable : global::System.Data.TypedTableBase<BitacoraRow> {
             
-            private global::System.Data.DataColumn columnUsuario;
+            private global::System.Data.DataColumn columnIP;
             
-            private global::System.Data.DataColumn columnAccion;
+            private global::System.Data.DataColumn columnUsuario;
             
             private global::System.Data.DataColumn columnTabla;
             
-            private global::System.Data.DataColumn columnRegistro;
+            private global::System.Data.DataColumn columnConsulta;
             
             private global::System.Data.DataColumn columnFecha;
             
@@ -324,17 +324,17 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UsuarioColumn {
+            public global::System.Data.DataColumn IPColumn {
                 get {
-                    return this.columnUsuario;
+                    return this.columnIP;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn AccionColumn {
+            public global::System.Data.DataColumn UsuarioColumn {
                 get {
-                    return this.columnAccion;
+                    return this.columnUsuario;
                 }
             }
             
@@ -348,9 +348,9 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn RegistroColumn {
+            public global::System.Data.DataColumn ConsultaColumn {
                 get {
-                    return this.columnRegistro;
+                    return this.columnConsulta;
                 }
             }
             
@@ -399,13 +399,13 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BitacoraRow AddBitacoraRow(string Usuario, string Accion, string Tabla, string Registro, System.DateTime Fecha) {
+            public BitacoraRow AddBitacoraRow(string IP, string Usuario, string Tabla, string Consulta, System.DateTime Fecha) {
                 BitacoraRow rowBitacoraRow = ((BitacoraRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        IP,
                         Usuario,
-                        Accion,
                         Tabla,
-                        Registro,
+                        Consulta,
                         Fecha};
                 rowBitacoraRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBitacoraRow);
@@ -429,34 +429,34 @@ namespace ProyectoDB.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
+                this.columnIP = base.Columns["IP"];
                 this.columnUsuario = base.Columns["Usuario"];
-                this.columnAccion = base.Columns["Accion"];
                 this.columnTabla = base.Columns["Tabla"];
-                this.columnRegistro = base.Columns["Registro"];
+                this.columnConsulta = base.Columns["Consulta"];
                 this.columnFecha = base.Columns["Fecha"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
+                this.columnIP = new global::System.Data.DataColumn("IP", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIP);
                 this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUsuario);
-                this.columnAccion = new global::System.Data.DataColumn("Accion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccion);
                 this.columnTabla = new global::System.Data.DataColumn("Tabla", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTabla);
-                this.columnRegistro = new global::System.Data.DataColumn("Registro", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRegistro);
+                this.columnConsulta = new global::System.Data.DataColumn("Consulta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsulta);
                 this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha);
+                this.columnIP.AllowDBNull = false;
+                this.columnIP.MaxLength = 50;
                 this.columnUsuario.AllowDBNull = false;
                 this.columnUsuario.MaxLength = 50;
-                this.columnAccion.AllowDBNull = false;
-                this.columnAccion.MaxLength = 50;
                 this.columnTabla.AllowDBNull = false;
                 this.columnTabla.MaxLength = 50;
-                this.columnRegistro.AllowDBNull = false;
-                this.columnRegistro.MaxLength = 50;
+                this.columnConsulta.AllowDBNull = false;
+                this.columnConsulta.MaxLength = 500;
                 this.columnFecha.AllowDBNull = false;
             }
             
@@ -600,23 +600,23 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string IP {
+                get {
+                    return ((string)(this[this.tableBitacora.IPColumn]));
+                }
+                set {
+                    this[this.tableBitacora.IPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Usuario {
                 get {
                     return ((string)(this[this.tableBitacora.UsuarioColumn]));
                 }
                 set {
                     this[this.tableBitacora.UsuarioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Accion {
-                get {
-                    return ((string)(this[this.tableBitacora.AccionColumn]));
-                }
-                set {
-                    this[this.tableBitacora.AccionColumn] = value;
                 }
             }
             
@@ -633,12 +633,12 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Registro {
+            public string Consulta {
                 get {
-                    return ((string)(this[this.tableBitacora.RegistroColumn]));
+                    return ((string)(this[this.tableBitacora.ConsultaColumn]));
                 }
                 set {
-                    this[this.tableBitacora.RegistroColumn] = value;
+                    this[this.tableBitacora.ConsultaColumn] = value;
                 }
             }
             
@@ -813,23 +813,23 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Bitacora";
+            tableMapping.ColumnMappings.Add("IP", "IP");
             tableMapping.ColumnMappings.Add("Usuario", "Usuario");
-            tableMapping.ColumnMappings.Add("Accion", "Accion");
             tableMapping.ColumnMappings.Add("Tabla", "Tabla");
-            tableMapping.ColumnMappings.Add("Registro", "Registro");
+            tableMapping.ColumnMappings.Add("Consulta", "Consulta");
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Bitacora` (`Usuario`, `Accion`, `Tabla`, `Registro`, `Fecha`) VALUES" +
-                " (@p1, @p2, @p3, @p4, @p5)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Bitacora` (`IP`, `Usuario`, `Tabla`, `Consulta`, `Fecha`) VALUES (@p" +
+                "1, @p2, @p3, @p4, @p5)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Usuario";
+            param.SourceColumn = "IP";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -837,7 +837,7 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Accion";
+            param.SourceColumn = "Usuario";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -853,13 +853,13 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Registro";
+            param.SourceColumn = "Consulta";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
             param.IsNullable = true;
             param.SourceColumn = "Fecha";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
@@ -879,7 +879,7 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Usuario`, `Accion`, `Tabla`, `Registro`, `Fecha` FROM `Bitacora`";
+            this._commandCollection[0].CommandText = "SELECT `IP`, `Usuario`, `Tabla`, `Consulta`, `Fecha` FROM `Bitacora`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

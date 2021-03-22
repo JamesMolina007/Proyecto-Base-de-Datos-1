@@ -38,8 +38,6 @@ namespace ProyectoDB
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'facturasDataSet.Cliente' Puede moverla o quitarla según sea necesario.
-            //this.clienteTableAdapter.Fill(this.facturasDataSet.Cliente);
             lbl_Fecha.Text = DateTime.Now.ToShortDateString();
             lbl_Usuario.Text = tipoUsuario; 
             if ( tipoUsuario.Equals("Servicio al Cliente"))
@@ -56,6 +54,7 @@ namespace ProyectoDB
             else if(tipoUsuario.Equals("ClienteV"))
             {
                 opcionesClienteToolStripMenuItem.Visible = true;
+                lbl_Usuario.Text = "Cliente Virtual";
             }
             else if (tipoUsuario.Equals("Cliente"))
             {
@@ -243,6 +242,12 @@ namespace ProyectoDB
         {
             VistaCincoFrm vistacinco = new VistaCincoFrm();
             vistacinco.Show();
+        }
+
+        private void bitacoraToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            BitacoraFrm bitacora = new BitacoraFrm();
+            bitacora.Show();
         }
     }
 }

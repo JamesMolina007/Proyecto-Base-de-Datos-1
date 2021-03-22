@@ -31,14 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BitacoraFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bitacoraDataSet = new ProyectoDB.DataSet.BitacoraDataSet();
-            this.bitacoraTableAdapter = new ProyectoDB.DataSet.BitacoraDataSetTableAdapters.BitacoraTableAdapter();
-            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tablaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cb_Tabla = new System.Windows.Forms.ToolStripComboBox();
@@ -47,10 +39,18 @@
             this.tb_Accion = new System.Windows.Forms.ToolStripComboBox();
             this.btn_Filtrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bitacoraDataSet = new ProyectoDB.DataSet.BitacoraDataSet();
+            this.bitacoraTableAdapter = new ProyectoDB.DataSet.BitacoraDataSetTableAdapters.BitacoraTableAdapter();
+            this.iPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.consultaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bitacoraDataSet)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -60,66 +60,17 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iPDataGridViewTextBoxColumn,
             this.usuarioDataGridViewTextBoxColumn,
-            this.accionDataGridViewTextBoxColumn,
             this.tablaDataGridViewTextBoxColumn,
-            this.registroDataGridViewTextBoxColumn,
+            this.consultaDataGridViewTextBoxColumn,
             this.fechaDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.PrincipalBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 42);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(576, 390);
+            this.dataGridView1.Size = new System.Drawing.Size(828, 390);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // PrincipalBindingSource
-            // 
-            this.PrincipalBindingSource.DataMember = "Bitacora";
-            this.PrincipalBindingSource.DataSource = this.bitacoraDataSet;
-            // 
-            // bitacoraDataSet
-            // 
-            this.bitacoraDataSet.DataSetName = "BitacoraDataSet";
-            this.bitacoraDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bitacoraTableAdapter
-            // 
-            this.bitacoraTableAdapter.ClearBeforeFill = true;
-            // 
-            // usuarioDataGridViewTextBoxColumn
-            // 
-            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
-            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
-            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accionDataGridViewTextBoxColumn
-            // 
-            this.accionDataGridViewTextBoxColumn.DataPropertyName = "Accion";
-            this.accionDataGridViewTextBoxColumn.HeaderText = "Accion";
-            this.accionDataGridViewTextBoxColumn.Name = "accionDataGridViewTextBoxColumn";
-            this.accionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tablaDataGridViewTextBoxColumn
-            // 
-            this.tablaDataGridViewTextBoxColumn.DataPropertyName = "Tabla";
-            this.tablaDataGridViewTextBoxColumn.HeaderText = "Tabla";
-            this.tablaDataGridViewTextBoxColumn.Name = "tablaDataGridViewTextBoxColumn";
-            this.tablaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // registroDataGridViewTextBoxColumn
-            // 
-            this.registroDataGridViewTextBoxColumn.DataPropertyName = "Registro";
-            this.registroDataGridViewTextBoxColumn.HeaderText = "Registro";
-            this.registroDataGridViewTextBoxColumn.Name = "registroDataGridViewTextBoxColumn";
-            this.registroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -133,7 +84,7 @@
             this.btn_Filtrar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(603, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(852, 39);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -186,21 +137,74 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
+            // PrincipalBindingSource
+            // 
+            this.PrincipalBindingSource.DataMember = "Bitacora";
+            this.PrincipalBindingSource.DataSource = this.bitacoraDataSet;
+            // 
+            // bitacoraDataSet
+            // 
+            this.bitacoraDataSet.DataSetName = "BitacoraDataSet";
+            this.bitacoraDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bitacoraTableAdapter
+            // 
+            this.bitacoraTableAdapter.ClearBeforeFill = true;
+            // 
+            // iPDataGridViewTextBoxColumn
+            // 
+            this.iPDataGridViewTextBoxColumn.DataPropertyName = "IP";
+            this.iPDataGridViewTextBoxColumn.HeaderText = "IP";
+            this.iPDataGridViewTextBoxColumn.Name = "iPDataGridViewTextBoxColumn";
+            this.iPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iPDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // usuarioDataGridViewTextBoxColumn
+            // 
+            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
+            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tablaDataGridViewTextBoxColumn
+            // 
+            this.tablaDataGridViewTextBoxColumn.DataPropertyName = "Tabla";
+            this.tablaDataGridViewTextBoxColumn.HeaderText = "Tabla";
+            this.tablaDataGridViewTextBoxColumn.Name = "tablaDataGridViewTextBoxColumn";
+            this.tablaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // consultaDataGridViewTextBoxColumn
+            // 
+            this.consultaDataGridViewTextBoxColumn.DataPropertyName = "Consulta";
+            this.consultaDataGridViewTextBoxColumn.HeaderText = "Consulta";
+            this.consultaDataGridViewTextBoxColumn.Name = "consultaDataGridViewTextBoxColumn";
+            this.consultaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.consultaDataGridViewTextBoxColumn.Width = 350;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaDataGridViewTextBoxColumn.Width = 130;
+            // 
             // BitacoraFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 444);
+            this.ClientSize = new System.Drawing.Size(852, 444);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "BitacoraFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.BitacoraFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bitacoraDataSet)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bitacoraDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,11 +216,6 @@
         private System.Windows.Forms.BindingSource PrincipalBindingSource;
         private DataSet.BitacoraDataSet bitacoraDataSet;
         private DataSet.BitacoraDataSetTableAdapters.BitacoraTableAdapter bitacoraTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn accionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tablaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn registroDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox cb_Tabla;
@@ -225,5 +224,10 @@
         private System.Windows.Forms.ToolStripComboBox tb_Accion;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btn_Filtrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tablaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn consultaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
     }
 }
