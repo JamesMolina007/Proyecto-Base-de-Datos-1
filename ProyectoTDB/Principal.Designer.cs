@@ -75,6 +75,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.lbl_Fecha = new System.Windows.Forms.ToolStripLabel();
             this.clienteTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
+            this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +93,8 @@
             this.pedidosToolStripMenuItem,
             this.reportesToolStripMenuItem,
             this.bitacoraToolStripMenuItem,
-            this.opcionesClienteToolStripMenuItem});
+            this.opcionesClienteToolStripMenuItem,
+            this.sQLToolStripMenuItem});
             this.BarraMenu.Location = new System.Drawing.Point(0, 0);
             this.BarraMenu.Name = "BarraMenu";
             this.BarraMenu.Size = new System.Drawing.Size(840, 24);
@@ -455,6 +458,22 @@
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
             // 
+            // sQLToolStripMenuItem
+            // 
+            this.sQLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sQLToolStripMenuItem1});
+            this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
+            this.sQLToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.sQLToolStripMenuItem.Text = "SQL";
+            this.sQLToolStripMenuItem.Visible = false;
+            // 
+            // sQLToolStripMenuItem1
+            // 
+            this.sQLToolStripMenuItem1.Name = "sQLToolStripMenuItem1";
+            this.sQLToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sQLToolStripMenuItem1.Text = "SQL";
+            this.sQLToolStripMenuItem1.Click += new System.EventHandler(this.sQLToolStripMenuItem1_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,5 +546,7 @@
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem contratoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem1;
     }
 }

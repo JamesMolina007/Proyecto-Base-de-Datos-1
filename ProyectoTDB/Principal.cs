@@ -73,6 +73,7 @@ namespace ProyectoDB
             else
             {
                 //opcionesClienteToolStripMenuItem.Visible = true;
+                sQLToolStripMenuItem.Visible = true;
                 bitacoraToolStripMenuItem.Visible = true;
                 inventarioToolStripMenuItem.Visible = true;
                 clientesToolStripMenuItem.Visible = true;
@@ -265,6 +266,12 @@ namespace ProyectoDB
             ClienteContratoFrm clientecontrato = new ClienteContratoFrm();
             clientecontrato.setNombre(Nombre);
             clientecontrato.Show();
+        }
+
+        private void sQLToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SQLFrm sql = new SQLFrm();
+            sql.Show();
         }
     }
 }
