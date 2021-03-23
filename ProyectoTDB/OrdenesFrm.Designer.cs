@@ -46,14 +46,13 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tb_Buscar = new System.Windows.Forms.ToolStripTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noOrdenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreRemitenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empresaEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccionEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noSeguimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gb_DatosOrden = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.FacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_NoSeguimiento = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cb_Estatus = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,9 +63,16 @@
             this.cb_Cliente = new System.Windows.Forms.ComboBox();
             this.tb_Direccion = new System.Windows.Forms.TextBox();
             this.tb_Remitente = new System.Windows.Forms.TextBox();
-            this.tb_NoSeguimiento = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.clienteVirtualTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter();
+            this.facturaTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter();
+            this.noFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noOrdenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreRemitenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresaEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noSeguimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresaEnvíoBindingSource)).BeginInit();
@@ -76,6 +82,8 @@
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gb_DatosOrden.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // OrdenBindingSource
@@ -129,7 +137,7 @@
             this.tb_Buscar});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(923, 54);
+            this.toolStripMenu.Size = new System.Drawing.Size(1122, 54);
             this.toolStripMenu.TabIndex = 23;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -203,74 +211,25 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idClienteDataGridViewTextBoxColumn,
+            this.noFactura,
             this.noOrdenDataGridViewTextBoxColumn,
             this.nombreRemitenteDataGridViewTextBoxColumn,
             this.empresaEnvioDataGridViewTextBoxColumn,
             this.direccionEnvioDataGridViewTextBoxColumn,
             this.noSeguimientoDataGridViewTextBoxColumn,
+            this.idClienteDataGridViewTextBoxColumn,
             this.estatusDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.OrdenBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(630, 335);
+            this.dataGridView1.Size = new System.Drawing.Size(843, 366);
             this.dataGridView1.TabIndex = 24;
-            // 
-            // idClienteDataGridViewTextBoxColumn
-            // 
-            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID Cliente";
-            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
-            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // noOrdenDataGridViewTextBoxColumn
-            // 
-            this.noOrdenDataGridViewTextBoxColumn.DataPropertyName = "noOrden";
-            this.noOrdenDataGridViewTextBoxColumn.HeaderText = "noOrden";
-            this.noOrdenDataGridViewTextBoxColumn.Name = "noOrdenDataGridViewTextBoxColumn";
-            this.noOrdenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.noOrdenDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreRemitenteDataGridViewTextBoxColumn
-            // 
-            this.nombreRemitenteDataGridViewTextBoxColumn.DataPropertyName = "nombreRemitente";
-            this.nombreRemitenteDataGridViewTextBoxColumn.HeaderText = "Remitente";
-            this.nombreRemitenteDataGridViewTextBoxColumn.Name = "nombreRemitenteDataGridViewTextBoxColumn";
-            this.nombreRemitenteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // empresaEnvioDataGridViewTextBoxColumn
-            // 
-            this.empresaEnvioDataGridViewTextBoxColumn.DataPropertyName = "empresaEnvio";
-            this.empresaEnvioDataGridViewTextBoxColumn.HeaderText = "Empresa de Envío";
-            this.empresaEnvioDataGridViewTextBoxColumn.Name = "empresaEnvioDataGridViewTextBoxColumn";
-            this.empresaEnvioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.empresaEnvioDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // direccionEnvioDataGridViewTextBoxColumn
-            // 
-            this.direccionEnvioDataGridViewTextBoxColumn.DataPropertyName = "direccionEnvio";
-            this.direccionEnvioDataGridViewTextBoxColumn.HeaderText = "Dirección";
-            this.direccionEnvioDataGridViewTextBoxColumn.Name = "direccionEnvioDataGridViewTextBoxColumn";
-            this.direccionEnvioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // noSeguimientoDataGridViewTextBoxColumn
-            // 
-            this.noSeguimientoDataGridViewTextBoxColumn.DataPropertyName = "noSeguimiento";
-            this.noSeguimientoDataGridViewTextBoxColumn.HeaderText = "No. Seguimiento";
-            this.noSeguimientoDataGridViewTextBoxColumn.Name = "noSeguimientoDataGridViewTextBoxColumn";
-            this.noSeguimientoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.noSeguimientoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // estatusDataGridViewTextBoxColumn
-            // 
-            this.estatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus";
-            this.estatusDataGridViewTextBoxColumn.HeaderText = "Estatus";
-            this.estatusDataGridViewTextBoxColumn.Name = "estatusDataGridViewTextBoxColumn";
-            this.estatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // gb_DatosOrden
             // 
+            this.gb_DatosOrden.Controls.Add(this.label7);
+            this.gb_DatosOrden.Controls.Add(this.comboBox1);
             this.gb_DatosOrden.Controls.Add(this.label6);
             this.gb_DatosOrden.Controls.Add(this.tb_NoSeguimiento);
             this.gb_DatosOrden.Controls.Add(this.label5);
@@ -283,12 +242,62 @@
             this.gb_DatosOrden.Controls.Add(this.cb_Cliente);
             this.gb_DatosOrden.Controls.Add(this.tb_Direccion);
             this.gb_DatosOrden.Controls.Add(this.tb_Remitente);
-            this.gb_DatosOrden.Location = new System.Drawing.Point(662, 68);
+            this.gb_DatosOrden.Location = new System.Drawing.Point(861, 68);
             this.gb_DatosOrden.Name = "gb_DatosOrden";
-            this.gb_DatosOrden.Size = new System.Drawing.Size(249, 335);
+            this.gb_DatosOrden.Size = new System.Drawing.Size(249, 366);
             this.gb_DatosOrden.TabIndex = 25;
             this.gb_DatosOrden.TabStop = false;
             this.gb_DatosOrden.Text = "Datos de Orden:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 265);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Factura:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.OrdenBindingSource, "noFactura", true));
+            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "noFactura", true));
+            this.comboBox1.DataSource = this.FacturaBindingSource;
+            this.comboBox1.DisplayMember = "noFactura";
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(55, 262);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(188, 21);
+            this.comboBox1.TabIndex = 12;
+            this.comboBox1.ValueMember = "noFactura";
+            // 
+            // FacturaBindingSource
+            // 
+            this.FacturaBindingSource.DataMember = "Factura";
+            this.FacturaBindingSource.DataSource = this.facturasDataSet;
+            // 
+            // facturasDataSet
+            // 
+            this.facturasDataSet.DataSetName = "FacturasDataSet";
+            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 298);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "No. Seguimiento:";
+            // 
+            // tb_NoSeguimiento
+            // 
+            this.tb_NoSeguimiento.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "noSeguimiento", true));
+            this.tb_NoSeguimiento.Location = new System.Drawing.Point(101, 294);
+            this.tb_NoSeguimiento.Name = "tb_NoSeguimiento";
+            this.tb_NoSeguimiento.Size = new System.Drawing.Size(142, 20);
+            this.tb_NoSeguimiento.TabIndex = 10;
             // 
             // label5
             // 
@@ -392,32 +401,78 @@
             this.tb_Remitente.Size = new System.Drawing.Size(165, 20);
             this.tb_Remitente.TabIndex = 0;
             // 
-            // tb_NoSeguimiento
-            // 
-            this.tb_NoSeguimiento.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.OrdenBindingSource, "noSeguimiento", true));
-            this.tb_NoSeguimiento.Location = new System.Drawing.Point(101, 269);
-            this.tb_NoSeguimiento.Name = "tb_NoSeguimiento";
-            this.tb_NoSeguimiento.Size = new System.Drawing.Size(142, 20);
-            this.tb_NoSeguimiento.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 273);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "No. Seguimiento:";
-            // 
             // clienteVirtualTableAdapter
             // 
             this.clienteVirtualTableAdapter.ClearBeforeFill = true;
+            // 
+            // facturaTableAdapter
+            // 
+            this.facturaTableAdapter.ClearBeforeFill = true;
+            // 
+            // noFactura
+            // 
+            this.noFactura.DataPropertyName = "noFactura";
+            this.noFactura.HeaderText = "No Factura";
+            this.noFactura.Name = "noFactura";
+            this.noFactura.ReadOnly = true;
+            // 
+            // noOrdenDataGridViewTextBoxColumn
+            // 
+            this.noOrdenDataGridViewTextBoxColumn.DataPropertyName = "noOrden";
+            this.noOrdenDataGridViewTextBoxColumn.HeaderText = "No Orden";
+            this.noOrdenDataGridViewTextBoxColumn.Name = "noOrdenDataGridViewTextBoxColumn";
+            this.noOrdenDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreRemitenteDataGridViewTextBoxColumn
+            // 
+            this.nombreRemitenteDataGridViewTextBoxColumn.DataPropertyName = "nombreRemitente";
+            this.nombreRemitenteDataGridViewTextBoxColumn.HeaderText = "Remitente";
+            this.nombreRemitenteDataGridViewTextBoxColumn.Name = "nombreRemitenteDataGridViewTextBoxColumn";
+            this.nombreRemitenteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // empresaEnvioDataGridViewTextBoxColumn
+            // 
+            this.empresaEnvioDataGridViewTextBoxColumn.DataPropertyName = "empresaEnvio";
+            this.empresaEnvioDataGridViewTextBoxColumn.HeaderText = "Empresa Envío";
+            this.empresaEnvioDataGridViewTextBoxColumn.Name = "empresaEnvioDataGridViewTextBoxColumn";
+            this.empresaEnvioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.empresaEnvioDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // direccionEnvioDataGridViewTextBoxColumn
+            // 
+            this.direccionEnvioDataGridViewTextBoxColumn.DataPropertyName = "direccionEnvio";
+            this.direccionEnvioDataGridViewTextBoxColumn.HeaderText = "Dirección";
+            this.direccionEnvioDataGridViewTextBoxColumn.Name = "direccionEnvioDataGridViewTextBoxColumn";
+            this.direccionEnvioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // noSeguimientoDataGridViewTextBoxColumn
+            // 
+            this.noSeguimientoDataGridViewTextBoxColumn.DataPropertyName = "noSeguimiento";
+            this.noSeguimientoDataGridViewTextBoxColumn.HeaderText = "No. Seguimiento";
+            this.noSeguimientoDataGridViewTextBoxColumn.Name = "noSeguimientoDataGridViewTextBoxColumn";
+            this.noSeguimientoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noSeguimientoDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID Cliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idClienteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // estatusDataGridViewTextBoxColumn
+            // 
+            this.estatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus";
+            this.estatusDataGridViewTextBoxColumn.HeaderText = "Estatus";
+            this.estatusDataGridViewTextBoxColumn.Name = "estatusDataGridViewTextBoxColumn";
+            this.estatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // OrdenesFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 415);
+            this.ClientSize = new System.Drawing.Size(1122, 446);
             this.Controls.Add(this.gb_DatosOrden);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStripMenu);
@@ -436,6 +491,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gb_DatosOrden.ResumeLayout(false);
             this.gb_DatosOrden.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,15 +527,21 @@
         private System.Windows.Forms.ComboBox cb_Cliente;
         private System.Windows.Forms.TextBox tb_Direccion;
         private System.Windows.Forms.TextBox tb_Remitente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tb_NoSeguimiento;
+        private DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter clienteVirtualTableAdapter;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource FacturaBindingSource;
+        private DataSet.FacturasDataSet facturasDataSet;
+        private DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter facturaTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn noOrdenDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreRemitenteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresaEnvioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionEnvioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noSeguimientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tb_NoSeguimiento;
-        private DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter clienteVirtualTableAdapter;
     }
 }

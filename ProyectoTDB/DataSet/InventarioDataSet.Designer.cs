@@ -20,17 +20,17 @@ namespace ProyectoDB.DataSet {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("BitacoraDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("InventarioDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class BitacoraDataSet : global::System.Data.DataSet {
+    public partial class InventarioDataSet : global::System.Data.DataSet {
         
-        private BitacoraDataTable tableBitacora;
+        private InventarioDataTable tableInventario;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public BitacoraDataSet() {
+        public InventarioDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace ProyectoDB.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected BitacoraDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected InventarioDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace ProyectoDB.DataSet {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Bitacora"] != null)) {
-                    base.Tables.Add(new BitacoraDataTable(ds.Tables["Bitacora"]));
+                if ((ds.Tables["Inventario"] != null)) {
+                    base.Tables.Add(new InventarioDataTable(ds.Tables["Inventario"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace ProyectoDB.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public BitacoraDataTable Bitacora {
+        public InventarioDataTable Inventario {
             get {
-                return this.tableBitacora;
+                return this.tableInventario;
             }
         }
         
@@ -127,7 +127,7 @@ namespace ProyectoDB.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            BitacoraDataSet cln = ((BitacoraDataSet)(base.Clone()));
+            InventarioDataSet cln = ((InventarioDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace ProyectoDB.DataSet {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Bitacora"] != null)) {
-                    base.Tables.Add(new BitacoraDataTable(ds.Tables["Bitacora"]));
+                if ((ds.Tables["Inventario"] != null)) {
+                    base.Tables.Add(new InventarioDataTable(ds.Tables["Inventario"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace ProyectoDB.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableBitacora = ((BitacoraDataTable)(base.Tables["Bitacora"]));
+            this.tableInventario = ((InventarioDataTable)(base.Tables["Inventario"]));
             if ((initTable == true)) {
-                if ((this.tableBitacora != null)) {
-                    this.tableBitacora.InitVars();
+                if ((this.tableInventario != null)) {
+                    this.tableInventario.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace ProyectoDB.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "BitacoraDataSet";
+            this.DataSetName = "InventarioDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/BitacoraDataSet.xsd";
+            this.Namespace = "http://tempuri.org/InventarioDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableBitacora = new BitacoraDataTable();
-            base.Tables.Add(this.tableBitacora);
+            this.tableInventario = new InventarioDataTable();
+            base.Tables.Add(this.tableInventario);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeBitacora() {
+        private bool ShouldSerializeInventario() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace ProyectoDB.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            BitacoraDataSet ds = new BitacoraDataSet();
+            InventarioDataSet ds = new InventarioDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,29 +270,27 @@ namespace ProyectoDB.DataSet {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void BitacoraRowChangeEventHandler(object sender, BitacoraRowChangeEvent e);
+        public delegate void InventarioRowChangeEventHandler(object sender, InventarioRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BitacoraDataTable : global::System.Data.TypedTableBase<BitacoraRow> {
+        public partial class InventarioDataTable : global::System.Data.TypedTableBase<InventarioRow> {
             
-            private global::System.Data.DataColumn columnIP;
+            private global::System.Data.DataColumn columnidProducto;
             
-            private global::System.Data.DataColumn columnUsuario;
+            private global::System.Data.DataColumn columncodigoAlmacen;
             
-            private global::System.Data.DataColumn columnTabla;
+            private global::System.Data.DataColumn columncodigoTienda;
             
-            private global::System.Data.DataColumn columnConsulta;
-            
-            private global::System.Data.DataColumn columnFecha;
+            private global::System.Data.DataColumn columnCantidad;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BitacoraDataTable() {
-                this.TableName = "Bitacora";
+            public InventarioDataTable() {
+                this.TableName = "Inventario";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +298,7 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal BitacoraDataTable(global::System.Data.DataTable table) {
+            internal InventarioDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,48 +315,40 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected BitacoraDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected InventarioDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn IPColumn {
+            public global::System.Data.DataColumn idProductoColumn {
                 get {
-                    return this.columnIP;
+                    return this.columnidProducto;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UsuarioColumn {
+            public global::System.Data.DataColumn codigoAlmacenColumn {
                 get {
-                    return this.columnUsuario;
+                    return this.columncodigoAlmacen;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TablaColumn {
+            public global::System.Data.DataColumn codigoTiendaColumn {
                 get {
-                    return this.columnTabla;
+                    return this.columncodigoTienda;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ConsultaColumn {
+            public global::System.Data.DataColumn CantidadColumn {
                 get {
-                    return this.columnConsulta;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FechaColumn {
-                get {
-                    return this.columnFecha;
+                    return this.columnCantidad;
                 }
             }
             
@@ -373,49 +363,48 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BitacoraRow this[int index] {
+            public InventarioRow this[int index] {
                 get {
-                    return ((BitacoraRow)(this.Rows[index]));
+                    return ((InventarioRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event BitacoraRowChangeEventHandler BitacoraRowChanging;
+            public event InventarioRowChangeEventHandler InventarioRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event BitacoraRowChangeEventHandler BitacoraRowChanged;
+            public event InventarioRowChangeEventHandler InventarioRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event BitacoraRowChangeEventHandler BitacoraRowDeleting;
+            public event InventarioRowChangeEventHandler InventarioRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event BitacoraRowChangeEventHandler BitacoraRowDeleted;
+            public event InventarioRowChangeEventHandler InventarioRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddBitacoraRow(BitacoraRow row) {
+            public void AddInventarioRow(InventarioRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BitacoraRow AddBitacoraRow(string IP, string Usuario, string Tabla, string Consulta, System.DateTime Fecha) {
-                BitacoraRow rowBitacoraRow = ((BitacoraRow)(this.NewRow()));
+            public InventarioRow AddInventarioRow(int idProducto, string codigoAlmacen, int codigoTienda, ushort Cantidad) {
+                InventarioRow rowInventarioRow = ((InventarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        IP,
-                        Usuario,
-                        Tabla,
-                        Consulta,
-                        Fecha};
-                rowBitacoraRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowBitacoraRow);
-                return rowBitacoraRow;
+                        idProducto,
+                        codigoAlmacen,
+                        codigoTienda,
+                        Cantidad};
+                rowInventarioRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowInventarioRow);
+                return rowInventarioRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                BitacoraDataTable cln = ((BitacoraDataTable)(base.Clone()));
+                InventarioDataTable cln = ((InventarioDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -423,67 +412,58 @@ namespace ProyectoDB.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new BitacoraDataTable();
+                return new InventarioDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnIP = base.Columns["IP"];
-                this.columnUsuario = base.Columns["Usuario"];
-                this.columnTabla = base.Columns["Tabla"];
-                this.columnConsulta = base.Columns["Consulta"];
-                this.columnFecha = base.Columns["Fecha"];
+                this.columnidProducto = base.Columns["idProducto"];
+                this.columncodigoAlmacen = base.Columns["codigoAlmacen"];
+                this.columncodigoTienda = base.Columns["codigoTienda"];
+                this.columnCantidad = base.Columns["Cantidad"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnIP = new global::System.Data.DataColumn("IP", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIP);
-                this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUsuario);
-                this.columnTabla = new global::System.Data.DataColumn("Tabla", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTabla);
-                this.columnConsulta = new global::System.Data.DataColumn("Consulta", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsulta);
-                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha);
-                this.columnIP.AllowDBNull = false;
-                this.columnIP.MaxLength = 50;
-                this.columnUsuario.AllowDBNull = false;
-                this.columnUsuario.MaxLength = 50;
-                this.columnTabla.AllowDBNull = false;
-                this.columnTabla.MaxLength = 50;
-                this.columnConsulta.AllowDBNull = false;
-                this.columnConsulta.MaxLength = 5000;
-                this.columnFecha.AllowDBNull = false;
+                this.columnidProducto = new global::System.Data.DataColumn("idProducto", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidProducto);
+                this.columncodigoAlmacen = new global::System.Data.DataColumn("codigoAlmacen", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigoAlmacen);
+                this.columncodigoTienda = new global::System.Data.DataColumn("codigoTienda", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigoTienda);
+                this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(ushort), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCantidad);
+                this.columnidProducto.AllowDBNull = false;
+                this.columncodigoAlmacen.MaxLength = 60;
+                this.columnCantidad.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BitacoraRow NewBitacoraRow() {
-                return ((BitacoraRow)(this.NewRow()));
+            public InventarioRow NewInventarioRow() {
+                return ((InventarioRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new BitacoraRow(builder);
+                return new InventarioRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(BitacoraRow);
+                return typeof(InventarioRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.BitacoraRowChanged != null)) {
-                    this.BitacoraRowChanged(this, new BitacoraRowChangeEvent(((BitacoraRow)(e.Row)), e.Action));
+                if ((this.InventarioRowChanged != null)) {
+                    this.InventarioRowChanged(this, new InventarioRowChangeEvent(((InventarioRow)(e.Row)), e.Action));
                 }
             }
             
@@ -491,8 +471,8 @@ namespace ProyectoDB.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.BitacoraRowChanging != null)) {
-                    this.BitacoraRowChanging(this, new BitacoraRowChangeEvent(((BitacoraRow)(e.Row)), e.Action));
+                if ((this.InventarioRowChanging != null)) {
+                    this.InventarioRowChanging(this, new InventarioRowChangeEvent(((InventarioRow)(e.Row)), e.Action));
                 }
             }
             
@@ -500,8 +480,8 @@ namespace ProyectoDB.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.BitacoraRowDeleted != null)) {
-                    this.BitacoraRowDeleted(this, new BitacoraRowChangeEvent(((BitacoraRow)(e.Row)), e.Action));
+                if ((this.InventarioRowDeleted != null)) {
+                    this.InventarioRowDeleted(this, new InventarioRowChangeEvent(((InventarioRow)(e.Row)), e.Action));
                 }
             }
             
@@ -509,14 +489,14 @@ namespace ProyectoDB.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.BitacoraRowDeleting != null)) {
-                    this.BitacoraRowDeleting(this, new BitacoraRowChangeEvent(((BitacoraRow)(e.Row)), e.Action));
+                if ((this.InventarioRowDeleting != null)) {
+                    this.InventarioRowDeleting(this, new InventarioRowChangeEvent(((InventarioRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveBitacoraRow(BitacoraRow row) {
+            public void RemoveInventarioRow(InventarioRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -525,7 +505,7 @@ namespace ProyectoDB.DataSet {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BitacoraDataSet ds = new BitacoraDataSet();
+                InventarioDataSet ds = new InventarioDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -543,7 +523,7 @@ namespace ProyectoDB.DataSet {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "BitacoraDataTable";
+                attribute2.FixedValue = "InventarioDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -587,70 +567,93 @@ namespace ProyectoDB.DataSet {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class BitacoraRow : global::System.Data.DataRow {
+        public partial class InventarioRow : global::System.Data.DataRow {
             
-            private BitacoraDataTable tableBitacora;
+            private InventarioDataTable tableInventario;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal BitacoraRow(global::System.Data.DataRowBuilder rb) : 
+            internal InventarioRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableBitacora = ((BitacoraDataTable)(this.Table));
+                this.tableInventario = ((InventarioDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string IP {
+            public int idProducto {
                 get {
-                    return ((string)(this[this.tableBitacora.IPColumn]));
+                    return ((int)(this[this.tableInventario.idProductoColumn]));
                 }
                 set {
-                    this[this.tableBitacora.IPColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Usuario {
-                get {
-                    return ((string)(this[this.tableBitacora.UsuarioColumn]));
-                }
-                set {
-                    this[this.tableBitacora.UsuarioColumn] = value;
+                    this[this.tableInventario.idProductoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Tabla {
+            public string codigoAlmacen {
                 get {
-                    return ((string)(this[this.tableBitacora.TablaColumn]));
+                    try {
+                        return ((string)(this[this.tableInventario.codigoAlmacenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codigoAlmacen\' de la tabla \'Inventario\' es DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableBitacora.TablaColumn] = value;
+                    this[this.tableInventario.codigoAlmacenColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Consulta {
+            public int codigoTienda {
                 get {
-                    return ((string)(this[this.tableBitacora.ConsultaColumn]));
+                    try {
+                        return ((int)(this[this.tableInventario.codigoTiendaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codigoTienda\' de la tabla \'Inventario\' es DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableBitacora.ConsultaColumn] = value;
+                    this[this.tableInventario.codigoTiendaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime Fecha {
+            public ushort Cantidad {
                 get {
-                    return ((global::System.DateTime)(this[this.tableBitacora.FechaColumn]));
+                    return ((ushort)(this[this.tableInventario.CantidadColumn]));
                 }
                 set {
-                    this[this.tableBitacora.FechaColumn] = value;
+                    this[this.tableInventario.CantidadColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IscodigoAlmacenNull() {
+                return this.IsNull(this.tableInventario.codigoAlmacenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetcodigoAlmacenNull() {
+                this[this.tableInventario.codigoAlmacenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IscodigoTiendaNull() {
+                return this.IsNull(this.tableInventario.codigoTiendaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetcodigoTiendaNull() {
+                this[this.tableInventario.codigoTiendaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -658,22 +661,22 @@ namespace ProyectoDB.DataSet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class BitacoraRowChangeEvent : global::System.EventArgs {
+        public class InventarioRowChangeEvent : global::System.EventArgs {
             
-            private BitacoraRow eventRow;
+            private InventarioRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BitacoraRowChangeEvent(BitacoraRow row, global::System.Data.DataRowAction action) {
+            public InventarioRowChangeEvent(InventarioRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BitacoraRow Row {
+            public InventarioRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -689,7 +692,7 @@ namespace ProyectoDB.DataSet {
         }
     }
 }
-namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
+namespace ProyectoDB.DataSet.InventarioDataSetTableAdapters {
     
     
     /// <summary>
@@ -701,7 +704,7 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class BitacoraTableAdapter : global::System.ComponentModel.Component {
+    public partial class InventarioTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -715,7 +718,7 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public BitacoraTableAdapter() {
+        public InventarioTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -812,24 +815,23 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Bitacora";
-            tableMapping.ColumnMappings.Add("IP", "IP");
-            tableMapping.ColumnMappings.Add("Usuario", "Usuario");
-            tableMapping.ColumnMappings.Add("Tabla", "Tabla");
-            tableMapping.ColumnMappings.Add("Consulta", "Consulta");
-            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
+            tableMapping.DataSetTable = "Inventario";
+            tableMapping.ColumnMappings.Add("idProducto", "idProducto");
+            tableMapping.ColumnMappings.Add("codigoAlmacen", "codigoAlmacen");
+            tableMapping.ColumnMappings.Add("codigoTienda", "codigoTienda");
+            tableMapping.ColumnMappings.Add("Cantidad", "Cantidad");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Bitacora` (`IP`, `Usuario`, `Tabla`, `Consulta`, `Fecha`) VALUES (@p" +
-                "1, @p2, @p3, @p4, @p5)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Inventario` (`idProducto`, `codigoAlmacen`, `codigoTienda`, `Cantida" +
+                "d`) VALUES (@p1, @p2, @p3, @p4)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "IP";
+            param.SourceColumn = "idProducto";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -837,31 +839,23 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "Usuario";
+            param.SourceColumn = "codigoAlmacen";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Tabla";
+            param.SourceColumn = "codigoTienda";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "Consulta";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Timestamp;
-            param.IsNullable = true;
-            param.SourceColumn = "Fecha";
+            param.SourceColumn = "Cantidad";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
         }
@@ -879,7 +873,8 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `IP`, `Usuario`, `Tabla`, `Consulta`, `Fecha` FROM `Bitacora`";
+            this._commandCollection[0].CommandText = "SELECT `idProducto`, `codigoAlmacen`, `codigoTienda`, `Cantidad` FROM `Inventario" +
+                "`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -887,7 +882,7 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BitacoraDataSet.BitacoraDataTable dataTable) {
+        public virtual int Fill(InventarioDataSet.InventarioDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -900,9 +895,9 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BitacoraDataSet.BitacoraDataTable GetData() {
+        public virtual InventarioDataSet.InventarioDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BitacoraDataSet.BitacoraDataTable dataTable = new BitacoraDataSet.BitacoraDataTable();
+            InventarioDataSet.InventarioDataTable dataTable = new InventarioDataSet.InventarioDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -910,15 +905,15 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BitacoraDataSet.BitacoraDataTable dataTable) {
+        public virtual int Update(InventarioDataSet.InventarioDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BitacoraDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Bitacora");
+        public virtual int Update(InventarioDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Inventario");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -940,32 +935,21 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, string p3, string p4, System.DateTime p5) {
-            if ((p1 == null)) {
-                throw new global::System.ArgumentNullException("p1");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
-            }
+        public virtual int Insert(int p1, string p2, global::System.Nullable<int> p3, ushort p4) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
             if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
             }
-            if ((p3 == null)) {
-                throw new global::System.ArgumentNullException("p3");
+            if ((p3.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(p3));
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((p4 == null)) {
-                throw new global::System.ArgumentNullException("p4");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(p4));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(p5));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((ushort)(p4));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -995,7 +979,7 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private BitacoraTableAdapter _bitacoraTableAdapter;
+        private InventarioTableAdapter _inventarioTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1017,12 +1001,12 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public BitacoraTableAdapter BitacoraTableAdapter {
+        public InventarioTableAdapter InventarioTableAdapter {
             get {
-                return this._bitacoraTableAdapter;
+                return this._inventarioTableAdapter;
             }
             set {
-                this._bitacoraTableAdapter = value;
+                this._inventarioTableAdapter = value;
             }
         }
         
@@ -1045,9 +1029,9 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._bitacoraTableAdapter != null) 
-                            && (this._bitacoraTableAdapter.Connection != null))) {
-                    return this._bitacoraTableAdapter.Connection;
+                if (((this._inventarioTableAdapter != null) 
+                            && (this._inventarioTableAdapter.Connection != null))) {
+                    return this._inventarioTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1062,7 +1046,7 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._bitacoraTableAdapter != null)) {
+                if ((this._inventarioTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1074,14 +1058,14 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(BitacoraDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(InventarioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bitacoraTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Bitacora.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._inventarioTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Inventario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._bitacoraTableAdapter.Update(updatedRows));
+                    result = (result + this._inventarioTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1093,13 +1077,13 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(BitacoraDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(InventarioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bitacoraTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Bitacora.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._inventarioTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Inventario.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._bitacoraTableAdapter.Update(addedRows));
+                    result = (result + this._inventarioTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1111,13 +1095,13 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(BitacoraDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(InventarioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._bitacoraTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Bitacora.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._inventarioTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Inventario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._bitacoraTableAdapter.Update(deletedRows));
+                    result = (result + this._inventarioTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1153,15 +1137,15 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(BitacoraDataSet dataSet) {
+        public virtual int UpdateAll(InventarioDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._bitacoraTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bitacoraTableAdapter.Connection) == false))) {
+            if (((this._inventarioTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._inventarioTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
@@ -1197,13 +1181,13 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._bitacoraTableAdapter != null)) {
-                    revertConnections.Add(this._bitacoraTableAdapter, this._bitacoraTableAdapter.Connection);
-                    this._bitacoraTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._bitacoraTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._bitacoraTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bitacoraTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bitacoraTableAdapter.Adapter);
+                if ((this._inventarioTableAdapter != null)) {
+                    revertConnections.Add(this._inventarioTableAdapter, this._inventarioTableAdapter.Connection);
+                    this._inventarioTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._inventarioTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._inventarioTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._inventarioTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._inventarioTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1264,9 +1248,9 @@ namespace ProyectoDB.DataSet.BitacoraDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._bitacoraTableAdapter != null)) {
-                    this._bitacoraTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._bitacoraTableAdapter]));
-                    this._bitacoraTableAdapter.Transaction = null;
+                if ((this._inventarioTableAdapter != null)) {
+                    this._inventarioTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._inventarioTableAdapter]));
+                    this._inventarioTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

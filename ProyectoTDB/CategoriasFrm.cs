@@ -15,7 +15,7 @@ namespace ProyectoDB
         {
             // TODO: esta línea de código carga datos en la tabla 'categoriasDataSet.Categoria' Puede moverla o quitarla según sea necesario.
             this.categoriaTableAdapter.Fill(this.categoriasDataSet.Categoria);
-            PrincipalBindingSource.AddNew();
+            //PrincipalBindingSource.AddNew();
             
         }
 
@@ -63,7 +63,7 @@ namespace ProyectoDB
             }
             catch (Exception ex)
             {
-               // MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
         }
     }

@@ -8,3 +8,11 @@
 }
 
 
+
+
+namespace ProyectoDB.DataSet.UsuarioDataSetTableAdapters {
+    
+    
+    public partial class UsuarioActualTableAdapter {
+    }
+}

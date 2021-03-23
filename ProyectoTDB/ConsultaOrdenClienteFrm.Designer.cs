@@ -40,6 +40,7 @@
             this.noSeguimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noFacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -72,18 +73,19 @@
             this.direccionEnvioDataGridViewTextBoxColumn,
             this.noSeguimientoDataGridViewTextBoxColumn,
             this.idClienteDataGridViewTextBoxColumn,
-            this.estatusDataGridViewTextBoxColumn});
+            this.estatusDataGridViewTextBoxColumn,
+            this.noFacturaDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.OrdenBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 13);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 312);
+            this.dataGridView1.Size = new System.Drawing.Size(873, 312);
             this.dataGridView1.TabIndex = 0;
             // 
             // noOrdenDataGridViewTextBoxColumn
             // 
             this.noOrdenDataGridViewTextBoxColumn.DataPropertyName = "noOrden";
-            this.noOrdenDataGridViewTextBoxColumn.HeaderText = "No. Orden";
+            this.noOrdenDataGridViewTextBoxColumn.HeaderText = "No Orden";
             this.noOrdenDataGridViewTextBoxColumn.Name = "noOrdenDataGridViewTextBoxColumn";
             this.noOrdenDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -97,7 +99,7 @@
             // empresaEnvioDataGridViewTextBoxColumn
             // 
             this.empresaEnvioDataGridViewTextBoxColumn.DataPropertyName = "empresaEnvio";
-            this.empresaEnvioDataGridViewTextBoxColumn.HeaderText = "Empresa de Envío";
+            this.empresaEnvioDataGridViewTextBoxColumn.HeaderText = "Empresa Envío";
             this.empresaEnvioDataGridViewTextBoxColumn.Name = "empresaEnvioDataGridViewTextBoxColumn";
             this.empresaEnvioDataGridViewTextBoxColumn.ReadOnly = true;
             this.empresaEnvioDataGridViewTextBoxColumn.Width = 150;
@@ -120,7 +122,7 @@
             // idClienteDataGridViewTextBoxColumn
             // 
             this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID Cliente";
             this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
             this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
             this.idClienteDataGridViewTextBoxColumn.Visible = false;
@@ -132,11 +134,18 @@
             this.estatusDataGridViewTextBoxColumn.Name = "estatusDataGridViewTextBoxColumn";
             this.estatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // noFacturaDataGridViewTextBoxColumn
+            // 
+            this.noFacturaDataGridViewTextBoxColumn.DataPropertyName = "noFactura";
+            this.noFacturaDataGridViewTextBoxColumn.HeaderText = "No Factura";
+            this.noFacturaDataGridViewTextBoxColumn.Name = "noFacturaDataGridViewTextBoxColumn";
+            this.noFacturaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // ConsultaOrdenClienteFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 342);
+            this.ClientSize = new System.Drawing.Size(898, 342);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ConsultaOrdenClienteFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -162,5 +171,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noSeguimientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noFacturaDataGridViewTextBoxColumn;
     }
 }

@@ -102,6 +102,7 @@ namespace ProyectoDB
                     productoTableAdapter.Update(this.productosDataSet.Producto);
                 }
                 this.Validate();
+                drvOrden.Row["noFactura"] = drvFacturaEncabezado["noFactura"];
                 drvOrden.Row["noSeguimiento"] = seguimiento;
                 drvOrden.Row["Estatus"] = "En Proceso";
                 this.OrdenBindingSource.EndEdit();

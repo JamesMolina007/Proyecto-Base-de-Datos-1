@@ -293,6 +293,8 @@ namespace ProyectoDB.DataSet {
             
             private global::System.Data.DataColumn columnEstatus;
             
+            private global::System.Data.DataColumn columnnoFactura;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public OrdenDataTable() {
@@ -384,6 +386,14 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn noFacturaColumn {
+                get {
+                    return this.columnnoFactura;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +429,7 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrdenRow AddOrdenRow(string nombreRemitente, string empresaEnvio, string direccionEnvio, int noSeguimiento, int idCliente, string Estatus) {
+            public OrdenRow AddOrdenRow(string nombreRemitente, string empresaEnvio, string direccionEnvio, int noSeguimiento, int idCliente, string Estatus, int noFactura) {
                 OrdenRow rowOrdenRow = ((OrdenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -428,7 +438,8 @@ namespace ProyectoDB.DataSet {
                         direccionEnvio,
                         noSeguimiento,
                         idCliente,
-                        Estatus};
+                        Estatus,
+                        noFactura};
                 rowOrdenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrdenRow);
                 return rowOrdenRow;
@@ -465,6 +476,7 @@ namespace ProyectoDB.DataSet {
                 this.columnnoSeguimiento = base.Columns["noSeguimiento"];
                 this.columnidCliente = base.Columns["idCliente"];
                 this.columnEstatus = base.Columns["Estatus"];
+                this.columnnoFactura = base.Columns["noFactura"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,11 +496,12 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnidCliente);
                 this.columnEstatus = new global::System.Data.DataColumn("Estatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstatus);
+                this.columnnoFactura = new global::System.Data.DataColumn("noFactura", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnoFactura);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnnoOrden}, true));
                 this.columnnoOrden.AutoIncrement = true;
-                this.columnnoOrden.AutoIncrementSeed = -1;
-                this.columnnoOrden.AutoIncrementStep = -1;
+                this.columnnoOrden.AutoIncrementSeed = 1;
                 this.columnnoOrden.AllowDBNull = false;
                 this.columnnoOrden.Unique = true;
                 this.columnnombreRemitente.AllowDBNull = false;
@@ -729,6 +742,22 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int noFactura {
+                get {
+                    try {
+                        return ((int)(this[this.tableOrden.noFacturaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'noFactura\' de la tabla \'Orden\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrden.noFacturaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnoSeguimientoNull() {
                 return this.IsNull(this.tableOrden.noSeguimientoColumn);
             }
@@ -749,6 +778,18 @@ namespace ProyectoDB.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetEstatusNull() {
                 this[this.tableOrden.EstatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsnoFacturaNull() {
+                return this.IsNull(this.tableOrden.noFacturaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetnoFacturaNull() {
+                this[this.tableOrden.noFacturaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -918,10 +959,11 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("noSeguimiento", "noSeguimiento");
             tableMapping.ColumnMappings.Add("idCliente", "idCliente");
             tableMapping.ColumnMappings.Add("Estatus", "Estatus");
+            tableMapping.ColumnMappings.Add("noFactura", "noFactura");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Orden` WHERE ((`noOrden` = @p1) AND (`nombreRemitente` = @p2) AND (`empresaEnvio` = @p3) AND (`direccionEnvio` = @p4) AND ((@p5 = 1 AND `noSeguimiento` IS NULL) OR (`noSeguimiento` = @p6)) AND (`idCliente` = @p7) AND ((@p8 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p9)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Orden` WHERE ((`noOrden` = @p1) AND (`nombreRemitente` = @p2) AND (`empresaEnvio` = @p3) AND (`direccionEnvio` = @p4) AND ((@p5 = 1 AND `noSeguimiento` IS NULL) OR (`noSeguimiento` = @p6)) AND (`idCliente` = @p7) AND ((@p8 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p9)) AND ((@p10 = 1 AND `noFactura` IS NULL) OR (`noFactura` = @p11)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -997,10 +1039,28 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceColumn = "Estatus";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noFactura";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noFactura";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Orden` (`nombreRemitente`, `empresaEnvio`, `direccionEnvio`, `noSegu" +
-                "imiento`, `idCliente`, `Estatus`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
+                "imiento`, `idCliente`, `Estatus`, `noFactura`) VALUES (@p1, @p2, @p3, @p4, @p5, " +
+                "@p6, @p7)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1050,9 +1110,17 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceColumn = "Estatus";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noFactura";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Orden` SET `nombreRemitente` = @p1, `empresaEnvio` = @p2, `direccionEnvio` = @p3, `noSeguimiento` = @p4, `idCliente` = @p5, `Estatus` = @p6 WHERE ((`noOrden` = @p7) AND (`nombreRemitente` = @p8) AND (`empresaEnvio` = @p9) AND (`direccionEnvio` = @p10) AND ((@p11 = 1 AND `noSeguimiento` IS NULL) OR (`noSeguimiento` = @p12)) AND (`idCliente` = @p13) AND ((@p14 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p15)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Orden` SET `nombreRemitente` = @p1, `empresaEnvio` = @p2, `direccionEnvio` = @p3, `noSeguimiento` = @p4, `idCliente` = @p5, `Estatus` = @p6, `noFactura` = @p7 WHERE ((`noOrden` = @p8) AND (`nombreRemitente` = @p9) AND (`empresaEnvio` = @p10) AND (`direccionEnvio` = @p11) AND ((@p12 = 1 AND `noSeguimiento` IS NULL) OR (`noSeguimiento` = @p13)) AND (`idCliente` = @p14) AND ((@p15 = 1 AND `Estatus` IS NULL) OR (`Estatus` = @p16)) AND ((@p17 = 1 AND `noFactura` IS NULL) OR (`noFactura` = @p18)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -1107,15 +1175,15 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "noOrden";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumn = "noFactura";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p8";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "nombreRemitente";
+            param.SourceColumn = "noOrden";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1123,7 +1191,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "empresaEnvio";
+            param.SourceColumn = "nombreRemitente";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1131,17 +1199,16 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "direccionEnvio";
+            param.SourceColumn = "empresaEnvio";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "noSeguimiento";
+            param.SourceColumn = "direccionEnvio";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
@@ -1150,9 +1217,18 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "noSeguimiento";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noSeguimiento";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1160,7 +1236,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -1169,11 +1245,28 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Estatus";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p17";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noFactura";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p18";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noFactura";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -1188,16 +1281,17 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        noOrden, nombreRemitente, empresaEnvio, direccionEnvio, noSeguimien" +
-                "to, idCliente, Estatus\r\nFROM            Orden\r\nORDER BY noSeguimiento DESC";
+                "to, idCliente, Estatus, noFactura\r\nFROM            Orden\r\nORDER BY noSeguimiento" +
+                " DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Estatus, direccionEnvio, empresaEnvio, idCliente, noOrden, noSeguimiento, " +
-                "nombreRemitente FROM Orden WHERE (idCliente = @idCliente)";
+            this._commandCollection[1].CommandText = "SELECT Estatus, direccionEnvio, empresaEnvio, idCliente, noFactura, noOrden, noSe" +
+                "guimiento, nombreRemitente FROM Orden WHERE (idCliente = @idCliente)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idCliente";
@@ -1209,9 +1303,23 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Estatus, direccionEnvio, empresaEnvio, idCliente, noOrden, noSeguimiento, " +
-                "nombreRemitente FROM Orden WHERE (noOrden = @noOrden)";
+            this._commandCollection[2].CommandText = "SELECT        noOrden, nombreRemitente, empresaEnvio, direccionEnvio, noSeguimien" +
+                "to, idCliente, Estatus, noFactura\r\nFROM            Orden\r\nWHERE        (noFactur" +
+                "a = @noFactura)\r\nORDER BY noSeguimiento DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@noFactura";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "noFactura";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT Estatus, direccionEnvio, empresaEnvio, idCliente, noFactura, noOrden, noSe" +
+                "guimiento, nombreRemitente FROM Orden WHERE (noOrden = @noOrden)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@noOrden";
             param.DbType = global::System.Data.DbType.Int32;
@@ -1219,7 +1327,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "noOrden";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1276,8 +1384,44 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByOrden(OrdenDataSet.OrdenDataTable dataTable, int noOrden) {
+        public virtual int FillByFactura(OrdenDataSet.OrdenDataTable dataTable, global::System.Nullable<int> noFactura) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((noFactura.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noFactura.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual OrdenDataSet.OrdenDataTable GetDataByFactura(global::System.Nullable<int> noFactura) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((noFactura.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noFactura.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            OrdenDataSet.OrdenDataTable dataTable = new OrdenDataSet.OrdenDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByOrden(OrdenDataSet.OrdenDataTable dataTable, int noOrden) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noOrden));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1291,7 +1435,7 @@ namespace ProyectoDB.DataSet.OrdenDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual OrdenDataSet.OrdenDataTable GetDataByOrden(int noOrden) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(noOrden));
             OrdenDataSet.OrdenDataTable dataTable = new OrdenDataSet.OrdenDataTable();
             this.Adapter.Fill(dataTable);

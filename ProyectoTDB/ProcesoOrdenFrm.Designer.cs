@@ -34,6 +34,13 @@
             this.OrdenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordenDataSet = new ProyectoDB.DataSet.OrdenDataSet();
             this.ordenTableAdapter = new ProyectoDB.DataSet.OrdenDataSetTableAdapters.OrdenTableAdapter();
+            this.toolStripMenu = new System.Windows.Forms.ToolStrip();
+            this.btn_Nuevo = new System.Windows.Forms.ToolStripButton();
+            this.btn_Guardar = new System.Windows.Forms.ToolStripButton();
+            this.btn_Eliminar = new System.Windows.Forms.ToolStripButton();
+            this.btn_Recargar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tb_Buscar = new System.Windows.Forms.ToolStripTextBox();
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noOrdenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noSeguimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,13 +48,7 @@
             this.empresaEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripMenu = new System.Windows.Forms.ToolStrip();
-            this.btn_Recargar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tb_Buscar = new System.Windows.Forms.ToolStripTextBox();
-            this.btn_Eliminar = new System.Windows.Forms.ToolStripButton();
-            this.btn_Guardar = new System.Windows.Forms.ToolStripButton();
-            this.btn_Nuevo = new System.Windows.Forms.ToolStripButton();
+            this.noFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
@@ -67,12 +68,13 @@
             this.nombreRemitenteDataGridViewTextBoxColumn,
             this.empresaEnvioDataGridViewTextBoxColumn,
             this.direccionEnvioDataGridViewTextBoxColumn,
-            this.estatusDataGridViewTextBoxColumn});
+            this.estatusDataGridViewTextBoxColumn,
+            this.noFactura});
             this.dataGridView1.DataSource = this.OrdenBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(917, 368);
+            this.dataGridView1.Size = new System.Drawing.Size(1019, 368);
             this.dataGridView1.TabIndex = 0;
             // 
             // OrdenBindingSource
@@ -88,6 +90,85 @@
             // ordenTableAdapter
             // 
             this.ordenTableAdapter.ClearBeforeFill = true;
+            // 
+            // toolStripMenu
+            // 
+            this.toolStripMenu.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Nuevo,
+            this.btn_Guardar,
+            this.btn_Eliminar,
+            this.btn_Recargar,
+            this.toolStripLabel1,
+            this.tb_Buscar});
+            this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
+            this.toolStripMenu.Name = "toolStripMenu";
+            this.toolStripMenu.Size = new System.Drawing.Size(1043, 54);
+            this.toolStripMenu.TabIndex = 22;
+            this.toolStripMenu.Text = "toolStrip1";
+            // 
+            // btn_Nuevo
+            // 
+            this.btn_Nuevo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Nuevo.Image")));
+            this.btn_Nuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Nuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Nuevo.Name = "btn_Nuevo";
+            this.btn_Nuevo.Size = new System.Drawing.Size(53, 51);
+            this.btn_Nuevo.Text = "Enviado";
+            this.btn_Nuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.btn_Nuevo.Click += new System.EventHandler(this.btn_Nuevo_Click);
+            // 
+            // btn_Guardar
+            // 
+            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
+            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Guardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Guardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(65, 51);
+            this.btn_Guardar.Text = "Entregado";
+            this.btn_Guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
+            // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Eliminar.Image")));
+            this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Eliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(62, 51);
+            this.btn_Eliminar.Text = "Consultar";
+            this.btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
+            // 
+            // btn_Recargar
+            // 
+            this.btn_Recargar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Recargar.Image")));
+            this.btn_Recargar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Recargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Recargar.Name = "btn_Recargar";
+            this.btn_Recargar.Size = new System.Drawing.Size(57, 51);
+            this.btn_Recargar.Text = "Recargar";
+            this.btn_Recargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Recargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Recargar.Click += new System.EventHandler(this.btn_Recargar_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(81, 51);
+            this.toolStripLabel1.Text = "Buscar Orden:";
+            // 
+            // tb_Buscar
+            // 
+            this.tb_Buscar.Name = "tb_Buscar";
+            this.tb_Buscar.Size = new System.Drawing.Size(100, 54);
+            this.tb_Buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Buscar_KeyPress);
             // 
             // idClienteDataGridViewTextBoxColumn
             // 
@@ -141,93 +222,21 @@
             this.estatusDataGridViewTextBoxColumn.Name = "estatusDataGridViewTextBoxColumn";
             this.estatusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // toolStripMenu
+            // noFactura
             // 
-            this.toolStripMenu.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Nuevo,
-            this.btn_Guardar,
-            this.btn_Eliminar,
-            this.btn_Recargar,
-            this.toolStripLabel1,
-            this.tb_Buscar});
-            this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
-            this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(941, 54);
-            this.toolStripMenu.TabIndex = 22;
-            this.toolStripMenu.Text = "toolStrip1";
+            this.noFactura.DataPropertyName = "noFactura";
+            this.noFactura.HeaderText = "No Factura";
+            this.noFactura.Name = "noFactura";
+            this.noFactura.ReadOnly = true;
             // 
-            // btn_Recargar
-            // 
-            this.btn_Recargar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Recargar.Image")));
-            this.btn_Recargar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Recargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Recargar.Name = "btn_Recargar";
-            this.btn_Recargar.Size = new System.Drawing.Size(57, 51);
-            this.btn_Recargar.Text = "Recargar";
-            this.btn_Recargar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Recargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Recargar.Click += new System.EventHandler(this.btn_Recargar_Click);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(81, 51);
-            this.toolStripLabel1.Text = "Buscar Orden:";
-            // 
-            // tb_Buscar
-            // 
-            this.tb_Buscar.Name = "tb_Buscar";
-            this.tb_Buscar.Size = new System.Drawing.Size(100, 54);
-            this.tb_Buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Buscar_KeyPress);
-            // 
-            // btn_Eliminar
-            // 
-            this.btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Eliminar.Image")));
-            this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Eliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(62, 51);
-            this.btn_Eliminar.Text = "Consultar";
-            this.btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
-            // 
-            // btn_Guardar
-            // 
-            this.btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Guardar.Image")));
-            this.btn_Guardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Guardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Guardar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(65, 51);
-            this.btn_Guardar.Text = "Entregado";
-            this.btn_Guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
-            // 
-            // btn_Nuevo
-            // 
-            this.btn_Nuevo.Image = ((System.Drawing.Image)(resources.GetObject("btn_Nuevo.Image")));
-            this.btn_Nuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Nuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Nuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Nuevo.Name = "btn_Nuevo";
-            this.btn_Nuevo.Size = new System.Drawing.Size(53, 51);
-            this.btn_Nuevo.Text = "Enviado";
-            this.btn_Nuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Nuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.btn_Nuevo.Click += new System.EventHandler(this.btn_Nuevo_Click);
-            // 
-            // OrdenEnviadaFrm
+            // ProcesoOrdenFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 449);
+            this.ClientSize = new System.Drawing.Size(1043, 449);
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "OrdenEnviadaFrm";
+            this.Name = "ProcesoOrdenFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proceso de Orden";
             this.Load += new System.EventHandler(this.OrdenEnviadaFrm_Load);
@@ -247,13 +256,6 @@
         private System.Windows.Forms.BindingSource OrdenBindingSource;
         private DataSet.OrdenDataSet ordenDataSet;
         private DataSet.OrdenDataSetTableAdapters.OrdenTableAdapter ordenTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noOrdenDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noSeguimientoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreRemitenteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empresaEnvioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccionEnvioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStrip toolStripMenu;
         private System.Windows.Forms.ToolStripButton btn_Recargar;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -261,5 +263,13 @@
         private System.Windows.Forms.ToolStripButton btn_Nuevo;
         private System.Windows.Forms.ToolStripButton btn_Guardar;
         private System.Windows.Forms.ToolStripButton btn_Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noOrdenDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noSeguimientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreRemitenteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresaEnvioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionEnvioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noFactura;
     }
 }

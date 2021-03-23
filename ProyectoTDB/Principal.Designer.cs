@@ -77,6 +77,7 @@
             this.clienteTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
             this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sQLToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -241,7 +242,8 @@
             this.inventarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.almacenToolStripMenuItem,
             this.categoriasToolStripMenuItem,
-            this.almacenToolStripMenuItem2});
+            this.almacenToolStripMenuItem2,
+            this.inventarioToolStripMenuItem1});
             this.inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
             this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.inventarioToolStripMenuItem.Text = "Inventario";
@@ -474,6 +476,13 @@
             this.sQLToolStripMenuItem1.Text = "SQL";
             this.sQLToolStripMenuItem1.Click += new System.EventHandler(this.sQLToolStripMenuItem1_Click);
             // 
+            // inventarioToolStripMenuItem1
+            // 
+            this.inventarioToolStripMenuItem1.Name = "inventarioToolStripMenuItem1";
+            this.inventarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.inventarioToolStripMenuItem1.Text = "Inventario";
+            this.inventarioToolStripMenuItem1.Click += new System.EventHandler(this.inventarioToolStripMenuItem1_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,5 +557,6 @@
         private System.Windows.Forms.ToolStripMenuItem contratoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem1;
     }
 }

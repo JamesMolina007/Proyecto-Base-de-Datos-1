@@ -13,6 +13,8 @@ namespace ProyectoDB
 
         private void OrdenClienteFrm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'facturasDataSet.Factura' Puede moverla o quitarla según sea necesario.
+            this.facturaTableAdapter.Fill(this.facturasDataSet.Factura);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteVirtual' Puede moverla o quitarla según sea necesario.
             this.clienteVirtualTableAdapter.Fill(this.clientesDataSet.ClienteVirtual);
             // TODO: esta línea de código carga datos en la tabla 'empresasDeEnvioDataSet.EmpresaDeEnvio' Puede moverla o quitarla según sea necesario.
@@ -92,7 +94,7 @@ namespace ProyectoDB
         private void OrdenBindingSource_PositionChanged(object sender, EventArgs e)
         {
                 gb_DatosOrden.Enabled = true;
-                btn_Nuevo.Enabled = false;
+               // btn_Nuevo.Enabled = false;
                 btn_Eliminar.Enabled = true;
                 btn_Guardar.Enabled = true;
         }

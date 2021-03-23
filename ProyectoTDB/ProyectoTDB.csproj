@@ -141,6 +141,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BitacoraDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\InventarioDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventarioDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InventarioFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventarioFrm.Designer.cs">
+      <DependentUpon>InventarioFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +385,9 @@
     <EmbeddedResource Include="ClienteVirtualFrm.resx">
       <DependentUpon>ClienteVirtualFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InventarioFrm.resx">
+      <DependentUpon>InventarioFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SQLFrm.resx">
       <DependentUpon>SQLFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -542,6 +556,17 @@
     </None>
     <None Include="DataSet\FacturasDataSet.xss">
       <DependentUpon>FacturasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\InventarioDataSet.xsc">
+      <DependentUpon>InventarioDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\InventarioDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventarioDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\InventarioDataSet.xss">
+      <DependentUpon>InventarioDataSet.xsd</DependentUpon>
     </None>
     <None Include="DataSet\OrdenDataSet.xsc">
       <DependentUpon>OrdenDataSet.xsd</DependentUpon>

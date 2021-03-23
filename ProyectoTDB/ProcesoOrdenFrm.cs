@@ -61,7 +61,7 @@ namespace ProyectoDB
         {
             ConsultaOrdenFrm consultaOrden = new ConsultaOrdenFrm();
             DataRowView drvOrden = (DataRowView)OrdenBindingSource.Current;
-            consultaOrden.setOrdenCliente(Convert.ToInt32(drvOrden["noOrden"]), Convert.ToInt32(drvOrden["idCliente"]));
+            consultaOrden.setOrdenCliente(Convert.ToInt32(drvOrden["noOrden"]), Convert.ToInt32(drvOrden["idCliente"]), Convert.ToInt32(drvOrden["noFactura"]));
             consultaOrden.Show();
         }
     }

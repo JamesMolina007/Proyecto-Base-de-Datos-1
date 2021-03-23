@@ -10,7 +10,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BitacoraTableAdapter" GeneratorDataComponentClassName="BitacoraTableAdapter" Name="Bitacora" UserDataComponentName="BitacoraTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.Bitacora" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO `Bitacora` (`IP`, `Usuario`, `Tabla`, `Consulta`, `Fecha`) VALUES (@p1, @p2, @p3, @p4, @p5)</CommandText>
@@ -48,7 +48,7 @@
   <xs:element name="BitacoraDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BitacoraDataSet" msprop:Generator_UserDSName="BitacoraDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Bitacora" msprop:Generator_TableClassName="BitacoraDataTable" msprop:Generator_TableVarName="tableBitacora" msprop:Generator_TablePropName="Bitacora" msprop:Generator_RowDeletingName="BitacoraRowDeleting" msprop:Generator_RowChangingName="BitacoraRowChanging" msprop:Generator_RowEvHandlerName="BitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraRowDeleted" msprop:Generator_UserTableName="Bitacora" msprop:Generator_RowChangedName="BitacoraRowChanged" msprop:Generator_RowEvArgName="BitacoraRowChangeEvent" msprop:Generator_RowClassName="BitacoraRow">
+        <xs:element name="Bitacora" msprop:Generator_TableClassName="BitacoraDataTable" msprop:Generator_TableVarName="tableBitacora" msprop:Generator_RowChangedName="BitacoraRowChanged" msprop:Generator_TablePropName="Bitacora" msprop:Generator_RowDeletingName="BitacoraRowDeleting" msprop:Generator_RowChangingName="BitacoraRowChanging" msprop:Generator_RowEvHandlerName="BitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraRowDeleted" msprop:Generator_RowClassName="BitacoraRow" msprop:Generator_UserTableName="Bitacora" msprop:Generator_RowEvArgName="BitacoraRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IP" msprop:Generator_ColumnVarNameInTable="columnIP" msprop:Generator_ColumnPropNameInRow="IP" msprop:Generator_ColumnPropNameInTable="IPColumn" msprop:Generator_UserColumnName="IP">
@@ -75,7 +75,7 @@
               <xs:element name="Consulta" msprop:Generator_ColumnVarNameInTable="columnConsulta" msprop:Generator_ColumnPropNameInRow="Consulta" msprop:Generator_ColumnPropNameInTable="ConsultaColumn" msprop:Generator_UserColumnName="Consulta">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="500" />
+                    <xs:maxLength value="5000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

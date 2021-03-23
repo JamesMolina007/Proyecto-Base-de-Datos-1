@@ -273,5 +273,11 @@ namespace ProyectoDB
             SQLFrm sql = new SQLFrm();
             sql.Show();
         }
+
+        private void inventarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            InventarioFrm inventario = new InventarioFrm();
+            inventario.Show();
+        }
     }
 }
