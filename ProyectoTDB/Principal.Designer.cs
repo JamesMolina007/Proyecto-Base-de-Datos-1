@@ -55,25 +55,26 @@
             this.porLlamadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasDeEnvíoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opcionesClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.miCarritoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ordenesProcesadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.lbl_Usuario = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.lbl_Fecha = new System.Windows.Forms.ToolStripLabel();
             this.consulta1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consulta2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clienteTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
             this.consulta3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consulta4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consulta5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consulta6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcionesClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miCarritoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordenesProcesadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.lbl_Usuario = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.lbl_Fecha = new System.Windows.Forms.ToolStripLabel();
+            this.clienteTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
             this.BarraMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -310,12 +311,70 @@
             this.reportesToolStripMenuItem.Text = "Reportes";
             this.reportesToolStripMenuItem.Visible = false;
             // 
+            // consulta1ToolStripMenuItem
+            // 
+            this.consulta1ToolStripMenuItem.Name = "consulta1ToolStripMenuItem";
+            this.consulta1ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta1ToolStripMenuItem.Text = "Vista 1";
+            // 
+            // consulta2ToolStripMenuItem
+            // 
+            this.consulta2ToolStripMenuItem.Name = "consulta2ToolStripMenuItem";
+            this.consulta2ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta2ToolStripMenuItem.Text = "Vista 2";
+            this.consulta2ToolStripMenuItem.Click += new System.EventHandler(this.consulta2ToolStripMenuItem_Click);
+            // 
+            // consulta3ToolStripMenuItem
+            // 
+            this.consulta3ToolStripMenuItem.Name = "consulta3ToolStripMenuItem";
+            this.consulta3ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta3ToolStripMenuItem.Text = "Vista 3";
+            this.consulta3ToolStripMenuItem.Click += new System.EventHandler(this.consulta3ToolStripMenuItem_Click);
+            // 
+            // consulta4ToolStripMenuItem
+            // 
+            this.consulta4ToolStripMenuItem.Name = "consulta4ToolStripMenuItem";
+            this.consulta4ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta4ToolStripMenuItem.Text = "Vista 4";
+            this.consulta4ToolStripMenuItem.Click += new System.EventHandler(this.consulta4ToolStripMenuItem_Click);
+            // 
+            // consulta5ToolStripMenuItem
+            // 
+            this.consulta5ToolStripMenuItem.Name = "consulta5ToolStripMenuItem";
+            this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta5ToolStripMenuItem.Text = "Vista 5";
+            this.consulta5ToolStripMenuItem.Click += new System.EventHandler(this.consulta5ToolStripMenuItem_Click);
+            // 
+            // consulta6ToolStripMenuItem
+            // 
+            this.consulta6ToolStripMenuItem.Name = "consulta6ToolStripMenuItem";
+            this.consulta6ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta6ToolStripMenuItem.Text = "Vista 6";
+            this.consulta6ToolStripMenuItem.Click += new System.EventHandler(this.consulta6ToolStripMenuItem_Click);
+            // 
+            // bitacoraToolStripMenuItem
+            // 
+            this.bitacoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bitacoraToolStripMenuItem1});
+            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            this.bitacoraToolStripMenuItem.Visible = false;
+            // 
+            // bitacoraToolStripMenuItem1
+            // 
+            this.bitacoraToolStripMenuItem1.Name = "bitacoraToolStripMenuItem1";
+            this.bitacoraToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bitacoraToolStripMenuItem1.Text = "Bitacora";
+            this.bitacoraToolStripMenuItem1.Click += new System.EventHandler(this.bitacoraToolStripMenuItem1_Click);
+            // 
             // opcionesClienteToolStripMenuItem
             // 
             this.opcionesClienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miCarritoToolStripMenuItem,
             this.ordenesProcesadasToolStripMenuItem,
-            this.facturasToolStripMenuItem});
+            this.facturasToolStripMenuItem,
+            this.contratoToolStripMenuItem});
             this.opcionesClienteToolStripMenuItem.Name = "opcionesClienteToolStripMenuItem";
             this.opcionesClienteToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.opcionesClienteToolStripMenuItem.Text = "Opciones Cliente";
@@ -341,6 +400,13 @@
             this.facturasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.facturasToolStripMenuItem.Text = "Facturas";
             this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
+            // 
+            // contratoToolStripMenuItem
+            // 
+            this.contratoToolStripMenuItem.Name = "contratoToolStripMenuItem";
+            this.contratoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.contratoToolStripMenuItem.Text = "Contrato";
+            this.contratoToolStripMenuItem.Click += new System.EventHandler(this.contratoToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -385,65 +451,9 @@
             this.lbl_Fecha.Size = new System.Drawing.Size(10, 22);
             this.lbl_Fecha.Text = ".";
             // 
-            // consulta1ToolStripMenuItem
-            // 
-            this.consulta1ToolStripMenuItem.Name = "consulta1ToolStripMenuItem";
-            this.consulta1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consulta1ToolStripMenuItem.Text = "Vista 1";
-            // 
-            // consulta2ToolStripMenuItem
-            // 
-            this.consulta2ToolStripMenuItem.Name = "consulta2ToolStripMenuItem";
-            this.consulta2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consulta2ToolStripMenuItem.Text = "Vista 2";
-            this.consulta2ToolStripMenuItem.Click += new System.EventHandler(this.consulta2ToolStripMenuItem_Click);
-            // 
             // clienteTableAdapter
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // consulta3ToolStripMenuItem
-            // 
-            this.consulta3ToolStripMenuItem.Name = "consulta3ToolStripMenuItem";
-            this.consulta3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consulta3ToolStripMenuItem.Text = "Vista 3";
-            this.consulta3ToolStripMenuItem.Click += new System.EventHandler(this.consulta3ToolStripMenuItem_Click);
-            // 
-            // consulta4ToolStripMenuItem
-            // 
-            this.consulta4ToolStripMenuItem.Name = "consulta4ToolStripMenuItem";
-            this.consulta4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consulta4ToolStripMenuItem.Text = "Vista 4";
-            this.consulta4ToolStripMenuItem.Click += new System.EventHandler(this.consulta4ToolStripMenuItem_Click);
-            // 
-            // consulta5ToolStripMenuItem
-            // 
-            this.consulta5ToolStripMenuItem.Name = "consulta5ToolStripMenuItem";
-            this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consulta5ToolStripMenuItem.Text = "Vista 5";
-            this.consulta5ToolStripMenuItem.Click += new System.EventHandler(this.consulta5ToolStripMenuItem_Click);
-            // 
-            // consulta6ToolStripMenuItem
-            // 
-            this.consulta6ToolStripMenuItem.Name = "consulta6ToolStripMenuItem";
-            this.consulta6ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.consulta6ToolStripMenuItem.Text = "Vista 6";
-            this.consulta6ToolStripMenuItem.Click += new System.EventHandler(this.consulta6ToolStripMenuItem_Click);
-            // 
-            // bitacoraToolStripMenuItem
-            // 
-            this.bitacoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bitacoraToolStripMenuItem1});
-            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.bitacoraToolStripMenuItem.Text = "Bitacora";
-            // 
-            // bitacoraToolStripMenuItem1
-            // 
-            this.bitacoraToolStripMenuItem1.Name = "bitacoraToolStripMenuItem1";
-            this.bitacoraToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.bitacoraToolStripMenuItem1.Text = "Bitacora";
-            this.bitacoraToolStripMenuItem1.Click += new System.EventHandler(this.bitacoraToolStripMenuItem1_Click);
             // 
             // Principal
             // 
@@ -516,5 +526,6 @@
         private System.Windows.Forms.ToolStripMenuItem consulta6ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem contratoToolStripMenuItem;
     }
 }

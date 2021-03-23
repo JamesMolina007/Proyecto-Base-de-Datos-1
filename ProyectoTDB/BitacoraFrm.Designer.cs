@@ -31,26 +31,26 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BitacoraFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.consultaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bitacoraDataSet = new ProyectoDB.DataSet.BitacoraDataSet();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cb_Tabla = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tb_Accion = new System.Windows.Forms.ToolStripComboBox();
-            this.btn_Filtrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.PrincipalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bitacoraDataSet = new ProyectoDB.DataSet.BitacoraDataSet();
+            this.btn_Filtrar = new System.Windows.Forms.ToolStripButton();
             this.bitacoraTableAdapter = new ProyectoDB.DataSet.BitacoraDataSetTableAdapters.BitacoraTableAdapter();
-            this.iPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tablaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.consultaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bitacoraDataSet)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -71,85 +71,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(828, 390);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.cb_Tabla,
-            this.toolStripSeparator1,
-            this.toolStripLabel2,
-            this.tb_Accion,
-            this.toolStripSeparator2,
-            this.btn_Filtrar});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(852, 39);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(37, 36);
-            this.toolStripLabel1.Text = "Tabla:";
-            // 
-            // cb_Tabla
-            // 
-            this.cb_Tabla.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_Tabla.Name = "cb_Tabla";
-            this.cb_Tabla.Size = new System.Drawing.Size(121, 39);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(47, 36);
-            this.toolStripLabel2.Text = "Acción:";
-            // 
-            // tb_Accion
-            // 
-            this.tb_Accion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tb_Accion.Items.AddRange(new object[] {
-            "Update",
-            "Insert",
-            "Delete"});
-            this.tb_Accion.Name = "tb_Accion";
-            this.tb_Accion.Size = new System.Drawing.Size(121, 39);
-            // 
-            // btn_Filtrar
-            // 
-            this.btn_Filtrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Filtrar.Image")));
-            this.btn_Filtrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Filtrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Filtrar.Name = "btn_Filtrar";
-            this.btn_Filtrar.Size = new System.Drawing.Size(73, 36);
-            this.btn_Filtrar.Text = "Filtrar";
-            this.btn_Filtrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Filtrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
-            // 
-            // PrincipalBindingSource
-            // 
-            this.PrincipalBindingSource.DataMember = "Bitacora";
-            this.PrincipalBindingSource.DataSource = this.bitacoraDataSet;
-            // 
-            // bitacoraDataSet
-            // 
-            this.bitacoraDataSet.DataSetName = "BitacoraDataSet";
-            this.bitacoraDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bitacoraTableAdapter
-            // 
-            this.bitacoraTableAdapter.ClearBeforeFill = true;
             // 
             // iPDataGridViewTextBoxColumn
             // 
@@ -189,6 +110,106 @@
             this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
             this.fechaDataGridViewTextBoxColumn.Width = 130;
             // 
+            // PrincipalBindingSource
+            // 
+            this.PrincipalBindingSource.DataMember = "Bitacora";
+            this.PrincipalBindingSource.DataSource = this.bitacoraDataSet;
+            // 
+            // bitacoraDataSet
+            // 
+            this.bitacoraDataSet.DataSetName = "BitacoraDataSet";
+            this.bitacoraDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.cb_Tabla,
+            this.toolStripSeparator1,
+            this.toolStripLabel2,
+            this.tb_Accion,
+            this.toolStripSeparator2,
+            this.btn_Filtrar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(852, 39);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(37, 36);
+            this.toolStripLabel1.Text = "Tabla:";
+            // 
+            // cb_Tabla
+            // 
+            this.cb_Tabla.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Tabla.Items.AddRange(new object[] {
+            "TODAS",
+            "Almacen",
+            "Carrito",
+            "Categoria",
+            "Cliente",
+            "ClienteFrecuente",
+            "ClientePocoFrecuente",
+            "ClienteTienda",
+            "ClienteVirtual",
+            "Contrato",
+            "DetalleFactura",
+            "EmpresaEnvio",
+            "Factura",
+            "Inventario",
+            "Orden",
+            "Producto",
+            "Tienda",
+            "Usuarios"});
+            this.cb_Tabla.Name = "cb_Tabla";
+            this.cb_Tabla.Size = new System.Drawing.Size(121, 39);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(47, 36);
+            this.toolStripLabel2.Text = "Acción:";
+            // 
+            // tb_Accion
+            // 
+            this.tb_Accion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tb_Accion.Items.AddRange(new object[] {
+            "TODAS",
+            "Update",
+            "Insert",
+            "Delete"});
+            this.tb_Accion.Name = "tb_Accion";
+            this.tb_Accion.Size = new System.Drawing.Size(121, 39);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            // 
+            // btn_Filtrar
+            // 
+            this.btn_Filtrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Filtrar.Image")));
+            this.btn_Filtrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btn_Filtrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Filtrar.Name = "btn_Filtrar";
+            this.btn_Filtrar.Size = new System.Drawing.Size(73, 36);
+            this.btn_Filtrar.Text = "Filtrar";
+            this.btn_Filtrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Filtrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_Filtrar.Click += new System.EventHandler(this.btn_Filtrar_Click);
+            // 
+            // bitacoraTableAdapter
+            // 
+            this.bitacoraTableAdapter.ClearBeforeFill = true;
+            // 
             // BitacoraFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,10 +222,10 @@
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.BitacoraFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bitacoraDataSet)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

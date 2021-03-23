@@ -24,6 +24,13 @@ namespace ProyectoDB
             this.idCliente = idCliente;
         }
 
+        private String Nombre;
+        public void setNombre(String Nombre)
+        {
+            this.Nombre = Nombre;
+        }
+
+
 
         public Principal()
         {
@@ -59,11 +66,14 @@ namespace ProyectoDB
             else if (tipoUsuario.Equals("Cliente"))
             {
                 opcionesClienteToolStripMenuItem.Visible = true;
-                opcionesClienteToolStripMenuItem.Enabled = false;
+                miCarritoToolStripMenuItem.Enabled = false;
+                ordenesProcesadasToolStripMenuItem.Enabled = false;
+                facturasToolStripMenuItem.Enabled = false;
             }
             else
             {
                 //opcionesClienteToolStripMenuItem.Visible = true;
+                bitacoraToolStripMenuItem.Visible = true;
                 inventarioToolStripMenuItem.Visible = true;
                 clientesToolStripMenuItem.Visible = true;
                 pedidosToolStripMenuItem.Visible = true;
@@ -248,6 +258,13 @@ namespace ProyectoDB
         {
             BitacoraFrm bitacora = new BitacoraFrm();
             bitacora.Show();
+        }
+
+        private void contratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClienteContratoFrm clientecontrato = new ClienteContratoFrm();
+            clientecontrato.setNombre(Nombre);
+            clientecontrato.Show();
         }
     }
 }

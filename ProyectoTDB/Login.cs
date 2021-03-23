@@ -10,6 +10,8 @@ namespace ProyectoDB{
         }
 
         private void Login_Load(object sender, EventArgs e){
+            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteFrecuente' Puede moverla o quitarla según sea necesario.
+            this.clienteFrecuenteTableAdapter.Fill(this.clientesDataSet.ClienteFrecuente);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteVirtual' Puede moverla o quitarla según sea necesario.
             this.clienteVirtualTableAdapter.Fill(this.clientesDataSet.ClienteVirtual);
             // TODO: esta línea de código carga datos en la tabla 'usuarioDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
@@ -31,9 +33,9 @@ namespace ProyectoDB{
                     tb_nombreUsuario.Text = "";
                     Principal principal = new Principal();
                     principal.setTipoUsuario(dr["tipoUsuario"].ToString());
+                    principal.setNombre(dr["Nombre"].ToString());
                     principal.setLogin(this);
                     principal.Show();
-                    this.Visible = false;
                 }
                 else
                 {

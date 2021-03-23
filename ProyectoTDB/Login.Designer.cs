@@ -43,11 +43,14 @@
             this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
             this.clienteVirtualTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter();
+            this.ClienteFrecuenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteFrecuenteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteFrecuenteTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteFrecuenteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_nombreUsuario
@@ -143,6 +146,15 @@
             // 
             this.clienteVirtualTableAdapter.ClearBeforeFill = true;
             // 
+            // ClienteFrecuenteBindingSource
+            // 
+            this.ClienteFrecuenteBindingSource.DataMember = "ClienteFrecuente";
+            this.ClienteFrecuenteBindingSource.DataSource = this.clientesDataSet;
+            // 
+            // clienteFrecuenteTableAdapter
+            // 
+            this.clienteFrecuenteTableAdapter.ClearBeforeFill = true;
+            // 
             // Login
             // 
             this.AcceptButton = this.btn_aceptar;
@@ -165,6 +177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteFrecuenteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +197,7 @@
         private System.Windows.Forms.BindingSource ClienteBindingSource;
         private DataSet.ClientesDataSet clientesDataSet;
         private DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter clienteVirtualTableAdapter;
+        private System.Windows.Forms.BindingSource ClienteFrecuenteBindingSource;
+        private DataSet.ClientesDataSetTableAdapters.ClienteFrecuenteTableAdapter clienteFrecuenteTableAdapter;
     }
 }
