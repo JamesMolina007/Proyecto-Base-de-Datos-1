@@ -1956,6 +1956,8 @@ namespace ProyectoDB.DataSet {
             
             private global::System.Data.DataColumn columnTotal;
             
+            private global::System.Data.DataColumn columncodigoTienda;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public OrdenDestruidaDataTable() {
@@ -2095,6 +2097,14 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn codigoTiendaColumn {
+                get {
+                    return this.columncodigoTienda;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2130,7 +2140,7 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrdenDestruidaRow AddOrdenDestruidaRow(string nombreCliente, string nombreRemitente, int RTN, int NoFactura, string empresaEnvio, string direccionEnvio, int noOrden, System.DateTime FechaEmision, int idProducto, int cantidadProducto, double isv, double Total) {
+            public OrdenDestruidaRow AddOrdenDestruidaRow(string nombreCliente, string nombreRemitente, int RTN, int NoFactura, string empresaEnvio, string direccionEnvio, int noOrden, System.DateTime FechaEmision, int idProducto, int cantidadProducto, double isv, double Total, int codigoTienda) {
                 OrdenDestruidaRow rowOrdenDestruidaRow = ((OrdenDestruidaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2145,10 +2155,18 @@ namespace ProyectoDB.DataSet {
                         idProducto,
                         cantidadProducto,
                         isv,
-                        Total};
+                        Total,
+                        codigoTienda};
                 rowOrdenDestruidaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrdenDestruidaRow);
                 return rowOrdenDestruidaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public OrdenDestruidaRow FindByidCliente(int idCliente) {
+                return ((OrdenDestruidaRow)(this.Rows.Find(new object[] {
+                            idCliente})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2181,6 +2199,7 @@ namespace ProyectoDB.DataSet {
                 this.columncantidadProducto = base.Columns["cantidadProducto"];
                 this.columnisv = base.Columns["isv"];
                 this.columnTotal = base.Columns["Total"];
+                this.columncodigoTienda = base.Columns["codigoTienda"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2212,15 +2231,19 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnisv);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
+                this.columncodigoTienda = new global::System.Data.DataColumn("codigoTienda", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigoTienda);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnidCliente}, true));
                 this.columnidCliente.AutoIncrement = true;
                 this.columnidCliente.AutoIncrementSeed = -1;
                 this.columnidCliente.AutoIncrementStep = -1;
                 this.columnidCliente.AllowDBNull = false;
+                this.columnidCliente.Unique = true;
                 this.columnnombreCliente.AllowDBNull = false;
                 this.columnnombreCliente.MaxLength = 50;
                 this.columnnombreRemitente.AllowDBNull = false;
                 this.columnnombreRemitente.MaxLength = 50;
-                this.columnNoFactura.AllowDBNull = false;
                 this.columnempresaEnvio.AllowDBNull = false;
                 this.columnempresaEnvio.MaxLength = 50;
                 this.columndireccionEnvio.AllowDBNull = false;
@@ -2231,6 +2254,7 @@ namespace ProyectoDB.DataSet {
                 this.columncantidadProducto.AllowDBNull = false;
                 this.columnisv.AllowDBNull = false;
                 this.columnTotal.AllowDBNull = false;
+                this.columncodigoTienda.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2884,7 +2908,12 @@ namespace ProyectoDB.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int NoFactura {
                 get {
-                    return ((int)(this[this.tableOrdenDestruida.NoFacturaColumn]));
+                    try {
+                        return ((int)(this[this.tableOrdenDestruida.NoFacturaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NoFactura\' de la tabla \'OrdenDestruida\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableOrdenDestruida.NoFacturaColumn] = value;
@@ -2981,6 +3010,17 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int codigoTienda {
+                get {
+                    return ((int)(this[this.tableOrdenDestruida.codigoTiendaColumn]));
+                }
+                set {
+                    this[this.tableOrdenDestruida.codigoTiendaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsRTNNull() {
                 return this.IsNull(this.tableOrdenDestruida.RTNColumn);
             }
@@ -2989,6 +3029,18 @@ namespace ProyectoDB.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetRTNNull() {
                 this[this.tableOrdenDestruida.RTNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsNoFacturaNull() {
+                return this.IsNull(this.tableOrdenDestruida.NoFacturaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetNoFacturaNull() {
+                this[this.tableOrdenDestruida.NoFacturaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4188,6 +4240,7 @@ namespace ProyectoDB.DataSet.VistasDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("cantidadProducto", "cantidadProducto");
             tableMapping.ColumnMappings.Add("isv", "isv");
             tableMapping.ColumnMappings.Add("Total", "Total");
+            tableMapping.ColumnMappings.Add("codigoTienda", "codigoTienda");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4204,9 +4257,9 @@ namespace ProyectoDB.DataSet.VistasDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `idCliente`, `nombreCliente`, `nombreRemitente`, `RTN`, `NoFactura`, `empr" +
-                "esaEnvio`, `direccionEnvio`, `noOrden`, `FechaEmision`, `idProducto`, `cantidadP" +
-                "roducto`, `isv`, `Total` FROM `ventas`.`OrdenDestruida`";
+            this._commandCollection[0].CommandText = "SELECT        idCliente, nombreCliente, nombreRemitente, RTN, NoFactura, empresaE" +
+                "nvio, direccionEnvio, noOrden, FechaEmision, idProducto, cantidadProducto, isv, " +
+                "Total, codigoTienda\r\nFROM            OrdenDestruida";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

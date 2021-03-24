@@ -35,6 +35,14 @@
             this.vistasDataSet = new ProyectoDB.DataSet.VistasDataSet();
             this.ordenDestruidaTableAdapter = new ProyectoDB.DataSet.VistasDataSetTableAdapters.OrdenDestruidaTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.EncabezadoFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
+            this.DetalleFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OrdenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ordenDataSet = new ProyectoDB.DataSet.OrdenDataSet();
+            this.facturaTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter();
+            this.detalleFacturaTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.DetalleFacturaTableAdapter();
+            this.ordenTableAdapter = new ProyectoDB.DataSet.OrdenDataSetTableAdapters.OrdenTableAdapter();
             this.noFacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,9 +55,15 @@
             this.cantidadProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoTienda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistasDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EncabezadoFacturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleFacturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -70,7 +84,8 @@
             this.idProductoDataGridViewTextBoxColumn,
             this.cantidadProductoDataGridViewTextBoxColumn,
             this.isvDataGridViewTextBoxColumn,
-            this.totalDataGridViewTextBoxColumn});
+            this.totalDataGridViewTextBoxColumn,
+            this.codigoTienda});
             this.dataGridView1.DataSource = this.PrincipalBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(9, 63);
             this.dataGridView1.Name = "dataGridView1";
@@ -103,6 +118,44 @@
             this.button1.Text = "Reemplazar y Reenviar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // EncabezadoFacturaBindingSource
+            // 
+            this.EncabezadoFacturaBindingSource.DataMember = "Factura";
+            this.EncabezadoFacturaBindingSource.DataSource = this.facturasDataSet;
+            // 
+            // facturasDataSet
+            // 
+            this.facturasDataSet.DataSetName = "FacturasDataSet";
+            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // DetalleFacturaBindingSource
+            // 
+            this.DetalleFacturaBindingSource.DataMember = "DetalleFactura";
+            this.DetalleFacturaBindingSource.DataSource = this.facturasDataSet;
+            // 
+            // OrdenBindingSource
+            // 
+            this.OrdenBindingSource.DataMember = "Orden";
+            this.OrdenBindingSource.DataSource = this.ordenDataSet;
+            // 
+            // ordenDataSet
+            // 
+            this.ordenDataSet.DataSetName = "OrdenDataSet";
+            this.ordenDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // facturaTableAdapter
+            // 
+            this.facturaTableAdapter.ClearBeforeFill = true;
+            // 
+            // detalleFacturaTableAdapter
+            // 
+            this.detalleFacturaTableAdapter.ClearBeforeFill = true;
+            // 
+            // ordenTableAdapter
+            // 
+            this.ordenTableAdapter.ClearBeforeFill = true;
             // 
             // noFacturaDataGridViewTextBoxColumn
             // 
@@ -191,6 +244,14 @@
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             this.totalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // codigoTienda
+            // 
+            this.codigoTienda.DataPropertyName = "codigoTienda";
+            this.codigoTienda.HeaderText = "codigoTienda";
+            this.codigoTienda.Name = "codigoTienda";
+            this.codigoTienda.ReadOnly = true;
+            this.codigoTienda.Visible = false;
+            // 
             // VistaUnoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +266,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vistasDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EncabezadoFacturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalleFacturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -217,6 +283,14 @@
         private DataSet.VistasDataSetTableAdapters.OrdenDestruidaTableAdapter ordenDestruidaTableAdapter;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn isv1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource EncabezadoFacturaBindingSource;
+        private DataSet.FacturasDataSet facturasDataSet;
+        private System.Windows.Forms.BindingSource DetalleFacturaBindingSource;
+        private System.Windows.Forms.BindingSource OrdenBindingSource;
+        private DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter facturaTableAdapter;
+        private DataSet.FacturasDataSetTableAdapters.DetalleFacturaTableAdapter detalleFacturaTableAdapter;
+        private DataSet.OrdenDataSet ordenDataSet;
+        private DataSet.OrdenDataSetTableAdapters.OrdenTableAdapter ordenTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn noFacturaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreClienteDataGridViewTextBoxColumn;
@@ -229,5 +303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isvDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoTienda;
     }
 }

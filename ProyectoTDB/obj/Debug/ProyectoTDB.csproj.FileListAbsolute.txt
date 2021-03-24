@@ -60,7 +60,6 @@ C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\C
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\C1.Win.C1Editor.2.xml
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\C1.Win.C1Input.2.xml
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\bin\Debug\MySql.Data.xml
-C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoTDB.csprojResolveAssemblyReference.cache
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoTDB.exe.config
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.AlmacenFrm.resources
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoDB.BitacoraFrm.resources
@@ -101,3 +100,4 @@ C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\P
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoTDB.csproj.CoreCompileInputs.cache
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoTDB.exe
 C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoTDB.pdb
+C:\Users\James Josué Molina\Desktop\ProyectoBaseDeDatos\ProyectoTDB\obj\Debug\ProyectoTDB.csprojResolveAssemblyReference.cache

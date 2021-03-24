@@ -106,10 +106,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrdenDestruidaTableAdapter" GeneratorDataComponentClassName="OrdenDestruidaTableAdapter" Name="OrdenDestruida" UserDataComponentName="OrdenDestruidaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.OrdenDestruida" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.OrdenDestruida" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `idCliente`, `nombreCliente`, `nombreRemitente`, `RTN`, `NoFactura`, `empresaEnvio`, `direccionEnvio`, `noOrden`, `FechaEmision`, `idProducto`, `cantidadProducto`, `isv`, `Total` FROM `ventas`.`OrdenDestruida`</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        idCliente, nombreCliente, nombreRemitente, RTN, NoFactura, empresaEnvio, direccionEnvio, noOrden, FechaEmision, idProducto, cantidadProducto, isv, Total, codigoTienda
+FROM            OrdenDestruida</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -129,6 +130,7 @@
               <Mapping SourceColumn="cantidadProducto" DataSetColumn="cantidadProducto" />
               <Mapping SourceColumn="isv" DataSetColumn="isv" />
               <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="codigoTienda" DataSetColumn="codigoTienda" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -240,7 +242,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="RTN" msprop:Generator_ColumnVarNameInTable="columnRTN" msprop:Generator_ColumnPropNameInRow="RTN" msprop:Generator_ColumnPropNameInTable="RTNColumn" msprop:Generator_UserColumnName="RTN" type="xs:int" minOccurs="0" />
-              <xs:element name="NoFactura" msprop:Generator_ColumnVarNameInTable="columnNoFactura" msprop:Generator_ColumnPropNameInRow="NoFactura" msprop:Generator_ColumnPropNameInTable="NoFacturaColumn" msprop:Generator_UserColumnName="NoFactura" type="xs:int" />
+              <xs:element name="NoFactura" msprop:Generator_ColumnVarNameInTable="columnNoFactura" msprop:Generator_ColumnPropNameInRow="NoFactura" msprop:Generator_ColumnPropNameInTable="NoFacturaColumn" msprop:Generator_UserColumnName="NoFactura" type="xs:int" minOccurs="0" />
               <xs:element name="empresaEnvio" msprop:Generator_ColumnVarNameInTable="columnempresaEnvio" msprop:Generator_ColumnPropNameInRow="empresaEnvio" msprop:Generator_ColumnPropNameInTable="empresaEnvioColumn" msprop:Generator_UserColumnName="empresaEnvio">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -261,10 +263,15 @@
               <xs:element name="cantidadProducto" msprop:Generator_ColumnVarNameInTable="columncantidadProducto" msprop:Generator_ColumnPropNameInRow="cantidadProducto" msprop:Generator_ColumnPropNameInTable="cantidadProductoColumn" msprop:Generator_UserColumnName="cantidadProducto" type="xs:int" />
               <xs:element name="isv" msprop:Generator_ColumnVarNameInTable="columnisv" msprop:Generator_ColumnPropNameInRow="isv" msprop:Generator_ColumnPropNameInTable="isvColumn" msprop:Generator_UserColumnName="isv" type="xs:double" />
               <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:double" />
+              <xs:element name="codigoTienda" msprop:Generator_ColumnVarNameInTable="columncodigoTienda" msprop:Generator_ColumnPropNameInRow="codigoTienda" msprop:Generator_ColumnPropNameInTable="codigoTiendaColumn" msprop:Generator_UserColumnName="codigoTienda" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:OrdenDestruida" />
+      <xs:field xpath="mstns:idCliente" />
+    </xs:unique>
   </xs:element>
 </xs:schema>
