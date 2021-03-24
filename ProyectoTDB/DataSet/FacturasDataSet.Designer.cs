@@ -1748,6 +1748,10 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("NoFactura", "NoFactura");
             tableMapping.ColumnMappings.Add("idProducto", "idProducto");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `DetalleFactura` (`isv`, `Total`, `cantidadProducto`, `NoFactura`, `i" +
@@ -1793,6 +1797,10 @@ namespace ProyectoDB.DataSet.FacturasDataSetTableAdapters {
             param.SourceColumn = "idProducto";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

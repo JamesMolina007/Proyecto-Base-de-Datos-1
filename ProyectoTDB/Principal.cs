@@ -265,6 +265,7 @@ namespace ProyectoDB
         {
             ClienteContratoFrm clientecontrato = new ClienteContratoFrm();
             clientecontrato.setNombre(Nombre);
+            clientecontrato.setIdCliente(idCliente);
             clientecontrato.Show();
         }
 
@@ -278,6 +279,12 @@ namespace ProyectoDB
         {
             InventarioFrm inventario = new InventarioFrm();
             inventario.Show();
+        }
+
+        private void consulta1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VistaUnoFrm vistauno = new VistaUnoFrm();
+            vistauno.Show();
         }
     }
 }

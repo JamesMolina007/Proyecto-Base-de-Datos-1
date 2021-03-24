@@ -9,7 +9,14 @@ namespace ProyectoDB
         public void setNombre( String nombre)
         {
             this.nombre = nombre;
-        } 
+        }
+
+        private int idCliente;
+        public void setIdCliente( int idCliente)
+        {
+            this.idCliente = idCliente;
+        }
+
         public ClienteContratoFrm()
         {
             InitializeComponent();
@@ -18,8 +25,10 @@ namespace ProyectoDB
         private void ClienteContratoFrm_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'contratoDataSet.Contrato' Puede moverla o quitarla según sea necesario.
-            this.contratoTableAdapter.FillByNombre(this.contratoDataSet.Contrato, nombre);
-
+            if (nombre != null )
+                this.contratoTableAdapter.FillByNombre(this.contratoDataSet.Contrato, nombre);
+            else
+                this.contratoTableAdapter.FillByIDCliente(this.contratoDataSet.Contrato, idCliente);
         }
     }
 }

@@ -1620,29 +1620,42 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[5];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `numCuenta`, `Cuota`, `idCliente` FROM `Contrato`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT `numCuenta`, `Cuota`, `idCliente` FROM `Contrato`\r\nwhere idCliente LIKE CO" +
-                "NCAT(\'%\', @caracter, \'%\')";
+            this._commandCollection[1].CommandText = "SELECT        numCuenta, Cuota, idCliente\r\nFROM            Contrato\r\nWHERE       " +
+                " (idCliente = @idCliente)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@caracter";
+            param.ParameterName = "@idCliente";
+            param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "idCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        numCuenta, Cuota, idCliente\r\nFROM            Contrato\r\nWHERE       " +
-                " (idCliente = @idCliente)";
+            this._commandCollection[2].CommandText = "SELECT `numCuenta`, `Cuota`, `idCliente` FROM `Contrato`\r\nwhere idCliente LIKE CO" +
+                "NCAT(\'%\', @caracter, \'%\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@caracter";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "idCliente";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT        numCuenta, Cuota, idCliente\r\nFROM            Contrato\r\nWHERE       " +
+                " (idCliente = @idCliente)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idCliente";
             param.DbType = global::System.Data.DbType.Int32;
@@ -1650,14 +1663,14 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "idCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
-            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        Contrato.numCuenta, Contrato.Cuota, Contrato.idCliente, Cliente.nom" +
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT        Contrato.numCuenta, Contrato.Cuota, Contrato.idCliente, Cliente.nom" +
                 "breCliente\r\nFROM            Contrato INNER JOIN\r\n                         Client" +
                 "e ON Cliente.idCliente = Contrato.idCliente\r\nWHERE        (Cliente.nombreCliente" +
                 " = @Nombre)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Nombre";
             param.DbType = global::System.Data.DbType.String;
@@ -1666,7 +1679,7 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "nombreCliente";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1697,8 +1710,34 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByID(ContratoDataSet.ContratoDataTable dataTable, string caracter) {
+        public virtual int FillByClienteID(ContratoDataSet.ContratoDataTable dataTable, int idCliente) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idCliente));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual ContratoDataSet.ContratoDataTable GetDataByClienteID(int idCliente) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idCliente));
+            ContratoDataSet.ContratoDataTable dataTable = new ContratoDataSet.ContratoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByID(ContratoDataSet.ContratoDataTable dataTable, string caracter) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((caracter == null)) {
                 throw new global::System.ArgumentNullException("caracter");
             }
@@ -1717,7 +1756,7 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ContratoDataSet.ContratoDataTable GetDataByID(string caracter) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((caracter == null)) {
                 throw new global::System.ArgumentNullException("caracter");
             }
@@ -1734,7 +1773,7 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByIDCliente(ContratoDataSet.ContratoDataTable dataTable, int idCliente) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idCliente));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1748,7 +1787,7 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ContratoDataSet.ContratoDataTable GetDataByIDCliente(int idCliente) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idCliente));
             ContratoDataSet.ContratoDataTable dataTable = new ContratoDataSet.ContratoDataTable();
             this.Adapter.Fill(dataTable);
@@ -1760,7 +1799,7 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByNombre(ContratoDataSet.ContratoDataTable dataTable, string Nombre) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }
@@ -1779,7 +1818,7 @@ namespace ProyectoDB.DataSet.ContratoDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual ContratoDataSet.ContratoDataTable GetDataByNombre(string Nombre) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((Nombre == null)) {
                 throw new global::System.ArgumentNullException("Nombre");
             }

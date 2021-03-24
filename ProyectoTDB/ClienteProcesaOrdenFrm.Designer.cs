@@ -31,11 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClienteProcesaOrdenFrm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cb_CodigoTienda = new System.Windows.Forms.ComboBox();
-            this.FacturaEncabezadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
-            this.TiendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tiendaDataSet = new ProyectoDB.DataSet.TiendaDataSet();
+            this.tb_Tienda = new System.Windows.Forms.TextBox();
+            this.CarritoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carritoClienteDataSet = new ProyectoDB.DataSet.CarritoClienteDataSet();
             this.label8 = new System.Windows.Forms.Label();
             this.lbl_Cuota = new System.Windows.Forms.Label();
             this.ContratoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -47,6 +45,8 @@
             this.ne_Meses = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FacturaEncabezadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.facturasDataSet = new ProyectoDB.DataSet.FacturasDataSet();
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.cb_Envio = new System.Windows.Forms.ComboBox();
@@ -59,6 +59,8 @@
             this.tb_Direccion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.TiendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiendaDataSet = new ProyectoDB.DataSet.TiendaDataSet();
             this.ordenTableAdapter = new ProyectoDB.DataSet.OrdenDataSetTableAdapters.OrdenTableAdapter();
             this.empresaDeEnvioTableAdapter = new ProyectoDB.DataSet.EmpresasDeEnvioDataSetTableAdapters.EmpresaDeEnvioTableAdapter();
             this.contratoTableAdapter = new ProyectoDB.DataSet.ContratoDataSetTableAdapters.ContratoTableAdapter();
@@ -66,34 +68,37 @@
             this.FacturaDetalleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.detalleFacturaTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.DetalleFacturaTableAdapter();
             this.tiendaTableAdapter = new ProyectoDB.DataSet.TiendaDataSetTableAdapters.TiendaTableAdapter();
-            this.CarritoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carritoClienteDataSet = new ProyectoDB.DataSet.CarritoClienteDataSet();
             this.carritoTableAdapter = new ProyectoDB.DataSet.CarritoClienteDataSetTableAdapters.CarritoTableAdapter();
             this.ProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosDataSet = new ProyectoDB.DataSet.ProductosDataSet();
             this.productoTableAdapter = new ProyectoDB.DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter();
+            this.InventarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventarioDataSet = new ProyectoDB.DataSet.InventarioDataSet();
+            this.inventarioTableAdapter = new ProyectoDB.DataSet.InventarioDataSetTableAdapters.InventarioTableAdapter();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TiendaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiendaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContratoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ne_Meses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDeEnvioDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TiendaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiendaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaDetalleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cb_CodigoTienda);
+            this.groupBox1.Controls.Add(this.tb_Tienda);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lbl_Cuota);
             this.groupBox1.Controls.Add(this.label7);
@@ -118,38 +123,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Proceso:";
             // 
-            // cb_CodigoTienda
+            // tb_Tienda
             // 
-            this.cb_CodigoTienda.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.FacturaEncabezadoBindingSource, "codigoTienda", true));
-            this.cb_CodigoTienda.DataSource = this.TiendaBindingSource;
-            this.cb_CodigoTienda.DisplayMember = "codigoTienda";
-            this.cb_CodigoTienda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_CodigoTienda.FormattingEnabled = true;
-            this.cb_CodigoTienda.Location = new System.Drawing.Point(95, 255);
-            this.cb_CodigoTienda.Name = "cb_CodigoTienda";
-            this.cb_CodigoTienda.Size = new System.Drawing.Size(203, 21);
-            this.cb_CodigoTienda.TabIndex = 19;
-            this.cb_CodigoTienda.ValueMember = "codigoTienda";
+            this.tb_Tienda.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CarritoBindingSource, "Tienda", true));
+            this.tb_Tienda.Enabled = false;
+            this.tb_Tienda.Location = new System.Drawing.Point(95, 257);
+            this.tb_Tienda.Name = "tb_Tienda";
+            this.tb_Tienda.Size = new System.Drawing.Size(203, 20);
+            this.tb_Tienda.TabIndex = 21;
             // 
-            // FacturaEncabezadoBindingSource
+            // CarritoBindingSource
             // 
-            this.FacturaEncabezadoBindingSource.DataMember = "Factura";
-            this.FacturaEncabezadoBindingSource.DataSource = this.facturasDataSet;
+            this.CarritoBindingSource.DataMember = "Carrito";
+            this.CarritoBindingSource.DataSource = this.carritoClienteDataSet;
             // 
-            // facturasDataSet
+            // carritoClienteDataSet
             // 
-            this.facturasDataSet.DataSetName = "FacturasDataSet";
-            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // TiendaBindingSource
-            // 
-            this.TiendaBindingSource.DataMember = "Tienda";
-            this.TiendaBindingSource.DataSource = this.tiendaDataSet;
-            // 
-            // tiendaDataSet
-            // 
-            this.tiendaDataSet.DataSetName = "TiendaDataSet";
-            this.tiendaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.carritoClienteDataSet.DataSetName = "CarritoClienteDataSet";
+            this.carritoClienteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label8
             // 
@@ -255,6 +246,16 @@
             this.textBox1.Size = new System.Drawing.Size(232, 20);
             this.textBox1.TabIndex = 4;
             // 
+            // FacturaEncabezadoBindingSource
+            // 
+            this.FacturaEncabezadoBindingSource.DataMember = "Factura";
+            this.FacturaEncabezadoBindingSource.DataSource = this.facturasDataSet;
+            // 
+            // facturasDataSet
+            // 
+            this.facturasDataSet.DataSetName = "FacturasDataSet";
+            this.facturasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // btn_Agregar
             // 
             this.btn_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -358,6 +359,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Remitente:";
             // 
+            // TiendaBindingSource
+            // 
+            this.TiendaBindingSource.DataMember = "Tienda";
+            this.TiendaBindingSource.DataSource = this.tiendaDataSet;
+            // 
+            // tiendaDataSet
+            // 
+            this.tiendaDataSet.DataSetName = "TiendaDataSet";
+            this.tiendaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // ordenTableAdapter
             // 
             this.ordenTableAdapter.ClearBeforeFill = true;
@@ -387,16 +398,6 @@
             // 
             this.tiendaTableAdapter.ClearBeforeFill = true;
             // 
-            // CarritoBindingSource
-            // 
-            this.CarritoBindingSource.DataMember = "Carrito";
-            this.CarritoBindingSource.DataSource = this.carritoClienteDataSet;
-            // 
-            // carritoClienteDataSet
-            // 
-            this.carritoClienteDataSet.DataSetName = "CarritoClienteDataSet";
-            this.carritoClienteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // carritoTableAdapter
             // 
             this.carritoTableAdapter.ClearBeforeFill = true;
@@ -415,6 +416,20 @@
             // 
             this.productoTableAdapter.ClearBeforeFill = true;
             // 
+            // InventarioBindingSource
+            // 
+            this.InventarioBindingSource.DataMember = "Inventario";
+            this.InventarioBindingSource.DataSource = this.inventarioDataSet;
+            // 
+            // inventarioDataSet
+            // 
+            this.inventarioDataSet.DataSetName = "InventarioDataSet";
+            this.inventarioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // inventarioTableAdapter
+            // 
+            this.inventarioTableAdapter.ClearBeforeFill = true;
+            // 
             // ClienteProcesaOrdenFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,22 +442,24 @@
             this.Load += new System.EventHandler(this.ClienteProcesaOrdenFrm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TiendaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiendaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContratoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratoDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ne_Meses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasDeEnvioDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TiendaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiendaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaDetalleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventarioDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -480,7 +497,6 @@
         private DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter facturaTableAdapter;
         private System.Windows.Forms.BindingSource FacturaDetalleBindingSource;
         private DataSet.FacturasDataSetTableAdapters.DetalleFacturaTableAdapter detalleFacturaTableAdapter;
-        private System.Windows.Forms.ComboBox cb_CodigoTienda;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.BindingSource TiendaBindingSource;
         private DataSet.TiendaDataSet tiendaDataSet;
@@ -491,5 +507,9 @@
         private System.Windows.Forms.BindingSource ProductosBindingSource;
         private DataSet.ProductosDataSet productosDataSet;
         private DataSet.ProductosDataSetTableAdapters.ProductoTableAdapter productoTableAdapter;
+        private System.Windows.Forms.BindingSource InventarioBindingSource;
+        private DataSet.InventarioDataSet inventarioDataSet;
+        private DataSet.InventarioDataSetTableAdapters.InventarioTableAdapter inventarioTableAdapter;
+        private System.Windows.Forms.TextBox tb_Tienda;
     }
 }

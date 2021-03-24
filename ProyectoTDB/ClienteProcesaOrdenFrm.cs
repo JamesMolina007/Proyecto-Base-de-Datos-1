@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace ProyectoDB
@@ -40,8 +39,10 @@ namespace ProyectoDB
 
         private void ClienteProcesaOrdenFrm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'inventarioDataSet.Inventario' Puede moverla o quitarla según sea necesario.
+            this.inventarioTableAdapter.Fill(this.inventarioDataSet.Inventario);
             this.productoTableAdapter.Fill(this.productosDataSet.Producto);
-            this.carritoTableAdapter.Fill(this.carritoClienteDataSet.Carrito);
+            this.carritoTableAdapter.FillByCliente(this.carritoClienteDataSet.Carrito,id_Cliente);
             this.facturaTableAdapter.Fill(this.facturasDataSet.Factura);
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             this.empresaDeEnvioTableAdapter.Fill(this.empresasDeEnvioDataSet.EmpresaDeEnvio);
@@ -70,20 +71,24 @@ namespace ProyectoDB
         {
             DataRowView drvOrden = (DataRowView)OrdenBindingSource.Current;
             DataRowView drvFacturaEncabezado = (DataRowView)FacturaEncabezadoBindingSource.Current;
+            DataRowView drvCarrito = (DataRowView)CarritoBindingSource.Current;
             drvOrden.Row["idCliente"] = id_Cliente;
-            try
-            {
+            //try
+            //{
                 drvFacturaEncabezado.Row["Direccion"] = tb_Direccion.Text;
                 drvFacturaEncabezado.Row["FechaEmision"] = DateTime.Now;
                 drvFacturaEncabezado.Row["idCliente"] = id_Cliente;
+                drvFacturaEncabezado.Row["codigoTienda"] = drvCarrito["Tienda"];
                 this.FacturaEncabezadoBindingSource.EndEdit();
                 this.facturaTableAdapter.Update(this.facturasDataSet.Factura);
                 facturaTableAdapter.Fill(this.facturasDataSet.Factura);
                 drvFacturaEncabezado = (DataRowView)FacturaEncabezadoBindingSource.Current;
                 for (int i = 0; i < carrito.RowCount; i++)
                 {
+                    InventarioBindingSource.Filter = string.Format("convert(idProducto, 'System.String') = '{0}' ", Convert.ToInt32(carrito.Rows[i].Cells[0].Value));
                     ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') = '{0}' ", Convert.ToInt32(carrito.Rows[i].Cells[0].Value));
                     DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
+                    DataRowView drvInventario = (DataRowView)InventarioBindingSource.Current;
                     if (Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value) > 0)
                     {
                         DataRowView drvFacturaDetalle = (DataRowView)FacturaDetalleBindingSource.AddNew();
@@ -94,14 +99,17 @@ namespace ProyectoDB
                         drvFacturaDetalle["NoFactura"] = drvFacturaEncabezado["noFactura"];
                         this.FacturaDetalleBindingSource.EndEdit();
                         this.detalleFacturaTableAdapter.Update(this.facturasDataSet.DetalleFactura);
-                        drvProducto["Cantidad"] = Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value);
+                        drvInventario["Cantidad"] = Convert.ToInt32(drvInventario["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value);
+                        InventarioBindingSource.EndEdit();
+                        inventarioTableAdapter.Update(this.inventarioDataSet.Inventario);
                     }
                     else
                         MessageBox.Show("No se puede llevar más producto de lo que hay disponible");
-                    ProductosBindingSource.EndEdit();
-                    productoTableAdapter.Update(this.productosDataSet.Producto);
+                    
                 }
                 this.Validate();
+                
+
                 drvOrden.Row["noFactura"] = drvFacturaEncabezado["noFactura"];
                 drvOrden.Row["noSeguimiento"] = seguimiento;
                 drvOrden.Row["Estatus"] = "En Proceso";
@@ -110,11 +118,11 @@ namespace ProyectoDB
                 MessageBox.Show("Compra realizada exitosamente!!");
                 carritoTableAdapter.FillByDeleteCliente(this.carritoClienteDataSet.Carrito, id_Cliente);
                 this.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.ToString());
-            }
+            //}
+            //catch (Exception exception)
+            //{
+            //    MessageBox.Show(exception.ToString());
+            //}
 
 
         }

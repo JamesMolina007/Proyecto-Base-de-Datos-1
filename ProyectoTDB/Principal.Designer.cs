@@ -50,6 +50,7 @@
             this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.almacenToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosRealizadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porLlamadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +69,8 @@
             this.ordenesProcesadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contratoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sQLToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -75,9 +78,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.lbl_Fecha = new System.Windows.Forms.ToolStripLabel();
             this.clienteTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
-            this.sQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sQLToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -270,6 +270,13 @@
             this.almacenToolStripMenuItem2.Text = "Almacen";
             this.almacenToolStripMenuItem2.Click += new System.EventHandler(this.almacenToolStripMenuItem2_Click);
             // 
+            // inventarioToolStripMenuItem1
+            // 
+            this.inventarioToolStripMenuItem1.Name = "inventarioToolStripMenuItem1";
+            this.inventarioToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.inventarioToolStripMenuItem1.Text = "Inventario";
+            this.inventarioToolStripMenuItem1.Click += new System.EventHandler(this.inventarioToolStripMenuItem1_Click);
+            // 
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -319,41 +326,42 @@
             // consulta1ToolStripMenuItem
             // 
             this.consulta1ToolStripMenuItem.Name = "consulta1ToolStripMenuItem";
-            this.consulta1ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consulta1ToolStripMenuItem.Text = "Vista 1";
+            this.consulta1ToolStripMenuItem.Click += new System.EventHandler(this.consulta1ToolStripMenuItem_Click);
             // 
             // consulta2ToolStripMenuItem
             // 
             this.consulta2ToolStripMenuItem.Name = "consulta2ToolStripMenuItem";
-            this.consulta2ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consulta2ToolStripMenuItem.Text = "Vista 2";
             this.consulta2ToolStripMenuItem.Click += new System.EventHandler(this.consulta2ToolStripMenuItem_Click);
             // 
             // consulta3ToolStripMenuItem
             // 
             this.consulta3ToolStripMenuItem.Name = "consulta3ToolStripMenuItem";
-            this.consulta3ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consulta3ToolStripMenuItem.Text = "Vista 3";
             this.consulta3ToolStripMenuItem.Click += new System.EventHandler(this.consulta3ToolStripMenuItem_Click);
             // 
             // consulta4ToolStripMenuItem
             // 
             this.consulta4ToolStripMenuItem.Name = "consulta4ToolStripMenuItem";
-            this.consulta4ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consulta4ToolStripMenuItem.Text = "Vista 4";
             this.consulta4ToolStripMenuItem.Click += new System.EventHandler(this.consulta4ToolStripMenuItem_Click);
             // 
             // consulta5ToolStripMenuItem
             // 
             this.consulta5ToolStripMenuItem.Name = "consulta5ToolStripMenuItem";
-            this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consulta5ToolStripMenuItem.Text = "Vista 5";
             this.consulta5ToolStripMenuItem.Click += new System.EventHandler(this.consulta5ToolStripMenuItem_Click);
             // 
             // consulta6ToolStripMenuItem
             // 
             this.consulta6ToolStripMenuItem.Name = "consulta6ToolStripMenuItem";
-            this.consulta6ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.consulta6ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consulta6ToolStripMenuItem.Text = "Vista 6";
             this.consulta6ToolStripMenuItem.Click += new System.EventHandler(this.consulta6ToolStripMenuItem_Click);
             // 
@@ -413,6 +421,22 @@
             this.contratoToolStripMenuItem.Text = "Contrato";
             this.contratoToolStripMenuItem.Click += new System.EventHandler(this.contratoToolStripMenuItem_Click);
             // 
+            // sQLToolStripMenuItem
+            // 
+            this.sQLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sQLToolStripMenuItem1});
+            this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
+            this.sQLToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.sQLToolStripMenuItem.Text = "SQL";
+            this.sQLToolStripMenuItem.Visible = false;
+            // 
+            // sQLToolStripMenuItem1
+            // 
+            this.sQLToolStripMenuItem1.Name = "sQLToolStripMenuItem1";
+            this.sQLToolStripMenuItem1.Size = new System.Drawing.Size(95, 22);
+            this.sQLToolStripMenuItem1.Text = "SQL";
+            this.sQLToolStripMenuItem1.Click += new System.EventHandler(this.sQLToolStripMenuItem1_Click);
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -459,29 +483,6 @@
             // clienteTableAdapter
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // sQLToolStripMenuItem
-            // 
-            this.sQLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sQLToolStripMenuItem1});
-            this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
-            this.sQLToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.sQLToolStripMenuItem.Text = "SQL";
-            this.sQLToolStripMenuItem.Visible = false;
-            // 
-            // sQLToolStripMenuItem1
-            // 
-            this.sQLToolStripMenuItem1.Name = "sQLToolStripMenuItem1";
-            this.sQLToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.sQLToolStripMenuItem1.Text = "SQL";
-            this.sQLToolStripMenuItem1.Click += new System.EventHandler(this.sQLToolStripMenuItem1_Click);
-            // 
-            // inventarioToolStripMenuItem1
-            // 
-            this.inventarioToolStripMenuItem1.Name = "inventarioToolStripMenuItem1";
-            this.inventarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.inventarioToolStripMenuItem1.Text = "Inventario";
-            this.inventarioToolStripMenuItem1.Click += new System.EventHandler(this.inventarioToolStripMenuItem1_Click);
             // 
             // Principal
             // 

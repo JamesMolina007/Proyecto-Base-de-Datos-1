@@ -49,12 +49,15 @@ namespace ProyectoDB{
                     DataRowView drC = (DataRowView)ClienteBindingSource.Current;
                     if (drC != null)
                     {
+                        drva["UserName"] = "Cliente Virtual";
                         Principal principal = new Principal();
                         principal.setTipoUsuario("ClienteV");
                         principal.setIdCliente(Convert.ToInt32(tb_nombreUsuario.Text));
                         principal.setLogin(this);
                         tb_Contraseña.Text = "";
                         tb_nombreUsuario.Text = "";
+                        drva.EndEdit();
+                        usuarioActualTableAdapter.Update(this.usuarioDataSet.UsuarioActual);
                         principal.Show();
                         this.Visible = false;
                     }

@@ -20,10 +20,11 @@ namespace ProyectoDB
 
         private void CarritoClienteFrm_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'carritoClienteDataSet.Producto' Puede moverla o quitarla según sea necesario.
+            this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             this.productoTableAdapter.Fill(this.carritoClienteDataSet.Producto);
+            this.inventarioTableAdapter.Fill(this.inventarioDataSet.Inventario);
             this.carritoTableAdapter.FillByCliente(this.carritoClienteDataSet.Carrito,id_Cliente);
-            ne_Cantidad.Value = 1;
+           // ne_Cantidad.Value = 1;
             
 
         }
@@ -32,14 +33,20 @@ namespace ProyectoDB
         {
             try
             {
-                this.Validate();
-                DataRowView drv = (DataRowView)ProductosBindingSource.Current;
-                DataRowView drvC = (DataRowView)CarritoBindingSource.AddNew();
-                drvC.Row["cantidadProductoCarrito"] = ne_Cantidad.Value;
-                drvC.Row["idProducto"] = Convert.ToInt32(drv.Row["idProducto"]);
-                drvC.Row["idCliente"] = id_Cliente;
-                CarritoBindingSource.EndEdit();
-                carritoTableAdapter.Update(this.carritoClienteDataSet.Carrito);
+                if ( ne_Cantidad.Value > 0)
+                {
+                    this.Validate();
+                    DataRowView drv = (DataRowView)ProductosBindingSource.Current;
+                    DataRowView drvC = (DataRowView)CarritoBindingSource.AddNew();
+                    DataRowView drvT = (DataRowView)TiendaBindingSource.Current;
+                    drvC.Row["cantidadProductoCarrito"] = ne_Cantidad.Value;
+                    drvC.Row["idProducto"] = Convert.ToInt32(drv.Row["idProducto"]);
+                    drvC.Row["idCliente"] = id_Cliente;
+                    drvC.Row["Tienda"] = Convert.ToInt32(drvT["codigoTienda"]);
+                    CarritoBindingSource.EndEdit();
+                    carritoTableAdapter.Update(this.carritoClienteDataSet.Carrito);
+                }
+
             }catch(Exception ex)
             {
 
@@ -49,8 +56,8 @@ namespace ProyectoDB
         private void button1_Click(object sender, EventArgs e)
         {
             this.Validate();
-            CarritoBindingSource.EndEdit();
-            carritoTableAdapter.Update(this.carritoClienteDataSet.Carrito);
+            //CarritoBindingSource.EndEdit();
+            //carritoTableAdapter.Update(this.carritoClienteDataSet.Carrito);
             this.productoTableAdapter.Fill(this.carritoClienteDataSet.Producto);
             this.carritoTableAdapter.FillByCliente(this.carritoClienteDataSet.Carrito, id_Cliente);
         }
@@ -94,15 +101,49 @@ namespace ProyectoDB
             clienteprocesaorden.setIsv(isv);
             clienteprocesaorden.setCarrito(dataGridView1);
             ProductosBindingSource.RemoveFilter();
-            clienteprocesaorden.Show();
             clienteprocesaorden.setId_Cliente(id_Cliente);
+            clienteprocesaorden.Show();
+           
             //this.Close();
         }
 
         private void ProductosBindingSource_PositionChanged(object sender, EventArgs e)
         {
-            if(tb_Cantidad.Text.Length > 1)
-                ne_Cantidad.Maximum = Convert.ToInt32(tb_Cantidad.Text);
+            //if(tb_Cantidad.Text.Length > 1)
+            //    ne_Cantidad.Maximum = Convert.ToInt32(tb_Cantidad.Text);
+        }
+
+        private void InventarioBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRowView drvI = (DataRowView)InventarioBindingSource.Current;
+                ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", drvI["idProducto"]);
+                ne_Cantidad.Maximum = Convert.ToInt32(drvI["Cantidad"]);
+            }catch(Exception ex)
+            {
+
+            }
+        }
+
+
+        private void TiendaBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            DataRowView drvTienda = (DataRowView)TiendaBindingSource.Current;
+            this.InventarioBindingSource.Filter = string.Format("convert(codigoTienda, 'System.String') = '{0}' ", drvTienda["codigoTienda"]);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_CambiarTienda_Click(object sender, EventArgs e)
+        {
+            if( comboBox1.SelectedItem.ToString() != null)
+            {
+                MessageBox.Show("hola cabezas de huevo");
+            }
         }
     }
 }

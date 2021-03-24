@@ -11,6 +11,12 @@
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DetalleFacturaTableAdapter" GeneratorDataComponentClassName="DetalleFacturaTableAdapter" Name="DetalleFactura" UserDataComponentName="DetalleFacturaTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.DetalleFactura" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText />
+                    <Parameters />
+                  </DbCommand>
+                </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO `DetalleFactura` (`isv`, `Total`, `cantidadProducto`, `NoFactura`, `idProducto`) VALUES (@p1, @p2, @p3, @p4, @p5)</CommandText>
@@ -30,6 +36,12 @@ FROM            DetalleFactura</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText />
+                    <Parameters />
+                  </DbCommand>
+                </UpdateCommand>
               </DbSource>
             </MainSource>
             <Mappings>
@@ -224,7 +236,7 @@ WHERE        (idCliente = @idCliente)</CommandText>
   <xs:element name="FacturasDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FacturasDataSet" msprop:Generator_UserDSName="FacturasDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DetalleFactura" msprop:Generator_TableClassName="DetalleFacturaDataTable" msprop:Generator_TableVarName="tableDetalleFactura" msprop:Generator_RowChangedName="DetalleFacturaRowChanged" msprop:Generator_TablePropName="DetalleFactura" msprop:Generator_RowDeletingName="DetalleFacturaRowDeleting" msprop:Generator_RowChangingName="DetalleFacturaRowChanging" msprop:Generator_RowEvHandlerName="DetalleFacturaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleFacturaRowDeleted" msprop:Generator_RowClassName="DetalleFacturaRow" msprop:Generator_UserTableName="DetalleFactura" msprop:Generator_RowEvArgName="DetalleFacturaRowChangeEvent">
+        <xs:element name="DetalleFactura" msprop:Generator_TableClassName="DetalleFacturaDataTable" msprop:Generator_TableVarName="tableDetalleFactura" msprop:Generator_TablePropName="DetalleFactura" msprop:Generator_RowDeletingName="DetalleFacturaRowDeleting" msprop:Generator_RowChangingName="DetalleFacturaRowChanging" msprop:Generator_RowEvHandlerName="DetalleFacturaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetalleFacturaRowDeleted" msprop:Generator_UserTableName="DetalleFactura" msprop:Generator_RowChangedName="DetalleFacturaRowChanged" msprop:Generator_RowEvArgName="DetalleFacturaRowChangeEvent" msprop:Generator_RowClassName="DetalleFacturaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="isv" msprop:Generator_ColumnVarNameInTable="columnisv" msprop:Generator_ColumnPropNameInRow="isv" msprop:Generator_ColumnPropNameInTable="isvColumn" msprop:Generator_UserColumnName="isv" type="xs:double" />
@@ -235,7 +247,7 @@ WHERE        (idCliente = @idCliente)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Factura" msprop:Generator_TableClassName="FacturaDataTable" msprop:Generator_TableVarName="tableFactura" msprop:Generator_RowChangedName="FacturaRowChanged" msprop:Generator_TablePropName="Factura" msprop:Generator_RowDeletingName="FacturaRowDeleting" msprop:Generator_RowChangingName="FacturaRowChanging" msprop:Generator_RowEvHandlerName="FacturaRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaRowDeleted" msprop:Generator_RowClassName="FacturaRow" msprop:Generator_UserTableName="Factura" msprop:Generator_RowEvArgName="FacturaRowChangeEvent">
+        <xs:element name="Factura" msprop:Generator_TableClassName="FacturaDataTable" msprop:Generator_TableVarName="tableFactura" msprop:Generator_TablePropName="Factura" msprop:Generator_RowDeletingName="FacturaRowDeleting" msprop:Generator_RowChangingName="FacturaRowChanging" msprop:Generator_RowEvHandlerName="FacturaRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaRowDeleted" msprop:Generator_UserTableName="Factura" msprop:Generator_RowChangedName="FacturaRowChanged" msprop:Generator_RowEvArgName="FacturaRowChangeEvent" msprop:Generator_RowClassName="FacturaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="noFactura" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnnoFactura" msprop:Generator_ColumnPropNameInRow="noFactura" msprop:Generator_ColumnPropNameInTable="noFacturaColumn" msprop:Generator_UserColumnName="noFactura" type="xs:int" />
@@ -253,7 +265,7 @@ WHERE        (idCliente = @idCliente)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_RowClassName="ClienteRow" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowEvArgName="ClienteRowChangeEvent">
+        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_RowEvArgName="ClienteRowChangeEvent" msprop:Generator_RowClassName="ClienteRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idCliente" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidCliente" msprop:Generator_ColumnPropNameInRow="idCliente" msprop:Generator_ColumnPropNameInTable="idClienteColumn" msprop:Generator_UserColumnName="idCliente" type="xs:int" />
@@ -280,7 +292,7 @@ WHERE        (idCliente = @idCliente)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FKNoFactura" msdata:parent="Factura" msdata:child="DetalleFactura" msdata:parentkey="noFactura" msdata:childkey="NoFactura" msprop:Generator_UserChildTable="DetalleFactura" msprop:Generator_ChildPropName="GetDetalleFacturaRows" msprop:Generator_UserRelationName="FKNoFactura" msprop:Generator_ParentPropName="FacturaRow" msprop:Generator_RelationVarName="relationFKNoFactura" msprop:Generator_UserParentTable="Factura" />
+      <msdata:Relationship name="FKNoFactura" msdata:parent="Factura" msdata:child="DetalleFactura" msdata:parentkey="noFactura" msdata:childkey="NoFactura" msprop:Generator_UserChildTable="DetalleFactura" msprop:Generator_ChildPropName="GetDetalleFacturaRows" msprop:Generator_UserRelationName="FKNoFactura" msprop:Generator_RelationVarName="relationFKNoFactura" msprop:Generator_UserParentTable="Factura" msprop:Generator_ParentPropName="FacturaRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
