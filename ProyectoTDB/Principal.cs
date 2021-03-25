@@ -50,6 +50,10 @@ namespace ProyectoDB
             if ( tipoUsuario.Equals("Servicio al Cliente"))
             {
                 inventarioToolStripMenuItem.Visible = true;
+                almacenToolStripMenuItem.Visible = false;
+                categoriasToolStripMenuItem.Visible = false;
+                almacenToolStripMenuItem2.Visible = false;
+                
             }else if( tipoUsuario.Equals("Personal de Centro de Llamadas"))
             {
                 clientesToolStripMenuItem.Visible = true;
@@ -57,6 +61,12 @@ namespace ProyectoDB
             }else if( tipoUsuario.Equals("Empleado de Almacen"))
             {
                 inventarioToolStripMenuItem.Visible = true;
+                almacenToolStripMenuItem.Visible = false;
+                categoriasToolStripMenuItem.Visible = false;
+                almacenToolStripMenuItem2.Visible = false;
+                porLlamadaToolStripMenuItem.Visible = false;
+                ordenesToolStripMenuItem.Visible = true;
+                porLlamadaToolStripMenuItem.Visible = false;
             }
             else if(tipoUsuario.Equals("ClienteV"))
             {
@@ -278,6 +288,7 @@ namespace ProyectoDB
         private void inventarioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             InventarioFrm inventario = new InventarioFrm();
+            inventario.setTipoUsuario(tipoUsuario);
             inventario.Show();
         }
 

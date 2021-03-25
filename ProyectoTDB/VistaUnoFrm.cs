@@ -71,7 +71,7 @@ namespace ProyectoDB
             facturaTableAdapter.DeleteQuery(facturaBorrar);
             ordenTableAdapter.DeleteQuery(ordenBorrar);
             MessageBox.Show("Reemplazado correctamente");
-            
+            this.Close();
         }
     }
 }

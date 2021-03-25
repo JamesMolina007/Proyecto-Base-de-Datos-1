@@ -9,12 +9,24 @@ namespace ProyectoDB
         {
             InitializeComponent();
         }
+        private String tipoUsuario = "";
+        public void setTipoUsuario(String tipoUsuario)
+        {
+            this.tipoUsuario = tipoUsuario;
+        }
 
         private void InventarioFrm_Load(object sender, EventArgs e)
         {
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             this.almacenTableAdapter.Fill(this.almacenDataSet.Almacen);
             this.productoTableAdapter.Fill(this.productosDataSet.Producto);
+            if (tipoUsuario.Equals("Servicio al Cliente"))
+            {
+                btn_Eliminar.Visible = false;
+                btn_Guardar.Visible = false;
+                btn_Nuevo.Visible = false;
+                groupBox1.Enabled = false;
+            }
             recargar();
 
         }
