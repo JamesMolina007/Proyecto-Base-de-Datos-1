@@ -80,7 +80,7 @@ namespace ProyectoDB
                 opcionesClienteToolStripMenuItem.Visible = true;
                 miCarritoToolStripMenuItem.Enabled = false;
                 ordenesProcesadasToolStripMenuItem.Enabled = false;
-                facturasToolStripMenuItem.Enabled = false;
+                facturasToolStripMenuItem.Enabled = true;
             }
             else
             {

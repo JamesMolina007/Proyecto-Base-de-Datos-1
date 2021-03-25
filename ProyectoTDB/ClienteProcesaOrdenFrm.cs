@@ -85,16 +85,17 @@ namespace ProyectoDB
                 for (int i = 0; i < carrito.RowCount; i++)
                 {
                     InventarioBindingSource.Filter = string.Format("convert(idProducto, 'System.String') = '{0}' ", Convert.ToInt32(carrito.Rows[i].Cells[0].Value));
+                    InventarioBindingSource.Filter = string.Format("convert(codigoTienda, 'System.String') = '{0}' ", Convert.ToInt32(drvCarrito["Tienda"]));
                     ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') = '{0}' ", Convert.ToInt32(carrito.Rows[i].Cells[0].Value));
                     DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
                     DataRowView drvInventario = (DataRowView)InventarioBindingSource.Current;
-                    if (Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value) > 0)
+                    if (Convert.ToInt32(drvInventario["Cantidad"]) - Convert.ToInt32(carrito.Rows[i].Cells[2].Value) >= 0)
                     {
                         DataRowView drvFacturaDetalle = (DataRowView)FacturaDetalleBindingSource.AddNew();
                         drvFacturaDetalle["idProducto"] = carrito.Rows[i].Cells[0].Value;
                         drvFacturaDetalle["cantidadProducto"] = carrito.Rows[i].Cells[2].Value;
                         drvFacturaDetalle["Total"] = Convert.ToInt32(drvProducto["Precio"]) * Convert.ToInt32(carrito.Rows[i].Cells[2].Value) * 1.15;
-                        drvFacturaDetalle["isv"] = Convert.ToInt32(drvProducto["Precio"])* Convert.ToInt32(carrito.Rows[i].Cells[2].Value)*0.15;
+                        drvFacturaDetalle["isv"] = Convert.ToInt32(drvProducto["Precio"]) * Convert.ToInt32(carrito.Rows[i].Cells[2].Value) * 0.15;
                         drvFacturaDetalle["NoFactura"] = drvFacturaEncabezado["noFactura"];
                         this.FacturaDetalleBindingSource.EndEdit();
                         this.detalleFacturaTableAdapter.Update(this.facturasDataSet.DetalleFactura);
@@ -103,7 +104,9 @@ namespace ProyectoDB
                         inventarioTableAdapter.Update(this.inventarioDataSet.Inventario);
                     }
                     else
-                        MessageBox.Show("No se puede llevar más producto de lo que hay disponible");
+                    {
+                       MessageBox.Show("No se puede llevar más producto de lo que hay disponible");
+                    }
                     
                 }
                 this.Validate();

@@ -46,10 +46,11 @@ namespace ProyectoDB
                 for (int i = 0; i < carro.RowCount; i++)
                 {
                     InventarioBindingSource.Filter = string.Format("convert(idProducto, 'System.String') = '{0}' ", Convert.ToInt32(carro.Rows[i].Cells[0].Value));
+                    InventarioBindingSource.Filter = string.Format("convert(codigoTienda, 'System.String') = '{0}' ",tienda);
                     ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') = '{0}' ", Convert.ToInt32(carro.Rows[i].Cells[0].Value));
                     DataRowView drvProducto = (DataRowView)ProductosBindingSource.Current;
                     DataRowView drvInventario = (DataRowView)InventarioBindingSource.Current;
-                    if (Convert.ToInt32(drvProducto["Cantidad"]) - Convert.ToInt32(carro.Rows[i].Cells[2].Value) > 0)
+                    if (Convert.ToInt32(drvInventario["Cantidad"]) - Convert.ToInt32(carro.Rows[i].Cells[2].Value) > 0)
                     {
                         DataRowView drvFacturaDetalle = (DataRowView)DetalleFacturaBindingSource.AddNew();
                         drvFacturaDetalle["idProducto"] = carro.Rows[i].Cells[0].Value;
