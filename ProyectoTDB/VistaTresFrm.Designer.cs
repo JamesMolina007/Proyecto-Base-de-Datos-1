@@ -35,7 +35,6 @@
             this.top2DolaresTableAdapter = new ProyectoDB.DataSet.VistasDataSetTableAdapters.Top2DolaresTableAdapter();
             this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadVendidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalEnDolaresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrincipalBindingSource)).BeginInit();
@@ -51,13 +50,12 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProductoDataGridViewTextBoxColumn,
             this.nombreProductoDataGridViewTextBoxColumn,
-            this.cantidadVendidaDataGridViewTextBoxColumn,
             this.totalEnDolaresDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.PrincipalBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(530, 331);
+            this.dataGridView1.Size = new System.Drawing.Size(434, 331);
             this.dataGridView1.TabIndex = 0;
             // 
             // PrincipalBindingSource
@@ -89,13 +87,6 @@
             this.nombreProductoDataGridViewTextBoxColumn.Name = "nombreProductoDataGridViewTextBoxColumn";
             this.nombreProductoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // cantidadVendidaDataGridViewTextBoxColumn
-            // 
-            this.cantidadVendidaDataGridViewTextBoxColumn.DataPropertyName = "CantidadVendida";
-            this.cantidadVendidaDataGridViewTextBoxColumn.HeaderText = "Cantidad";
-            this.cantidadVendidaDataGridViewTextBoxColumn.Name = "cantidadVendidaDataGridViewTextBoxColumn";
-            this.cantidadVendidaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // totalEnDolaresDataGridViewTextBoxColumn
             // 
             this.totalEnDolaresDataGridViewTextBoxColumn.DataPropertyName = "TotalEnDolares";
@@ -108,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 355);
+            this.ClientSize = new System.Drawing.Size(458, 355);
             this.Controls.Add(this.dataGridView1);
             this.Name = "VistaTresFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -129,7 +120,6 @@
         private DataSet.VistasDataSetTableAdapters.Top2DolaresTableAdapter top2DolaresTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadVendidaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalEnDolaresDataGridViewTextBoxColumn;
     }
 }

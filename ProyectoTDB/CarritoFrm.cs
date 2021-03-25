@@ -16,15 +16,16 @@ namespace ProyectoDB
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             recargar();
             this.productoTableAdapter.Fill(this.carritoDataSet.Producto);
+            this.clienteVirtualTableAdapter.Fill(this.carritoDataSet.ClienteVirtual);
         }
 
         private void recargar()
         {
+            this.carritoTableAdapter.Fill(this.carritoDataSet.Carrito);
             gb_Datos.Enabled = false;
             btn_Nuevo.Enabled = true;
             btn_Guardar.Enabled = false;
             btn_Eliminar.Enabled = false;
-            this.clienteVirtualTableAdapter.Fill(this.carritoDataSet.ClienteVirtual);
         }
 
         private void btn_Nuevo_Click(object sender, EventArgs e)

@@ -35,14 +35,8 @@
             this.CarritoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carritoClienteDataSet = new ProyectoDB.DataSet.CarritoClienteDataSet();
             this.label8 = new System.Windows.Forms.Label();
-            this.lbl_Cuota = new System.Windows.Forms.Label();
             this.ContratoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contratoDataSet = new ProyectoDB.DataSet.ContratoDataSet();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tb_NumeroCuenta = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ne_Meses = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.FacturaEncabezadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -80,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContratoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratoDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ne_Meses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
@@ -100,12 +93,6 @@
             // 
             this.groupBox1.Controls.Add(this.tb_Tienda);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.lbl_Cuota);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.tb_NumeroCuenta);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.ne_Meses);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.btn_Agregar);
@@ -118,7 +105,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(321, 417);
+            this.groupBox1.Size = new System.Drawing.Size(321, 357);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Proceso:";
@@ -151,16 +138,6 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Código Tienda:";
             // 
-            // lbl_Cuota
-            // 
-            this.lbl_Cuota.AutoSize = true;
-            this.lbl_Cuota.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ContratoBindingSource, "Cuota", true));
-            this.lbl_Cuota.Location = new System.Drawing.Point(226, 297);
-            this.lbl_Cuota.Name = "lbl_Cuota";
-            this.lbl_Cuota.Size = new System.Drawing.Size(10, 13);
-            this.lbl_Cuota.TabIndex = 18;
-            this.lbl_Cuota.Text = ".";
-            // 
             // ContratoBindingSource
             // 
             this.ContratoBindingSource.DataMember = "Contrato";
@@ -170,64 +147,6 @@
             // 
             this.contratoDataSet.DataSetName = "ContratoDataSet";
             this.contratoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 338);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Numero de Cuenta:";
-            // 
-            // tb_NumeroCuenta
-            // 
-            this.tb_NumeroCuenta.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ContratoBindingSource, "numCuenta", true));
-            this.tb_NumeroCuenta.Location = new System.Drawing.Point(118, 335);
-            this.tb_NumeroCuenta.Name = "tb_NumeroCuenta";
-            this.tb_NumeroCuenta.Size = new System.Drawing.Size(180, 20);
-            this.tb_NumeroCuenta.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(182, 297);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Cuota:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 296);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Meses:";
-            // 
-            // ne_Meses
-            // 
-            this.ne_Meses.Location = new System.Drawing.Point(66, 294);
-            this.ne_Meses.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.ne_Meses.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ne_Meses.Name = "ne_Meses";
-            this.ne_Meses.Size = new System.Drawing.Size(97, 20);
-            this.ne_Meses.TabIndex = 5;
-            this.ne_Meses.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ne_Meses.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label4
             // 
@@ -261,7 +180,7 @@
             this.btn_Agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Agregar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Agregar.Image")));
             this.btn_Agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Agregar.Location = new System.Drawing.Point(17, 370);
+            this.btn_Agregar.Location = new System.Drawing.Point(17, 298);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(113, 41);
             this.btn_Agregar.TabIndex = 7;
@@ -274,7 +193,7 @@
             this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Eliminar.Image")));
             this.btn_Eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Eliminar.Location = new System.Drawing.Point(185, 370);
+            this.btn_Eliminar.Location = new System.Drawing.Point(185, 298);
             this.btn_Eliminar.Name = "btn_Eliminar";
             this.btn_Eliminar.Size = new System.Drawing.Size(113, 41);
             this.btn_Eliminar.TabIndex = 8;
@@ -434,7 +353,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 441);
+            this.ClientSize = new System.Drawing.Size(352, 384);
             this.Controls.Add(this.groupBox1);
             this.Name = "ClienteProcesaOrdenFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -446,7 +365,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContratoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratoDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ne_Meses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaEncabezadoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).EndInit();
@@ -481,12 +399,6 @@
         private DataSet.OrdenDataSetTableAdapters.OrdenTableAdapter ordenTableAdapter;
         private DataSet.EmpresasDeEnvioDataSet empresasDeEnvioDataSet;
         private DataSet.EmpresasDeEnvioDataSetTableAdapters.EmpresaDeEnvioTableAdapter empresaDeEnvioTableAdapter;
-        private System.Windows.Forms.Label lbl_Cuota;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tb_NumeroCuenta;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown ne_Meses;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.BindingSource ContratoBindingSource;

@@ -1364,8 +1364,6 @@ namespace ProyectoDB.DataSet {
             
             private global::System.Data.DataColumn columnnombreProducto;
             
-            private global::System.Data.DataColumn columnCantidadVendida;
-            
             private global::System.Data.DataColumn columnTotalEnDolares;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1419,14 +1417,6 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CantidadVendidaColumn {
-                get {
-                    return this.columnCantidadVendida;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn TotalEnDolaresColumn {
                 get {
                     return this.columnTotalEnDolares;
@@ -1470,12 +1460,11 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public Top2DolaresRow AddTop2DolaresRow(int idProducto, string nombreProducto, decimal CantidadVendida, decimal TotalEnDolares) {
+            public Top2DolaresRow AddTop2DolaresRow(int idProducto, string nombreProducto, decimal TotalEnDolares) {
                 Top2DolaresRow rowTop2DolaresRow = ((Top2DolaresRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idProducto,
                         nombreProducto,
-                        CantidadVendida,
                         TotalEnDolares};
                 rowTop2DolaresRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTop2DolaresRow);
@@ -1501,7 +1490,6 @@ namespace ProyectoDB.DataSet {
             internal void InitVars() {
                 this.columnidProducto = base.Columns["idProducto"];
                 this.columnnombreProducto = base.Columns["nombreProducto"];
-                this.columnCantidadVendida = base.Columns["CantidadVendida"];
                 this.columnTotalEnDolares = base.Columns["TotalEnDolares"];
             }
             
@@ -1512,8 +1500,6 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnidProducto);
                 this.columnnombreProducto = new global::System.Data.DataColumn("nombreProducto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreProducto);
-                this.columnCantidadVendida = new global::System.Data.DataColumn("CantidadVendida", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCantidadVendida);
                 this.columnTotalEnDolares = new global::System.Data.DataColumn("TotalEnDolares", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalEnDolares);
                 this.columnidProducto.AllowDBNull = false;
@@ -2711,22 +2697,6 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal CantidadVendida {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableTop2Dolares.CantidadVendidaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CantidadVendida\' de la tabla \'Top2Dolares\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableTop2Dolares.CantidadVendidaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public decimal TotalEnDolares {
                 get {
                     try {
@@ -2739,18 +2709,6 @@ namespace ProyectoDB.DataSet {
                 set {
                     this[this.tableTop2Dolares.TotalEnDolaresColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCantidadVendidaNull() {
-                return this.IsNull(this.tableTop2Dolares.CantidadVendidaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCantidadVendidaNull() {
-                this[this.tableTop2Dolares.CantidadVendidaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3879,7 +3837,6 @@ namespace ProyectoDB.DataSet.VistasDataSetTableAdapters {
             tableMapping.DataSetTable = "Top2Dolares";
             tableMapping.ColumnMappings.Add("idProducto", "idProducto");
             tableMapping.ColumnMappings.Add("nombreProducto", "nombreProducto");
-            tableMapping.ColumnMappings.Add("CantidadVendida", "CantidadVendida");
             tableMapping.ColumnMappings.Add("TotalEnDolares", "TotalEnDolares");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -3897,8 +3854,7 @@ namespace ProyectoDB.DataSet.VistasDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `idProducto`, `nombreProducto`, `CantidadVendida`, `TotalEnDolares` FROM `" +
-                "ventas`.`Top2Dolares`";
+            this._commandCollection[0].CommandText = "SELECT idProducto, nombreProducto, TotalEnDolares FROM Top2Dolares";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

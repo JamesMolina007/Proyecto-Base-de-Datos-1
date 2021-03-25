@@ -72,7 +72,7 @@
               <DbSource ConnectionRef="ventasConnectionString (Settings)" DbObjectName="ventas.Top2Dolares" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `idProducto`, `nombreProducto`, `CantidadVendida`, `TotalEnDolares` FROM `ventas`.`Top2Dolares`</CommandText>
+                    <CommandText>SELECT idProducto, nombreProducto, TotalEnDolares FROM Top2Dolares</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -81,7 +81,6 @@
             <Mappings>
               <Mapping SourceColumn="idProducto" DataSetColumn="idProducto" />
               <Mapping SourceColumn="nombreProducto" DataSetColumn="nombreProducto" />
-              <Mapping SourceColumn="CantidadVendida" DataSetColumn="CantidadVendida" />
               <Mapping SourceColumn="TotalEnDolares" DataSetColumn="TotalEnDolares" />
             </Mappings>
             <Sources />
@@ -203,7 +202,6 @@ FROM            OrdenDestruida</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CantidadVendida" msprop:Generator_ColumnVarNameInTable="columnCantidadVendida" msprop:Generator_ColumnPropNameInRow="CantidadVendida" msprop:Generator_ColumnPropNameInTable="CantidadVendidaColumn" msprop:Generator_UserColumnName="CantidadVendida" type="xs:decimal" minOccurs="0" />
               <xs:element name="TotalEnDolares" msprop:Generator_ColumnVarNameInTable="columnTotalEnDolares" msprop:Generator_ColumnPropNameInRow="TotalEnDolares" msprop:Generator_ColumnPropNameInTable="TotalEnDolaresColumn" msprop:Generator_UserColumnName="TotalEnDolares" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

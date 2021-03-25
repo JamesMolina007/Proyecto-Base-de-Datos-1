@@ -39,20 +39,31 @@ namespace ProyectoDB
         {
             DataRowView drvTienda = (DataRowView)TiendaBindingSource.Current;
             this.InventarioBindingSource.Filter = string.Format("convert(codigoTienda, 'System.String') = '{0}' ", drvTienda["codigoTienda"]);
+            if( dataGridView2.RowCount > 0)
+            {
+                DataRowView drvI = (DataRowView)InventarioBindingSource.Current;
+                ne_Cantidad.Maximum = Convert.ToInt32(drvI["Cantidad"]);
+                ProductoBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", drvI["idProducto"]);
+            }
         }
 
         private void InventarioBindingSource_PositionChanged(object sender, EventArgs e)
         {
             try
             {
-                
+
                 DataRowView drvI = (DataRowView)InventarioBindingSource.Current;
                 ProductoBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", drvI["idProducto"]);
-                ne_Cantidad.Maximum = Convert.ToInt32(drvI["Cantidad"]);
+
+                if (Convert.ToInt32(drvI["Cantidad"]) > 0)
+                    ne_Cantidad.Maximum = Convert.ToInt32(drvI["Cantidad"]);
+                else
+                    ne_Cantidad.Maximum = 1;
+
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -99,6 +110,11 @@ namespace ProyectoDB
             pedido.carro = dg_Carro;
             pedido.tienda = Convert.ToInt32(comboBox1.SelectedValue);
             pedido.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dg_Carro.Rows.RemoveAt(dg_Carro.CurrentRow.Index);
         }
     }
 }

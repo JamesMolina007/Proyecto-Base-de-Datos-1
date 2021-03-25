@@ -131,6 +131,12 @@ namespace ProyectoDB
         {
             DataRowView drvTienda = (DataRowView)TiendaBindingSource.Current;
             this.InventarioBindingSource.Filter = string.Format("convert(codigoTienda, 'System.String') = '{0}' ", drvTienda["codigoTienda"]);
+            if (dataGridView3.RowCount > 0)
+            {
+                DataRowView drvI = (DataRowView)InventarioBindingSource.Current;
+                ne_Cantidad.Maximum = Convert.ToInt32(drvI["Cantidad"]);
+                ProductosBindingSource.Filter = string.Format("convert(idProducto, 'System.String') Like '{0}' ", drvI["idProducto"]);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

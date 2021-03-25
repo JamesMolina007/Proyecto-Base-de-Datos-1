@@ -59,7 +59,6 @@ namespace ProyectoDB
                 drvOrden["noSeguimiento"] = 1000000;
             }
             FacturaEncabezadoBindingSource.AddNew();
-            lbl_Cuota.Text = total.ToString();
         }
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
@@ -125,11 +124,6 @@ namespace ProyectoDB
             }
 
 
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            lbl_Cuota.Text = (total/Convert.ToDouble(ne_Meses.Value)).ToString();
         }
     }
 }
