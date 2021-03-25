@@ -12,6 +12,8 @@ namespace ProyectoDB
 
         private void CarritoFrm_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'tiendaDataSet.Tienda' Puede moverla o quitarla según sea necesario.
+            this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             recargar();
             this.productoTableAdapter.Fill(this.carritoDataSet.Producto);
         }

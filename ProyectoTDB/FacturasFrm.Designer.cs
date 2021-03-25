@@ -418,7 +418,7 @@
             this.gb_Detalle.Controls.Add(this.tb_Cantidad);
             this.gb_Detalle.Controls.Add(this.cb_Producto);
             this.gb_Detalle.Enabled = false;
-            this.gb_Detalle.Location = new System.Drawing.Point(335, 270);
+            this.gb_Detalle.Location = new System.Drawing.Point(336, 270);
             this.gb_Detalle.Name = "gb_Detalle";
             this.gb_Detalle.Size = new System.Drawing.Size(336, 206);
             this.gb_Detalle.TabIndex = 26;
@@ -453,6 +453,7 @@
             // 
             // cb_Producto
             // 
+            this.cb_Producto.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.DetalleFacturaBindingSource, "idProducto", true));
             this.cb_Producto.DataSource = this.ProductoBindingSource;
             this.cb_Producto.DisplayMember = "nombreProducto";
             this.cb_Producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;

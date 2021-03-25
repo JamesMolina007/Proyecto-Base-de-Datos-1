@@ -6,6 +6,11 @@ namespace ProyectoDB
 {
     public partial class ContratosFrm : Form
     {
+        private String tipoUsuario = "";
+        public void SetTipoUsuario(String tipoUsuario)
+        {
+            this.tipoUsuario = tipoUsuario;
+        }
         public ContratosFrm()
         {
             InitializeComponent();
@@ -13,6 +18,13 @@ namespace ProyectoDB
 
         private void ContratosFrm_Load(object sender, EventArgs e)
         {
+            if(tipoUsuario.Equals("Personal Del Centro De Llamadas"))
+            {
+                btn_Nuevo.Visible = false;
+                btn_Guardar.Visible = false;
+                btn_Eliminar.Visible = false;
+                gb_Datos.Enabled = false;
+            }
             recargar();
         }
 

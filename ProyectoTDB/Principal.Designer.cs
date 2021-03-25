@@ -78,6 +78,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.lbl_Fecha = new System.Windows.Forms.ToolStripLabel();
             this.clienteTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.ClienteTableAdapter();
+            this.virtualToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BarraMenu.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -297,6 +299,9 @@
             // 
             // porLlamadaToolStripMenuItem
             // 
+            this.porLlamadaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.virtualToolStripMenuItem1,
+            this.clientreToolStripMenuItem});
             this.porLlamadaToolStripMenuItem.Name = "porLlamadaToolStripMenuItem";
             this.porLlamadaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.porLlamadaToolStripMenuItem.Text = "Por Llamada";
@@ -326,42 +331,42 @@
             // consulta1ToolStripMenuItem
             // 
             this.consulta1ToolStripMenuItem.Name = "consulta1ToolStripMenuItem";
-            this.consulta1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta1ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.consulta1ToolStripMenuItem.Text = "Vista 1";
             this.consulta1ToolStripMenuItem.Click += new System.EventHandler(this.consulta1ToolStripMenuItem_Click);
             // 
             // consulta2ToolStripMenuItem
             // 
             this.consulta2ToolStripMenuItem.Name = "consulta2ToolStripMenuItem";
-            this.consulta2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta2ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.consulta2ToolStripMenuItem.Text = "Vista 2";
             this.consulta2ToolStripMenuItem.Click += new System.EventHandler(this.consulta2ToolStripMenuItem_Click);
             // 
             // consulta3ToolStripMenuItem
             // 
             this.consulta3ToolStripMenuItem.Name = "consulta3ToolStripMenuItem";
-            this.consulta3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta3ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.consulta3ToolStripMenuItem.Text = "Vista 3";
             this.consulta3ToolStripMenuItem.Click += new System.EventHandler(this.consulta3ToolStripMenuItem_Click);
             // 
             // consulta4ToolStripMenuItem
             // 
             this.consulta4ToolStripMenuItem.Name = "consulta4ToolStripMenuItem";
-            this.consulta4ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta4ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.consulta4ToolStripMenuItem.Text = "Vista 4";
             this.consulta4ToolStripMenuItem.Click += new System.EventHandler(this.consulta4ToolStripMenuItem_Click);
             // 
             // consulta5ToolStripMenuItem
             // 
             this.consulta5ToolStripMenuItem.Name = "consulta5ToolStripMenuItem";
-            this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta5ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.consulta5ToolStripMenuItem.Text = "Vista 5";
             this.consulta5ToolStripMenuItem.Click += new System.EventHandler(this.consulta5ToolStripMenuItem_Click);
             // 
             // consulta6ToolStripMenuItem
             // 
             this.consulta6ToolStripMenuItem.Name = "consulta6ToolStripMenuItem";
-            this.consulta6ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consulta6ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.consulta6ToolStripMenuItem.Text = "Vista 6";
             this.consulta6ToolStripMenuItem.Click += new System.EventHandler(this.consulta6ToolStripMenuItem_Click);
             // 
@@ -377,7 +382,7 @@
             // bitacoraToolStripMenuItem1
             // 
             this.bitacoraToolStripMenuItem1.Name = "bitacoraToolStripMenuItem1";
-            this.bitacoraToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bitacoraToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.bitacoraToolStripMenuItem1.Text = "Bitacora";
             this.bitacoraToolStripMenuItem1.Click += new System.EventHandler(this.bitacoraToolStripMenuItem1_Click);
             // 
@@ -484,6 +489,20 @@
             // 
             this.clienteTableAdapter.ClearBeforeFill = true;
             // 
+            // virtualToolStripMenuItem1
+            // 
+            this.virtualToolStripMenuItem1.Name = "virtualToolStripMenuItem1";
+            this.virtualToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.virtualToolStripMenuItem1.Text = "Virtual";
+            this.virtualToolStripMenuItem1.Click += new System.EventHandler(this.virtualToolStripMenuItem1_Click);
+            // 
+            // clientreToolStripMenuItem
+            // 
+            this.clientreToolStripMenuItem.Name = "clientreToolStripMenuItem";
+            this.clientreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientreToolStripMenuItem.Text = "Cliente";
+            this.clientreToolStripMenuItem.Click += new System.EventHandler(this.clientreToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,5 +578,7 @@
         private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sQLToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem virtualToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clientreToolStripMenuItem;
     }
 }

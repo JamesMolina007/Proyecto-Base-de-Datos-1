@@ -6,6 +6,11 @@ namespace ProyectoDB
 {
     public partial class FacturasFrm : Form
     {
+        private String tipoUsuario = "";
+        public void SetTipoUsuario(String tipoUsuario)
+        {
+            this.tipoUsuario = tipoUsuario;
+        }
         public FacturasFrm()
         {
             InitializeComponent();
@@ -14,6 +19,10 @@ namespace ProyectoDB
         private void FacturasFrm_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'productosDataSet.Producto' Puede moverla o quitarla según sea necesario.
+            if (tipoUsuario.Equals("Personal Del Centro De Llamadas"))
+            {
+                btn_Eliminar.Visible = false;
+            }
             this.productoTableAdapter.Fill(this.productosDataSet.Producto);
             this.tiendaTableAdapter.Fill(this.tiendaDataSet.Tienda);
             this.clienteVirtualTableAdapter.Fill(this.clientesDataSet.ClienteVirtual);

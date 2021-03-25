@@ -6,6 +6,11 @@ namespace ProyectoDB
 {
     public partial class ClientePocoFrecuenteFrm : Form
     {
+        private String tipoUsuario = "";
+        public void SetTipoUsuario(String tipoUsuario)
+        {
+            this.tipoUsuario = tipoUsuario;
+        }
         public ClientePocoFrecuenteFrm()
         {
             InitializeComponent();
@@ -13,6 +18,12 @@ namespace ProyectoDB
 
         private void ClientePocoFrecuenteFrm_Load(object sender, EventArgs e)
         {
+            if (tipoUsuario.Equals("Personal Del Centro De Llamadas"))
+            {
+                btn_Agregar.Visible = false;
+                button1.Visible = false;
+                cb_IdCliente.Enabled = false;
+            }
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.Cliente' Puede moverla o quitarla según sea necesario.
             this.clienteTableAdapter.Fill(this.clientesDataSet.Cliente);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteFrecuente' Puede moverla o quitarla según sea necesario.

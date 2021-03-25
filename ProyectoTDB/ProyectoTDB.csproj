@@ -94,6 +94,12 @@
     <Compile Include="CategoriasFrm.Designer.cs">
       <DependentUpon>CategoriasFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClienteCompraFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteCompraFrm.Designer.cs">
+      <DependentUpon>ClienteCompraFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClienteContratoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     </Compile>
     <Compile Include="InventarioFrm.Designer.cs">
       <DependentUpon>InventarioFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoLlamadaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidoLlamadaFrm.Designer.cs">
+      <DependentUpon>PedidoLlamadaFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLFrm.cs">
       <SubType>Form</SubType>
@@ -364,6 +376,9 @@
     <EmbeddedResource Include="CategoriasFrm.resx">
       <DependentUpon>CategoriasFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClienteCompraFrm.resx">
+      <DependentUpon>ClienteCompraFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClienteContratoFrm.resx">
       <DependentUpon>ClienteContratoFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventarioFrm.resx">
       <DependentUpon>InventarioFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidoLlamadaFrm.resx">
+      <DependentUpon>PedidoLlamadaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQLFrm.resx">
       <DependentUpon>SQLFrm.cs</DependentUpon>

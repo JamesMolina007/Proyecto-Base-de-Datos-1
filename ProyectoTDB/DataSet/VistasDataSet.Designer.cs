@@ -2164,13 +2164,6 @@ namespace ProyectoDB.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public OrdenDestruidaRow FindByidCliente(int idCliente) {
-                return ((OrdenDestruidaRow)(this.Rows.Find(new object[] {
-                            idCliente})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 OrdenDestruidaDataTable cln = ((OrdenDestruidaDataTable)(base.Clone()));
                 cln.InitVars();
@@ -2233,13 +2226,10 @@ namespace ProyectoDB.DataSet {
                 base.Columns.Add(this.columnTotal);
                 this.columncodigoTienda = new global::System.Data.DataColumn("codigoTienda", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncodigoTienda);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnidCliente}, true));
                 this.columnidCliente.AutoIncrement = true;
                 this.columnidCliente.AutoIncrementSeed = -1;
                 this.columnidCliente.AutoIncrementStep = -1;
                 this.columnidCliente.AllowDBNull = false;
-                this.columnidCliente.Unique = true;
                 this.columnnombreCliente.AllowDBNull = false;
                 this.columnnombreCliente.MaxLength = 50;
                 this.columnnombreRemitente.AllowDBNull = false;

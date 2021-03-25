@@ -58,7 +58,9 @@ namespace ProyectoDB
             {
                 clientesToolStripMenuItem.Visible = true;
                 pedidosToolStripMenuItem.Visible = true;
-            }else if( tipoUsuario.Equals("Empleado de Almacen"))
+                tipoUsuario = "Personal Del Centro De Llamadas";
+            }
+            else if( tipoUsuario.Equals("Empleado de Almacen"))
             {
                 inventarioToolStripMenuItem.Visible = true;
                 almacenToolStripMenuItem.Visible = false;
@@ -144,6 +146,7 @@ namespace ProyectoDB
         private void contratosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ContratosFrm contratos = new ContratosFrm();
+            contratos.SetTipoUsuario(tipoUsuario);
             contratos.Show();
         }
 
@@ -170,24 +173,28 @@ namespace ProyectoDB
         private void frecuentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClientesFrecuentesFrm clientesfrecuentes = new ClientesFrecuentesFrm();
+            clientesfrecuentes.SetTipoUsuario(tipoUsuario);
             clientesfrecuentes.Show();
         }
 
         private void tiendaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ClienteTiendaFrm clientetienda = new ClienteTiendaFrm();
+            clientetienda.SetTipoUsuario(tipoUsuario);
             clientetienda.Show();
         }
 
         private void virtualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClienteVirtualFrm clientevirtual = new ClienteVirtualFrm();
+            clientevirtual.SetTipoUsuario(tipoUsuario);
             clientevirtual.Show();
         }
 
         private void pocoFrecuenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClientePocoFrecuenteFrm clientepocofrecuente = new ClientePocoFrecuenteFrm();
+            clientepocofrecuente.SetTipoUsuario(tipoUsuario);
             clientepocofrecuente.Show();
         }
 
@@ -199,8 +206,7 @@ namespace ProyectoDB
 
         private void porLlamadaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CarritoFrm carrito = new CarritoFrm();
-            carrito.Show();
+            
         }
 
         private void pedidosRealizadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,12 +232,14 @@ namespace ProyectoDB
         private void ordenesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OrdenesFrm ordenes = new OrdenesFrm();
+            ordenes.SetTipoUsuario(tipoUsuario);
             ordenes.Show();
         }
 
         private void facturasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FacturasFrm facturas = new FacturasFrm();
+            facturas.SetTipoUsuario(tipoUsuario);
             facturas.Show();
         }
 
@@ -296,6 +304,18 @@ namespace ProyectoDB
         {
             VistaUnoFrm vistauno = new VistaUnoFrm();
             vistauno.Show();
+        }
+
+        private void virtualToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CarritoFrm carrito = new CarritoFrm();
+            carrito.Show();
+        }
+
+        private void clientreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClienteCompraFrm clientecompra = new ClienteCompraFrm();
+            clientecompra.Show();
         }
     }
 }

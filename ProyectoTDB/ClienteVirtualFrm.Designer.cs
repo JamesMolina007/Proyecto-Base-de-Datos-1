@@ -38,8 +38,13 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tb_BuscarCliente = new System.Windows.Forms.ToolStripTextBox();
             this.gb_ClienteVirtual = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_CodigoSeguridad = new System.Windows.Forms.TextBox();
+            this.ClienteVirtualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
+            this.cb_IdCliente = new System.Windows.Forms.ComboBox();
+            this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,12 +59,13 @@
             this.tb_MesVencimiento = new System.Windows.Forms.TextBox();
             this.tb_AñoVencimiento = new System.Windows.Forms.TextBox();
             this.tb_Direccion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cb_IdCliente = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ClienteVirtualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesDataSet = new ProyectoDB.DataSet.ClientesDataSet();
             this.clienteVirtualTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter();
+            this.clienteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteTableAdapter();
+            this.ClientePocoFrecuenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientePocoFrecuenteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClientePocoFrecuenteTableAdapter();
+            this.ClienteFrecuenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteFrecuenteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteFrecuenteTableAdapter();
             this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionFacturacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,18 +74,12 @@
             this.mesVencimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearVencimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoSeguridadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clienteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteTableAdapter();
-            this.ClientePocoFrecuenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientePocoFrecuenteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClientePocoFrecuenteTableAdapter();
-            this.ClienteFrecuenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clienteFrecuenteTableAdapter = new ProyectoDB.DataSet.ClientesDataSetTableAdapters.ClienteFrecuenteTableAdapter();
             this.toolStripMenu.SuspendLayout();
             this.gb_ClienteVirtual.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteVirtualBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClientePocoFrecuenteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteFrecuenteBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -190,6 +190,15 @@
             this.gb_ClienteVirtual.TabStop = false;
             this.gb_ClienteVirtual.Text = "Datos de Cliente Virtual:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Nombre del Cliente:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -208,6 +217,34 @@
             this.tb_CodigoSeguridad.PasswordChar = '*';
             this.tb_CodigoSeguridad.Size = new System.Drawing.Size(129, 20);
             this.tb_CodigoSeguridad.TabIndex = 5;
+            // 
+            // ClienteVirtualBindingSource
+            // 
+            this.ClienteVirtualBindingSource.DataMember = "ClienteVirtual";
+            this.ClienteVirtualBindingSource.DataSource = this.clientesDataSet;
+            this.ClienteVirtualBindingSource.PositionChanged += new System.EventHandler(this.ClienteVirtualBindingSource_PositionChanged);
+            // 
+            // clientesDataSet
+            // 
+            this.clientesDataSet.DataSetName = "ClientesDataSet";
+            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cb_IdCliente
+            // 
+            this.cb_IdCliente.DataSource = this.ClienteBindingSource;
+            this.cb_IdCliente.DisplayMember = "nombreCliente";
+            this.cb_IdCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_IdCliente.FormattingEnabled = true;
+            this.cb_IdCliente.Location = new System.Drawing.Point(111, 34);
+            this.cb_IdCliente.Name = "cb_IdCliente";
+            this.cb_IdCliente.Size = new System.Drawing.Size(143, 21);
+            this.cb_IdCliente.TabIndex = 18;
+            this.cb_IdCliente.ValueMember = "idCliente";
+            // 
+            // ClienteBindingSource
+            // 
+            this.ClienteBindingSource.DataMember = "Cliente";
+            this.ClienteBindingSource.DataSource = this.clientesDataSet;
             // 
             // label12
             // 
@@ -335,27 +372,6 @@
             this.tb_Direccion.TabIndex = 0;
             this.tb_Direccion.Tag = "";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Nombre del Cliente:";
-            // 
-            // cb_IdCliente
-            // 
-            this.cb_IdCliente.DataSource = this.ClienteBindingSource;
-            this.cb_IdCliente.DisplayMember = "nombreCliente";
-            this.cb_IdCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_IdCliente.FormattingEnabled = true;
-            this.cb_IdCliente.Location = new System.Drawing.Point(111, 34);
-            this.cb_IdCliente.Name = "cb_IdCliente";
-            this.cb_IdCliente.Size = new System.Drawing.Size(143, 21);
-            this.cb_IdCliente.TabIndex = 18;
-            this.cb_IdCliente.ValueMember = "idCliente";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -378,20 +394,31 @@
             this.dataGridView1.Size = new System.Drawing.Size(375, 361);
             this.dataGridView1.TabIndex = 23;
             // 
-            // ClienteVirtualBindingSource
-            // 
-            this.ClienteVirtualBindingSource.DataMember = "ClienteVirtual";
-            this.ClienteVirtualBindingSource.DataSource = this.clientesDataSet;
-            this.ClienteVirtualBindingSource.PositionChanged += new System.EventHandler(this.ClienteVirtualBindingSource_PositionChanged);
-            // 
-            // clientesDataSet
-            // 
-            this.clientesDataSet.DataSetName = "ClientesDataSet";
-            this.clientesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // clienteVirtualTableAdapter
             // 
             this.clienteVirtualTableAdapter.ClearBeforeFill = true;
+            // 
+            // clienteTableAdapter
+            // 
+            this.clienteTableAdapter.ClearBeforeFill = true;
+            // 
+            // ClientePocoFrecuenteBindingSource
+            // 
+            this.ClientePocoFrecuenteBindingSource.DataMember = "ClientePocoFrecuente";
+            this.ClientePocoFrecuenteBindingSource.DataSource = this.clientesDataSet;
+            // 
+            // clientePocoFrecuenteTableAdapter
+            // 
+            this.clientePocoFrecuenteTableAdapter.ClearBeforeFill = true;
+            // 
+            // ClienteFrecuenteBindingSource
+            // 
+            this.ClienteFrecuenteBindingSource.DataMember = "ClienteFrecuente";
+            this.ClienteFrecuenteBindingSource.DataSource = this.clientesDataSet;
+            // 
+            // clienteFrecuenteTableAdapter
+            // 
+            this.clienteFrecuenteTableAdapter.ClearBeforeFill = true;
             // 
             // idClienteDataGridViewTextBoxColumn
             // 
@@ -399,7 +426,7 @@
             this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
             this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idClienteDataGridViewTextBoxColumn.Visible = false;
+            this.idClienteDataGridViewTextBoxColumn.Width = 70;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
@@ -415,7 +442,7 @@
             this.direccionFacturacionDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direccionFacturacionDataGridViewTextBoxColumn.Name = "direccionFacturacionDataGridViewTextBoxColumn";
             this.direccionFacturacionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionFacturacionDataGridViewTextBoxColumn.Width = 150;
+            this.direccionFacturacionDataGridViewTextBoxColumn.Width = 120;
             // 
             // numeroTarjetaDataGridViewTextBoxColumn
             // 
@@ -423,7 +450,7 @@
             this.numeroTarjetaDataGridViewTextBoxColumn.HeaderText = "Tarjeta";
             this.numeroTarjetaDataGridViewTextBoxColumn.Name = "numeroTarjetaDataGridViewTextBoxColumn";
             this.numeroTarjetaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numeroTarjetaDataGridViewTextBoxColumn.Width = 150;
+            this.numeroTarjetaDataGridViewTextBoxColumn.Width = 120;
             // 
             // tarjetahabienteDataGridViewTextBoxColumn
             // 
@@ -457,33 +484,6 @@
             this.codigoSeguridadDataGridViewTextBoxColumn.ReadOnly = true;
             this.codigoSeguridadDataGridViewTextBoxColumn.Visible = false;
             // 
-            // ClienteBindingSource
-            // 
-            this.ClienteBindingSource.DataMember = "Cliente";
-            this.ClienteBindingSource.DataSource = this.clientesDataSet;
-            // 
-            // clienteTableAdapter
-            // 
-            this.clienteTableAdapter.ClearBeforeFill = true;
-            // 
-            // ClientePocoFrecuenteBindingSource
-            // 
-            this.ClientePocoFrecuenteBindingSource.DataMember = "ClientePocoFrecuente";
-            this.ClientePocoFrecuenteBindingSource.DataSource = this.clientesDataSet;
-            // 
-            // clientePocoFrecuenteTableAdapter
-            // 
-            this.clientePocoFrecuenteTableAdapter.ClearBeforeFill = true;
-            // 
-            // ClienteFrecuenteBindingSource
-            // 
-            this.ClienteFrecuenteBindingSource.DataMember = "ClienteFrecuente";
-            this.ClienteFrecuenteBindingSource.DataSource = this.clientesDataSet;
-            // 
-            // clienteFrecuenteTableAdapter
-            // 
-            this.clienteFrecuenteTableAdapter.ClearBeforeFill = true;
-            // 
             // ClienteVirtualFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -500,10 +500,10 @@
             this.toolStripMenu.PerformLayout();
             this.gb_ClienteVirtual.ResumeLayout(false);
             this.gb_ClienteVirtual.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteVirtualBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClientePocoFrecuenteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteFrecuenteBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -543,6 +543,12 @@
         private System.Windows.Forms.BindingSource ClienteVirtualBindingSource;
         private DataSet.ClientesDataSet clientesDataSet;
         private DataSet.ClientesDataSetTableAdapters.ClienteVirtualTableAdapter clienteVirtualTableAdapter;
+        private System.Windows.Forms.BindingSource ClienteBindingSource;
+        private DataSet.ClientesDataSetTableAdapters.ClienteTableAdapter clienteTableAdapter;
+        private System.Windows.Forms.BindingSource ClientePocoFrecuenteBindingSource;
+        private DataSet.ClientesDataSetTableAdapters.ClientePocoFrecuenteTableAdapter clientePocoFrecuenteTableAdapter;
+        private System.Windows.Forms.BindingSource ClienteFrecuenteBindingSource;
+        private DataSet.ClientesDataSetTableAdapters.ClienteFrecuenteTableAdapter clienteFrecuenteTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionFacturacionDataGridViewTextBoxColumn;
@@ -551,11 +557,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mesVencimientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearVencimientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoSeguridadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource ClienteBindingSource;
-        private DataSet.ClientesDataSetTableAdapters.ClienteTableAdapter clienteTableAdapter;
-        private System.Windows.Forms.BindingSource ClientePocoFrecuenteBindingSource;
-        private DataSet.ClientesDataSetTableAdapters.ClientePocoFrecuenteTableAdapter clientePocoFrecuenteTableAdapter;
-        private System.Windows.Forms.BindingSource ClienteFrecuenteBindingSource;
-        private DataSet.ClientesDataSetTableAdapters.ClienteFrecuenteTableAdapter clienteFrecuenteTableAdapter;
     }
 }

@@ -67,11 +67,11 @@
             this.facturaTableAdapter = new ProyectoDB.DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter();
             this.noFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noOrdenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreRemitenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresaEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionEnvioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noSeguimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordenDataSet)).BeginInit();
@@ -137,7 +137,7 @@
             this.tb_Buscar});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(1122, 54);
+            this.toolStripMenu.Size = new System.Drawing.Size(1229, 54);
             this.toolStripMenu.TabIndex = 23;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -213,17 +213,17 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.noFactura,
             this.noOrdenDataGridViewTextBoxColumn,
+            this.idClienteDataGridViewTextBoxColumn,
             this.nombreRemitenteDataGridViewTextBoxColumn,
             this.empresaEnvioDataGridViewTextBoxColumn,
             this.direccionEnvioDataGridViewTextBoxColumn,
             this.noSeguimientoDataGridViewTextBoxColumn,
-            this.idClienteDataGridViewTextBoxColumn,
             this.estatusDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.OrdenBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(843, 366);
+            this.dataGridView1.Size = new System.Drawing.Size(933, 366);
             this.dataGridView1.TabIndex = 24;
             // 
             // gb_DatosOrden
@@ -242,7 +242,7 @@
             this.gb_DatosOrden.Controls.Add(this.cb_Cliente);
             this.gb_DatosOrden.Controls.Add(this.tb_Direccion);
             this.gb_DatosOrden.Controls.Add(this.tb_Remitente);
-            this.gb_DatosOrden.Location = new System.Drawing.Point(861, 68);
+            this.gb_DatosOrden.Location = new System.Drawing.Point(968, 68);
             this.gb_DatosOrden.Name = "gb_DatosOrden";
             this.gb_DatosOrden.Size = new System.Drawing.Size(249, 366);
             this.gb_DatosOrden.TabIndex = 25;
@@ -423,6 +423,13 @@
             this.noOrdenDataGridViewTextBoxColumn.Name = "noOrdenDataGridViewTextBoxColumn";
             this.noOrdenDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID Cliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // nombreRemitenteDataGridViewTextBoxColumn
             // 
             this.nombreRemitenteDataGridViewTextBoxColumn.DataPropertyName = "nombreRemitente";
@@ -453,14 +460,6 @@
             this.noSeguimientoDataGridViewTextBoxColumn.ReadOnly = true;
             this.noSeguimientoDataGridViewTextBoxColumn.Width = 130;
             // 
-            // idClienteDataGridViewTextBoxColumn
-            // 
-            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.HeaderText = "ID Cliente";
-            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
-            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idClienteDataGridViewTextBoxColumn.Visible = false;
-            // 
             // estatusDataGridViewTextBoxColumn
             // 
             this.estatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus";
@@ -472,7 +471,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 446);
+            this.ClientSize = new System.Drawing.Size(1229, 446);
             this.Controls.Add(this.gb_DatosOrden);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStripMenu);
@@ -537,11 +536,11 @@
         private DataSet.FacturasDataSetTableAdapters.FacturaTableAdapter facturaTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn noFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn noOrdenDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreRemitenteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresaEnvioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccionEnvioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noSeguimientoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
     }
 }

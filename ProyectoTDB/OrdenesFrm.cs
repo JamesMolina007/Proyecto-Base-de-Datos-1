@@ -6,6 +6,11 @@ namespace ProyectoDB
 {
     public partial class OrdenesFrm : Form
     {
+        private String tipoUsuario = "";
+        public void SetTipoUsuario(String tipoUsuario)
+        {
+            this.tipoUsuario = tipoUsuario;
+        }
         public OrdenesFrm()
         {
             InitializeComponent();
@@ -13,6 +18,13 @@ namespace ProyectoDB
 
         private void OrdenClienteFrm_Load(object sender, EventArgs e)
         {
+            if (tipoUsuario.Equals("Personal Del Centro De Llamadas"))
+            {
+                btn_Eliminar.Visible = false;
+                btn_Guardar.Visible = false;
+                btn_Nuevo.Visible = false;
+                gb_DatosOrden.Enabled = false;
+            }
             // TODO: esta línea de código carga datos en la tabla 'facturasDataSet.Factura' Puede moverla o quitarla según sea necesario.
             this.facturaTableAdapter.Fill(this.facturasDataSet.Factura);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteVirtual' Puede moverla o quitarla según sea necesario.

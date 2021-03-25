@@ -6,6 +6,11 @@ namespace ProyectoDB
 {
     public partial class ClienteTiendaFrm : Form
     {
+        private String tipoUsuario = "";
+        public void SetTipoUsuario(String tipoUsuario)
+        {
+            this.tipoUsuario = tipoUsuario;
+        }
         public ClienteTiendaFrm()
         {
             InitializeComponent();

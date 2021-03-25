@@ -73,8 +73,8 @@ namespace ProyectoDB
             DataRowView drvFacturaEncabezado = (DataRowView)FacturaEncabezadoBindingSource.Current;
             DataRowView drvCarrito = (DataRowView)CarritoBindingSource.Current;
             drvOrden.Row["idCliente"] = id_Cliente;
-            //try
-            //{
+            try
+            {
                 drvFacturaEncabezado.Row["Direccion"] = tb_Direccion.Text;
                 drvFacturaEncabezado.Row["FechaEmision"] = DateTime.Now;
                 drvFacturaEncabezado.Row["idCliente"] = id_Cliente;
@@ -118,11 +118,11 @@ namespace ProyectoDB
                 MessageBox.Show("Compra realizada exitosamente!!");
                 carritoTableAdapter.FillByDeleteCliente(this.carritoClienteDataSet.Carrito, id_Cliente);
                 this.Close();
-            //}
-            //catch (Exception exception)
-            //{
-            //    MessageBox.Show(exception.ToString());
-            //}
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
 
 
         }

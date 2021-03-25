@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarritoClienteFrm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadProductoCarritoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CarritoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carritoClienteDataSet = new ProyectoDB.DataSet.CarritoClienteDataSet();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -88,7 +85,10 @@
             this.tiendaDataSet = new ProyectoDB.DataSet.TiendaDataSet();
             this.tiendaTableAdapter = new ProyectoDB.DataSet.TiendaDataSetTableAdapters.TiendaTableAdapter();
             this.label12 = new System.Windows.Forms.Label();
-            this.btn_CambiarTienda = new System.Windows.Forms.Button();
+            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadProductoCarritoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tienda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarritoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carritoClienteDataSet)).BeginInit();
@@ -113,37 +113,14 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProductoDataGridViewTextBoxColumn,
             this.idClienteDataGridViewTextBoxColumn,
-            this.cantidadProductoCarritoDataGridViewTextBoxColumn});
+            this.cantidadProductoCarritoDataGridViewTextBoxColumn,
+            this.Tienda});
             this.dataGridView1.DataSource = this.CarritoBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(573, 43);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(373, 282);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // idProductoDataGridViewTextBoxColumn
-            // 
-            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
-            this.idProductoDataGridViewTextBoxColumn.HeaderText = "ID Producto";
-            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
-            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idProductoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // idClienteDataGridViewTextBoxColumn
-            // 
-            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
-            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
-            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idClienteDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cantidadProductoCarritoDataGridViewTextBoxColumn
-            // 
-            this.cantidadProductoCarritoDataGridViewTextBoxColumn.DataPropertyName = "cantidadProductoCarrito";
-            this.cantidadProductoCarritoDataGridViewTextBoxColumn.HeaderText = "Cantidad de Producto";
-            this.cantidadProductoCarritoDataGridViewTextBoxColumn.Name = "cantidadProductoCarritoDataGridViewTextBoxColumn";
-            this.cantidadProductoCarritoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cantidadProductoCarritoDataGridViewTextBoxColumn.Width = 150;
             // 
             // CarritoBindingSource
             // 
@@ -586,7 +563,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(146, 16);
+            this.label14.Location = new System.Drawing.Point(18, 18);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 13);
             this.label14.TabIndex = 15;
@@ -598,7 +575,7 @@
             this.comboBox1.DataSource = this.TiendaBindingSource;
             this.comboBox1.DisplayMember = "codigoTienda";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(195, 11);
+            this.comboBox1.Location = new System.Drawing.Point(67, 13);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(158, 21);
             this.comboBox1.TabIndex = 16;
@@ -624,28 +601,49 @@
             // 
             this.label12.AutoSize = true;
             this.label12.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.TiendaBindingSource, "Ubicacion", true));
-            this.label12.Location = new System.Drawing.Point(360, 14);
+            this.label12.Location = new System.Drawing.Point(232, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(10, 13);
             this.label12.TabIndex = 17;
             this.label12.Text = ".";
             // 
-            // btn_CambiarTienda
+            // idProductoDataGridViewTextBoxColumn
             // 
-            this.btn_CambiarTienda.Location = new System.Drawing.Point(12, 11);
-            this.btn_CambiarTienda.Name = "btn_CambiarTienda";
-            this.btn_CambiarTienda.Size = new System.Drawing.Size(128, 23);
-            this.btn_CambiarTienda.TabIndex = 18;
-            this.btn_CambiarTienda.Text = "Cambiar Tienda";
-            this.btn_CambiarTienda.UseVisualStyleBackColor = true;
-            this.btn_CambiarTienda.Click += new System.EventHandler(this.btn_CambiarTienda_Click);
+            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "ID Producto";
+            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProductoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idClienteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cantidadProductoCarritoDataGridViewTextBoxColumn
+            // 
+            this.cantidadProductoCarritoDataGridViewTextBoxColumn.DataPropertyName = "cantidadProductoCarrito";
+            this.cantidadProductoCarritoDataGridViewTextBoxColumn.HeaderText = "Cantidad de Producto";
+            this.cantidadProductoCarritoDataGridViewTextBoxColumn.Name = "cantidadProductoCarritoDataGridViewTextBoxColumn";
+            this.cantidadProductoCarritoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cantidadProductoCarritoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // Tienda
+            // 
+            this.Tienda.DataPropertyName = "Tienda";
+            this.Tienda.HeaderText = "Tienda";
+            this.Tienda.Name = "Tienda";
+            this.Tienda.ReadOnly = true;
+            this.Tienda.Visible = false;
             // 
             // CarritoClienteFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 568);
-            this.Controls.Add(this.btn_CambiarTienda);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label14);
@@ -694,9 +692,6 @@
         private DataSet.CarritoClienteDataSetTableAdapters.CarritoTableAdapter carritoTableAdapter;
         private DataSet.CarritoClienteDataSetTableAdapters.ProductoTableAdapter productoTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadProductoCarritoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.GroupBox gb_Producto;
         private System.Windows.Forms.Label label9;
@@ -746,6 +741,9 @@
         private DataSet.TiendaDataSet tiendaDataSet;
         private DataSet.TiendaDataSetTableAdapters.TiendaTableAdapter tiendaTableAdapter;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btn_CambiarTienda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadProductoCarritoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tienda;
     }
 }

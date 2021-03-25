@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoDB
 {
     public partial class ClienteVirtualFrm : Form
     {
+        private String tipoUsuario = "";
+        public void SetTipoUsuario(String tipoUsuario)
+        {
+            this.tipoUsuario = tipoUsuario;
+        }
         public ClienteVirtualFrm()
         {
             InitializeComponent();
@@ -19,6 +18,13 @@ namespace ProyectoDB
 
         private void ClienteVirtualFrm_Load(object sender, EventArgs e)
         {
+            if (tipoUsuario.Equals("Personal Del Centro De Llamadas"))
+            {
+                btn_Eliminar.Visible = false;
+                btn_Guardar.Visible = false;
+                btn_Nuevo.Visible = false;
+                gb_ClienteVirtual.Enabled = false;
+            }
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClienteFrecuente' Puede moverla o quitarla según sea necesario.
             this.clienteFrecuenteTableAdapter.Fill(this.clientesDataSet.ClienteFrecuente);
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.ClientePocoFrecuente' Puede moverla o quitarla según sea necesario.
